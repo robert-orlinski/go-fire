@@ -8,7 +8,7 @@ import AddingForm from './forms/AddingForm';
 
 const Container = styled.main`
   width: max(50vw, 900px);
-  margin: 120px auto;
+  margin: 100px auto;
 `;
 
 const Header = styled.header``;

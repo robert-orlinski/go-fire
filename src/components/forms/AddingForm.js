@@ -24,7 +24,7 @@ const CustomForm = styled(Form)`
   align-items: center;
 
   width: 50%;
-  margin: 2.5rem auto 0;
+  margin: 1.5rem auto 0;
 `;
 
 const FormLine = styled.p`
@@ -66,6 +66,22 @@ const CheckboxLabel = styled.label`
   }
 `;
 
+const IncomeLabel = styled(CheckboxLabel)`
+  border-color: var(--primary-green);
+
+  ${CheckboxField}:checked + & {
+    background-color: var(--secondary-green);
+  }
+`;
+
+const SpendingLabel = styled(CheckboxLabel)`
+  border-color: var(--primary-red);
+
+  ${CheckboxField}:checked + & {
+    background-color: var(--secondary-red);
+  }
+`;
+
 const FormSubmit = styled.button`
   margin: 25px auto 0;
   padding: 15px 50px;
@@ -80,7 +96,7 @@ const AddingForm = () => {
   return (
     <Formik
       initialValues={{
-        isIncome: true,
+        type: 'income',
         name: '',
         categories: [],
         date: '',
@@ -94,6 +110,26 @@ const AddingForm = () => {
     >
       {({ isSubmitting }) => (
         <CustomForm>
+          <Checkboxes>
+            <div>
+              <CheckboxField
+                type="radio"
+                name="type"
+                value="income"
+                id="income"
+              />
+              <IncomeLabel htmlFor="income">Dochody</IncomeLabel>
+            </div>
+            <div>
+              <CheckboxField
+                type="radio"
+                name="type"
+                value="spending"
+                id="spending"
+              />
+              <SpendingLabel htmlFor="spending">Wydatki</SpendingLabel>
+            </div>
+          </Checkboxes>
           <FormLine>
             <HiddenLabel htmlFor="name">Tytuł</HiddenLabel>
             <TextField type="text" name="name" placeholder="Tytuł" />
@@ -142,9 +178,7 @@ const AddingForm = () => {
             <HiddenLabel htmlFor="date">Data operacji</HiddenLabel>
             <TextField type="text" name="date" placeholder="Data operacji" />
           </FormLine>
-          <FormSubmit type="submit" disabled={isSubmitting}>
-            Dodaj
-          </FormSubmit>
+          <FormSubmit type="submit">Dodaj</FormSubmit>
         </CustomForm>
       )}
     </Formik>

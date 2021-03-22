@@ -11,6 +11,12 @@ const cssVariables = css`
 
     --primary-gray: #333;
     --secondary-gray: #ecf0f3;
+
+    --primary-red: #D32F2F;
+    --secondary-red: #FFCDD2;
+
+    --primary-green: #388E3C;
+    --secondary-green: #C8E6C9;
   }
 `;
 
