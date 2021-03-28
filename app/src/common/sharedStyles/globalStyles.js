@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
-import { minD, maxD } from './../helpers/devices';
+import { minD, maxD } from '../helpers/devices';
 
 import cssVariables from './variables';
 

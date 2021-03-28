@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import styled, { css } from 'styled-components';
 
-import * as helpers from './../../common/helpers/mixins';
+import * as helpers from '../../common/helpers/mixins';
 
 const HiddenLabel = styled.label`
   ${helpers.hideElement}
