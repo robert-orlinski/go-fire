@@ -4,7 +4,7 @@ export const entriesSlice = createSlice({
   name: 'entry',
   initialState: {
     data: () => {
-      fetch('http://localhost:8888/get-all-entries', {
+      fetch(`${process.env.API_URL}/add-entry`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -12,7 +12,7 @@ export const entriesSlice = createSlice({
   },
   reducers: {
     add: (state) => {
-      fetch('http://localhost:8888/add-entry', {
+      fetch(`${process.env.API_URL}/add-entry`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values, null, 2),

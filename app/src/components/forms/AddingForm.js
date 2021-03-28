@@ -129,7 +129,7 @@ const AddingForm = () => {
         setTimeout(() => {
           console.log(JSON.stringify(values, null, 2));
 
-          fetch('http://localhost:8888/add-entry', {
+          fetch(`${process.env.API_URL}/add-entry`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(values, null, 2),
