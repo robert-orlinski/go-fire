@@ -24,7 +24,7 @@ const AddEntry = () => (
   <Container>
     <Header>
       <HeaderFigure />
-      <MainTitle>Zaktualizuj swój budżet</MainTitle>
+      <MainTitle>Zaktualizuj swoje inwestycje</MainTitle>
     </Header>
     <AddingForm />
   </Container>

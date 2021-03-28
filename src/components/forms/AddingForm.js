@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Form, Field, getIn } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import styled, { css } from 'styled-components';
 
 import * as helpers from './../../common/helpers/mixins';
@@ -29,6 +29,7 @@ const CustomForm = styled(Form)`
 
 const FormLine = styled.p`
   width: 100%;
+  margin-bottom: 1.5rem;
 `;
 
 const TextField = styled(Field)`
@@ -37,7 +38,7 @@ const TextField = styled(Field)`
   width: 100%;
   height: 54px;
 
-  padding: 0 1rem;
+  padding: 1.2rem 1rem;
   font-size: 1rem;
 
   &:focus {
@@ -46,12 +47,14 @@ const TextField = styled(Field)`
   }
 `;
 
+const TextArea = styled(TextField)`
+  height: 200px;
+`;
+
 const Checkboxes = styled.fieldset`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
-  padding: 20px 0 6px;
 `;
 
 const CheckboxLabel = styled.label`
@@ -62,7 +65,7 @@ const CheckboxLabel = styled.label`
   height: 50px;
 
   padding: 0 1.3rem;
-  margin: 0 7px 14px;
+  margin: 0 7px 1.5rem;
 
   ${helpers.pointer}
 
@@ -103,11 +106,11 @@ const FormSubmit = styled.button`
   &:focus,
   &:active {
     outline: none;
-    transform: scale(0.98);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
 
   &:active {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transform: scale(0.98);
   }
 `;
 
@@ -118,13 +121,15 @@ const AddingForm = () => {
         type: 'income',
         name: '',
         categories: [],
+        price: 0,
         date: '',
+        message: '',
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           console.log(JSON.stringify(values, null, 2));
 
-          fetch('http://localhost:8888/server/add-entry', {
+          fetch('http://localhost:8888/add-entry', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(values, null, 2),
@@ -134,37 +139,36 @@ const AddingForm = () => {
         }, 400);
       }}
     >
-      {({ isSubmitting }) => (
+      {({
+        values,
+        touched,
+        errors,
+        dirty,
+        isSubmitting,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+      }) => (
         <CustomForm>
           <Checkboxes>
             <div>
-              <CheckboxField
-                type="radio"
-                name="type"
-                value="income"
-                id="income"
-              />
-              <IncomeLabel htmlFor="income">Dochody</IncomeLabel>
+              <CheckboxField type="radio" name="type" value="buy" id="buy" />
+              <IncomeLabel htmlFor="buy">Kupno</IncomeLabel>
             </div>
             <div>
-              <CheckboxField
-                type="radio"
-                name="type"
-                value="spending"
-                id="spending"
-              />
-              <SpendingLabel htmlFor="spending">Wydatki</SpendingLabel>
+              <CheckboxField type="radio" name="type" value="sell" id="sell" />
+              <SpendingLabel htmlFor="sell">Sprzedaż</SpendingLabel>
             </div>
           </Checkboxes>
           <FormLine>
             <HiddenLabel htmlFor="name">Tytuł</HiddenLabel>
-            <TextField type="text" name="name" placeholder="Tytuł" />
+            <TextField type="text" name="name" id="name" placeholder="Tytuł" />
           </FormLine>
           <Checkboxes>
             <div>
               <CheckboxField
                 type="checkbox"
-                name="category"
+                name="categories"
                 value="speculations"
                 id="speculations"
               />
@@ -173,7 +177,7 @@ const AddingForm = () => {
             <div>
               <CheckboxField
                 type="checkbox"
-                name="category"
+                name="categories"
                 value="investments"
                 id="investments"
               />
@@ -182,7 +186,7 @@ const AddingForm = () => {
             <div>
               <CheckboxField
                 type="checkbox"
-                name="category"
+                name="categories"
                 value="stocks"
                 id="stocks"
               />
@@ -191,7 +195,7 @@ const AddingForm = () => {
             <div>
               <CheckboxField
                 type="checkbox"
-                name="category"
+                name="categories"
                 value="treasury-bonds"
                 id="treasury-bonds"
               />
@@ -199,10 +203,41 @@ const AddingForm = () => {
                 Obligacje Skarbowe
               </CheckboxLabel>
             </div>
+            <div>
+              <CheckboxField
+                type="checkbox"
+                name="categories"
+                value="etfs"
+                id="etfs"
+              />
+              <CheckboxLabel htmlFor="etfs">ETFy</CheckboxLabel>
+            </div>
           </Checkboxes>
           <FormLine>
+            <HiddenLabel htmlFor="price">
+              Średni koszt nabycia lub zbycia (w zł)
+            </HiddenLabel>
+            <TextField
+              type="number"
+              step="0.01"
+              min="0.01"
+              name="price"
+              id="price"
+              placeholder="Średni koszt nabycia lub zbycia (w zł)"
+            />
+          </FormLine>
+          <FormLine>
             <HiddenLabel htmlFor="date">Data operacji</HiddenLabel>
-            <TextField type="text" name="date" placeholder="Data operacji" />
+            <TextField type="date" name="date" placeholder="Data operacji" />
+          </FormLine>
+          <FormLine>
+            <HiddenLabel htmlFor="message">Dodatkowe informacje</HiddenLabel>
+            <TextArea
+              component="textarea"
+              id="message"
+              name="message"
+              placeholder="Dodatkowe informacje"
+            ></TextArea>
           </FormLine>
           <FormSubmit type="submit">Dodaj</FormSubmit>
         </CustomForm>
