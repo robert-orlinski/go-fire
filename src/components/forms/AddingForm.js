@@ -35,11 +35,13 @@ const TextField = styled(Field)`
   ${sharedInputStyles}
 
   width: 100%;
-  padding: 1.2rem 1rem;
+  height: 54px;
+
+  padding: 0 1rem;
   font-size: 1rem;
 
   &:focus {
-    background-color: var(--secondary-blue);
+    border-bottom-width: 5px;
     outline: none;
   }
 `;
@@ -56,13 +58,20 @@ const CheckboxLabel = styled.label`
   ${sharedInputStyles}
 
   display: flex;
-  padding: 0.8rem 1.3rem;
+  align-items: center;
+  height: 50px;
+
+  padding: 0 1.3rem;
   margin: 0 7px 14px;
 
   ${helpers.pointer}
 
   ${CheckboxField}:checked + & {
     background-color: var(--secondary-blue);
+  }
+
+  ${CheckboxField}:focus + & {
+    border-bottom-width: 5px;
   }
 `;
 
@@ -90,6 +99,16 @@ const FormSubmit = styled.button`
   background-color: var(--primary-blue);
   color: #fff;
   font-weight: 700;
+
+  &:focus,
+  &:active {
+    outline: none;
+    transform: scale(0.98);
+  }
+
+  &:active {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
 `;
 
 const AddingForm = () => {
@@ -104,6 +123,13 @@ const AddingForm = () => {
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           console.log(JSON.stringify(values, null, 2));
+
+          fetch('http://localhost:8888/server/add-entry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(values, null, 2),
+          });
+
           setSubmitting(false);
         }, 400);
       }}
