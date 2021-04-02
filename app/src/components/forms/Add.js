@@ -25,6 +25,8 @@ const CustomForm = styled(Form)`
 
   width: 50%;
   margin: 1.5rem auto 0;
+
+  --input-height: 50px;
 `;
 
 const FormLine = styled.p`
@@ -62,7 +64,7 @@ const CheckboxLabel = styled.label`
 
   display: flex;
   align-items: center;
-  height: 50px;
+  height: var(--input-height);
 
   padding: 0 1.3rem;
   margin: 0 7px 1.5rem;
@@ -75,22 +77,6 @@ const CheckboxLabel = styled.label`
 
   ${CheckboxField}:focus + & {
     border-bottom-width: 5px;
-  }
-`;
-
-const IncomeLabel = styled(CheckboxLabel)`
-  border-color: var(--primary-green);
-
-  ${CheckboxField}:checked + & {
-    background-color: var(--secondary-green);
-  }
-`;
-
-const SpendingLabel = styled(CheckboxLabel)`
-  border-color: var(--primary-red);
-
-  ${CheckboxField}:checked + & {
-    background-color: var(--secondary-red);
   }
 `;
 
@@ -118,14 +104,14 @@ const AddingForm = () => {
   return (
     <Formik
       initialValues={{
-        type: 'income',
+        account: 'standard',
         name: '',
         categories: [],
-        price: 0,
-        date: '',
+        price: '',
+        month: '',
         message: '',
       }}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setSubmitting, resetForm }) => {
         setTimeout(() => {
           console.log(JSON.stringify(values, null, 2));
 
@@ -134,6 +120,8 @@ const AddingForm = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(values, null, 2),
           });
+
+          resetForm();
 
           setSubmitting(false);
         }, 400);
@@ -152,30 +140,26 @@ const AddingForm = () => {
         <CustomForm>
           <Checkboxes>
             <div>
-              <CheckboxField type="radio" name="type" value="buy" id="buy" />
-              <IncomeLabel htmlFor="buy">Kupno aktywa</IncomeLabel>
+              <CheckboxField
+                type="radio"
+                name="account"
+                value="standard"
+                id="standard"
+              />
+              <CheckboxLabel htmlFor="standard">Standard</CheckboxLabel>
+            </div>
+            <div>
+              <CheckboxField type="radio" name="account" value="ike" id="ike" />
+              <CheckboxLabel htmlFor="ike">IKE</CheckboxLabel>
             </div>
             <div>
               <CheckboxField
                 type="radio"
-                name="type"
-                value="income"
-                id="income"
+                name="account"
+                value="ikze"
+                id="ikze"
               />
-              <IncomeLabel htmlFor="income">Dodatkowa gotówka</IncomeLabel>
-            </div>
-            <div>
-              <CheckboxField type="radio" name="type" value="sell" id="sell" />
-              <SpendingLabel htmlFor="sell">Sprzedaż aktywa</SpendingLabel>
-            </div>
-            <div>
-              <CheckboxField
-                type="radio"
-                name="type"
-                value="spending"
-                id="spending"
-              />
-              <SpendingLabel htmlFor="spending">Wyciąg gotówki</SpendingLabel>
+              <CheckboxLabel htmlFor="ikze">IKZE</CheckboxLabel>
             </div>
           </Checkboxes>
           <FormLine>
@@ -232,21 +216,19 @@ const AddingForm = () => {
             </div>
           </Checkboxes>
           <FormLine>
-            <HiddenLabel htmlFor="price">
-              Średni koszt nabycia lub zbycia (w zł)
-            </HiddenLabel>
+            <HiddenLabel htmlFor="price">Wartość całości (w zł)</HiddenLabel>
             <TextField
               type="number"
               step="0.01"
               min="0.01"
               name="price"
               id="price"
-              placeholder="Średni koszt nabycia lub zbycia (w zł)"
+              placeholder="Wartość całości (w zł)"
             />
           </FormLine>
           <FormLine>
-            <HiddenLabel htmlFor="date">Data operacji</HiddenLabel>
-            <TextField type="date" name="date" placeholder="Data operacji" />
+            <HiddenLabel htmlFor="month">Data operacji</HiddenLabel>
+            <TextField type="month" name="month" />
           </FormLine>
           <FormLine>
             <HiddenLabel htmlFor="message">Dodatkowe informacje</HiddenLabel>
