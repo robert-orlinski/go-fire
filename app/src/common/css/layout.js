@@ -98,7 +98,19 @@ const Layout = createGlobalStyle`
   h3,
   h4,
   h5,
-  h6,
+  h6 {
+    margin: 0;
+    padding-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
   figure,
   figcaption {
     margin: 0;

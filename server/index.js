@@ -14,10 +14,14 @@ MongoClient.connect(process.env.ATLAS_URL, {
 })
   .then((client) => {
     const db = client.db('fire-app-db');
-    const entriesCollection = db.collection('entries');
+
+    const collections = {
+      entries: db.collection('entries'),
+      categories: db.collection('categories'),
+    };
 
     app.post('/add-entry', (req, res) => {
-      entriesCollection
+      collections.entries
         .insertOne(req.body)
         .then((result) => {
           console.log(result.json());
@@ -26,7 +30,17 @@ MongoClient.connect(process.env.ATLAS_URL, {
     });
 
     app.get('/get-all-entries', (req, res) => {
-      entriesCollection
+      collections.entries
+        .find()
+        .toArray()
+        .then((result) => {
+          res.send(result);
+        })
+        .catch((error) => console.error(error));
+    });
+
+    app.get('/get-categories', (req, res) => {
+      collections.categories
         .find()
         .toArray()
         .then((result) => {
@@ -38,7 +52,7 @@ MongoClient.connect(process.env.ATLAS_URL, {
   .catch((error) => console.log(error));
 
 app.get('/', (req, res) => {
-  res.redirect('http://localhost:3002');
+  res.redirect('http://localhost:3000');
 });
 
 app.listen(8888, () => {});

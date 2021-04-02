@@ -5,7 +5,7 @@ import { MainTitle } from '../components/common/titles';
 import { Container } from '../components/common/containers';
 import ResultsList from '../components/results/List';
 
-const AddEntry = () => (
+const Results = () => (
   <Container>
     <header>
       <MainTitle>Podgląd</MainTitle>
@@ -14,4 +14,4 @@ const AddEntry = () => (
   </Container>
 );
 
-export default AddEntry;
+export default Results;

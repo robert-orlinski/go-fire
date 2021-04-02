@@ -8,11 +8,7 @@ const ResultsList = () => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     }).then((response) => {
-      response.json().then((data) => {
-        setResults(Object.values(data));
-
-        console.log(Object.values(data));
-      });
+      response.json().then((data) => setResults(Object.values(data)));
     });
   }, []);
 

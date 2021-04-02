@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Layout from './common/css/layout';
 
-import AddEntry from './views/AddEntry';
+import AddCategoryContainer from './views/AddCategoryContainer';
+import AddEntryContainer from './views/AddEntryContainer';
 import Results from './views/Results';
 import StartPage from './views/StartPage';
 
@@ -12,8 +13,11 @@ function App() {
     <Router>
       <Layout />
       <Switch>
+        <Route path="/add-category">
+          <AddCategoryContainer />
+        </Route>
         <Route path="/add-entry">
-          <AddEntry />
+          <AddEntryContainer />
         </Route>
         <Route path="/results">
           <Results />
