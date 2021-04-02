@@ -1,12 +1,9 @@
-import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-import { minD, maxD } from '../helpers/devices';
+import globalCssVariables from './variables';
 
-import cssVariables from './variables';
-
-const GlobalStyles = createGlobalStyle`
-  ${cssVariables}
+const Layout = createGlobalStyle`
+  ${globalCssVariables}
 
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,500;1,700&display=swap');
 
@@ -135,4 +132,4 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-export default GlobalStyles;
+export default Layout;

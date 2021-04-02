@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const cssVariables = css`
+const globalCssVariables = css`
   :root {
     --flex: display: flex;
     --sans-serif: 'Montserrat', sans-serif;
@@ -20,4 +20,4 @@ const cssVariables = css`
   }
 `;
 
-export default cssVariables;
+export default globalCssVariables;

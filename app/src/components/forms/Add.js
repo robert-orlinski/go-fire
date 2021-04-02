@@ -129,7 +129,7 @@ const AddingForm = () => {
         setTimeout(() => {
           console.log(JSON.stringify(values, null, 2));
 
-          fetch(`${process.env.API_URL}/add-entry`, {
+          fetch(`${process.env.REACT_APP_API_URL}/add-entry`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(values, null, 2),
@@ -153,11 +153,29 @@ const AddingForm = () => {
           <Checkboxes>
             <div>
               <CheckboxField type="radio" name="type" value="buy" id="buy" />
-              <IncomeLabel htmlFor="buy">Kupno</IncomeLabel>
+              <IncomeLabel htmlFor="buy">Kupno aktywa</IncomeLabel>
+            </div>
+            <div>
+              <CheckboxField
+                type="radio"
+                name="type"
+                value="income"
+                id="income"
+              />
+              <IncomeLabel htmlFor="income">Dodatkowa gotówka</IncomeLabel>
             </div>
             <div>
               <CheckboxField type="radio" name="type" value="sell" id="sell" />
-              <SpendingLabel htmlFor="sell">Sprzedaż</SpendingLabel>
+              <SpendingLabel htmlFor="sell">Sprzedaż aktywa</SpendingLabel>
+            </div>
+            <div>
+              <CheckboxField
+                type="radio"
+                name="type"
+                value="spending"
+                id="spending"
+              />
+              <SpendingLabel htmlFor="spending">Wyciąg gotówki</SpendingLabel>
             </div>
           </Checkboxes>
           <FormLine>

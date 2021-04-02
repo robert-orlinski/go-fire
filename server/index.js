@@ -30,7 +30,7 @@ MongoClient.connect(process.env.ATLAS_URL, {
         .find()
         .toArray()
         .then((result) => {
-          console.log(result);
+          res.send(result);
         })
         .catch((error) => console.error(error));
     });

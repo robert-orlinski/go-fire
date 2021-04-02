@@ -1,16 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import GlobalStyles from './common/sharedStyles/globalStyles';
-import AddEntry from './components/AddEntry';
+import Layout from './common/css/layout';
+
+import AddEntry from './views/AddEntry';
+import Results from './views/Results';
+import StartPage from './views/StartPage';
 
 function App() {
   return (
     <Router>
-      <GlobalStyles />
+      <Layout />
       <Switch>
-        <Route path="/">
+        <Route path="/add-entry">
           <AddEntry />
+        </Route>
+        <Route path="/results">
+          <Results />
+        </Route>
+        <Route path="/">
+          <StartPage />
         </Route>
       </Switch>
     </Router>

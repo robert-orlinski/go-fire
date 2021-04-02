@@ -3,15 +3,13 @@ import styled from 'styled-components';
 
 import { ReactComponent as Wallet } from './../static/images/wallet.svg';
 
-import { MainTitle } from './common/titles';
-import AddingForm from './forms/AddingForm';
+import { MainTitle } from '../components/common/titles';
+import AddingForm from '../components/forms/Add';
 
 const Container = styled.main`
   width: max(50vw, 900px);
   margin: 100px auto;
 `;
-
-const Header = styled.header``;
 
 const HeaderFigure = styled(Wallet)`
   max-width: 200px;
@@ -22,10 +20,10 @@ const HeaderFigure = styled(Wallet)`
 
 const AddEntry = () => (
   <Container>
-    <Header>
+    <header>
       <HeaderFigure />
       <MainTitle>Zaktualizuj swoje inwestycje</MainTitle>
-    </Header>
+    </header>
     <AddingForm />
   </Container>
 );
