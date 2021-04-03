@@ -5,7 +5,7 @@ import { ReactComponent as Categories } from './../static/images/categories.svg'
 
 import { MainTitle } from '../components/common/titles';
 import { Container } from '../components/common/containers';
-import AddCategoryForm from '../components/forms/AddCategory';
+import AddCategoryForm from '../components/forms/AddCategoryForm';
 
 const HeaderFigure = styled(Categories)`
   max-width: 200px;
@@ -18,7 +18,7 @@ const AddCategoryContainer = () => (
   <Container>
     <header>
       <HeaderFigure />
-      <MainTitle>Dodaj kategorię inwestycji lub oszczędności</MainTitle>
+      <MainTitle>Add category</MainTitle>
     </header>
     <AddCategoryForm />
   </Container>

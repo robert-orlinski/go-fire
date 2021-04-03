@@ -23,7 +23,7 @@ export const FormLine = styled.p`
   width: 100%;
 `;
 
-export const TextField = styled(Field)`
+export const TextInput = styled(Field)`
   ${sharedInputStyles}
 
   width: 100%;
@@ -36,10 +36,10 @@ export const TextField = styled(Field)`
     border-bottom-width: 5px;
     outline: none;
   }
-`;
 
-export const TextArea = styled(TextField)`
-  height: 200px;
+  &:is(textarea) {
+    height: 200px;
+  }
 `;
 
 export const Checkboxes = styled.fieldset`

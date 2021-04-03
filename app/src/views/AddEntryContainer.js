@@ -6,7 +6,7 @@ import { ReactComponent as Wallet } from './../static/images/wallet.svg';
 import { MainTitle } from '../components/common/titles';
 import { Container } from '../components/common/containers';
 
-import AddEntryForm from '../components/forms/AddEntry';
+import AddEntryForm from '../components/forms/AddEntryForm';
 
 const HeaderFigure = styled(Wallet)`
   max-width: 200px;
@@ -19,7 +19,7 @@ const AddEntryContainer = () => (
   <Container>
     <header>
       <HeaderFigure />
-      <MainTitle>Zaktualizuj swoje inwestycje</MainTitle>
+      <MainTitle>Update your entries</MainTitle>
     </header>
     <AddEntryForm />
   </Container>
