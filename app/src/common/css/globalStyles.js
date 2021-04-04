@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import globalCssVariables from './variables';
 
-const Layout = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   ${globalCssVariables}
 
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,500;1,700&display=swap');
@@ -144,4 +144,4 @@ const Layout = createGlobalStyle`
   }
 `;
 
-export default Layout;
+export default GlobalStyles;

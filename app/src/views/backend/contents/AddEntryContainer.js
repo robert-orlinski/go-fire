@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as Wallet } from './../static/images/wallet.svg';
+import { ReactComponent as Wallet } from './../../../static/illustrations/wallet.svg';
 
-import { MainTitle } from '../components/common/titles';
-import { Container } from '../components/common/containers';
+import { MainTitle } from '../../../components/common/titles';
+import { Container } from '../../../components/common/containers';
 
-import AddEntryForm from '../components/forms/AddEntryForm';
+import AddEntryForm from '../../../components/backend/forms/AddEntryForm';
 
 const HeaderFigure = styled(Wallet)`
   max-width: 200px;

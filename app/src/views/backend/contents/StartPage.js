@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { MainTitle } from '../components/common/titles';
-import { Container } from '../components/common/containers';
+import { MainTitle } from '../../../components/common/titles';
+import { Container } from '../../../components/common/containers';
 
 const Buttons = styled.article`
   display: flex;
@@ -11,7 +11,7 @@ const Buttons = styled.article`
   margin-top: 20px;
 `;
 
-const Start = () => (
+const StartPage = () => (
   <Container>
     <header>
       <MainTitle>Co chcesz zrobić?</MainTitle>
@@ -24,4 +24,4 @@ const Start = () => (
   </Container>
 );
 
-export default Start;
+export default StartPage;

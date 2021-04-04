@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 
-import { addCategory } from '../../common/api/requests';
-import { VisuallyHiddenElement } from '../../common/helpers/mixins';
+import { addCategory } from '../../../common/api/requests';
 
-import {
-  CustomForm,
-  FormLine,
-  TextInput,
-  Checkboxes,
-  CheckboxLabel,
-  FormSubmit,
-} from '../common/fields';
+import { CustomForm, Checkboxes, FormSubmit } from '../../common/fields';
 
 import TextField from './fields/Text';
 import Checkbox from './fields/Checkbox';

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as Categories } from './../static/images/categories.svg';
+import { ReactComponent as Categories } from './../../../static/illustrations/categories.svg';
 
-import { MainTitle } from '../components/common/titles';
-import { Container } from '../components/common/containers';
-import AddCategoryForm from '../components/forms/AddCategoryForm';
+import { MainTitle } from '../../../components/common/titles';
+import { Container } from '../../../components/common/containers';
+import AddCategoryForm from '../../../components/backend/forms/AddCategoryForm';
 
 const HeaderFigure = styled(Categories)`
   max-width: 200px;

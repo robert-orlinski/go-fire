@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 
-import { addEntry, getCategories } from '../../common/api/requests';
-import { CustomForm, Checkboxes, FormSubmit } from '../common/fields';
+import { addEntry, getCategories } from '../../../common/api/requests';
+import { CustomForm, Checkboxes, FormSubmit } from '../../common/fields';
 
 import TextField from './fields/Text';
 import Checkbox from './fields/Checkbox';
