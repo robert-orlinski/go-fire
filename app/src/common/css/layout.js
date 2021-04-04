@@ -135,6 +135,10 @@ const GlobalStyles = createGlobalStyle`
         transform: scaleY(0.3);
       }
     }
+
+    &:focus {
+      outline: 3px solid var(--primary-green);
+    }
   }
 
   figure,
