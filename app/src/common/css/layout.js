@@ -67,7 +67,7 @@ const GlobalStyles = createGlobalStyle`
   h5,
   h6 {
     margin: 0;
-    padding-bottom: 1.5rem;
+    padding: 0 0 1.5rem;
   }
 
   h1,

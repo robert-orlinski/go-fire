@@ -2,8 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.article`
-  width: min(86vw, 500px);
-  margin: 100px auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+
+  min-height: calc(100vh - var(--banner-height-desktop));
+  padding: 100px 0;
 `;
 
 export { Container };

@@ -14,16 +14,16 @@ const PageContent = styled.article`
 const Routes = () => (
   <Switch>
     <PageContent>
-      <Route path="/add-category">
+      <Route exact path="/add-category">
         <AddCategoryContainer />
       </Route>
-      <Route path="/add-entry">
+      <Route exact path="/add-entry">
         <AddEntryContainer />
       </Route>
-      <Route path="/results">
+      <Route exact path="/results">
         <Results />
       </Route>
-      <Route path="/">
+      <Route exact path="/">
         <StartPage />
       </Route>
     </PageContent>

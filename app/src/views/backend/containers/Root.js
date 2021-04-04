@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Nav from '../../../components/backend/Nav';
-import Routes from '../containers/Routes';
+import Routes from './Routes';
 
 const Main = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ const Main = styled.div`
   padding-left: var(--nav-width-desktop);
 `;
 
-const BackendRoot = ({ children }) => (
+const BackendRoot = () => (
   <Main>
     <Nav />
     <Routes />

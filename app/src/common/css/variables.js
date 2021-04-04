@@ -28,6 +28,7 @@ const cssVariables = css`
     --short-transition-duration: 300ms;
 
     --nav-width-desktop: min(350px, 20vw);
+    --banner-height-desktop: 250px;
   }
 `;
 
