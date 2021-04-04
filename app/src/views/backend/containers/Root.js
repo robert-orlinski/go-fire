@@ -1,22 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { MainTitle } from '../../../components/common/titles';
-import { Container } from '../../../components/common/containers';
-
 import Nav from '../../../components/backend/Nav';
 import Routes from '../containers/Routes';
 
+const Main = styled.div`
+  display: flex;
+
+  padding-left: var(--nav-width-desktop);
+`;
+
 const BackendRoot = ({ children }) => (
-  <main>
+  <Main>
     <Nav />
-    <Container>
-      <header>
-        <MainTitle>Add category</MainTitle>
-      </header>
-      <Routes />
-    </Container>
-  </main>
+    <Routes />
+  </Main>
 );
 
 export default BackendRoot;

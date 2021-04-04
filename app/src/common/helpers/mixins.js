@@ -18,3 +18,9 @@ export const pointer = css`
     cursor: pointer;
   }
 `;
+
+export const ornament = css`
+  display: block;
+  position: absolute;
+  content: '';
+`;

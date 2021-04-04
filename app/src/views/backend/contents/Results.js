@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { MainTitle } from '../../../components/common/titles';
+import { MainTitle } from '../../../components/common/texts';
 import { Container } from '../../../components/common/containers';
 import ResultsList from '../../../components/backend/results/List';
 

@@ -1,20 +1,47 @@
 import React from 'react';
-import { Link, Router } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as Brand } from './../../static/identity/go-fire.svg';
+import { UnstyledList, UnstyledLink } from '../common/texts';
 
-const NavContainer = styled.aside``;
+const NavContainer = styled.aside`
+  position: fixed;
 
-const NavInner = styled.ul``;
+  width: var(--nav-width-desktop);
+  height: 100vh;
+  padding: 3rem;
 
-const NavElement = styled.li``;
+  top: 0;
+  left: 0;
+
+  box-shadow: 0 4px 16px 0 var(--transparent-green-max);
+`;
+
+const StyledBrand = styled(Brand)`
+  width: 130px;
+  height: auto;
+`;
+
+const NavInner = styled(UnstyledList)`
+  padding-top: 4rem;
+`;
+
+const NavElement = styled.li`
+  font-size: 1.4rem;
+
+  &:not(:last-of-type) {
+    padding-bottom: 1rem;
+  }
+`;
 
 const NavLink = styled(Link)``;
 
 const Nav = ({ children }) => (
   <NavContainer>
-    <Brand />
+    <UnstyledLink>
+      <StyledBrand />
+    </UnstyledLink>
     <NavInner>
       <NavElement>
         <NavLink to="/">Start</NavLink>

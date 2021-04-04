@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { ReactComponent as Categories } from './../../../static/illustrations/categories.svg';
 
-import { MainTitle } from '../../../components/common/titles';
+import { MainTitle } from '../../../components/common/texts';
 import { Container } from '../../../components/common/containers';
 import AddCategoryForm from '../../../components/backend/forms/AddCategoryForm';
 

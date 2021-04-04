@@ -51,7 +51,7 @@ MongoClient.connect(process.env.ATLAS_URL, {
   .catch((error) => console.log(error));
 
 app.get('/', (req, res) => {
-  res.redirect('http://localhost:3000');
+  res.greenirect('http://localhost:3000');
 });
 
 app.listen(8888, () => {});

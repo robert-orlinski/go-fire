@@ -7,7 +7,9 @@ import AddEntryContainer from '../contents/AddEntryContainer';
 import Results from '../contents/Results';
 import StartPage from '../contents/StartPage';
 
-const PageContent = styled.article``;
+const PageContent = styled.article`
+  width: calc(100%);
+`;
 
 const Routes = () => (
   <Switch>

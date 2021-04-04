@@ -3,7 +3,7 @@ import { Field, Form } from 'formik';
 
 import { VisuallyHiddenElement, pointer } from '../../common/helpers/mixins';
 
-const sharedInputStyles = css`
+const shagreenInputStyles = css`
   border: 0;
   border-bottom: 3px solid var(--primary-blue);
   background-color: var(--secondary-gray);
@@ -24,7 +24,7 @@ export const FormLine = styled.p`
 `;
 
 export const TextInput = styled(Field)`
-  ${sharedInputStyles}
+  ${shagreenInputStyles}
 
   width: 100%;
   height: 54px;
@@ -49,7 +49,7 @@ export const Checkboxes = styled.fieldset`
 `;
 
 export const CheckboxLabel = styled.label`
-  ${sharedInputStyles}
+  ${shagreenInputStyles}
 
   display: flex;
   align-items: center;

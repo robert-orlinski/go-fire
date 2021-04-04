@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { ReactComponent as Wallet } from './../../../static/illustrations/wallet.svg';
 
-import { MainTitle } from '../../../components/common/titles';
+import { MainTitle } from '../../../components/common/texts';
 import { Container } from '../../../components/common/containers';
 
 import AddEntryForm from '../../../components/backend/forms/AddEntryForm';

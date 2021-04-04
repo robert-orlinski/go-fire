@@ -2,8 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { MainTitle } from '../../../components/common/titles';
+import startBannerImage from './../../../static/banners/start.jpg';
+
 import { Container } from '../../../components/common/containers';
+import Banner from '../../../components/backend/Banner';
 
 const Buttons = styled.article`
   display: flex;
@@ -12,16 +14,18 @@ const Buttons = styled.article`
 `;
 
 const StartPage = () => (
-  <Container>
-    <header>
-      <MainTitle>Co chcesz zrobić?</MainTitle>
-    </header>
-    <Buttons>
-      <Link to="/add-entry">Dodać nowy wpis</Link>
-      <Link to="/add-category">Dodać nową kategorię</Link>
-      <Link to="/results">Sprawdzić jak mi idzie</Link>
-    </Buttons>
-  </Container>
+  <>
+    <Banner style={{ 'background-image': `url(${startBannerImage})` }}>
+      What you want to do?
+    </Banner>
+    <Container>
+      <Buttons>
+        <Link to="/add-entry">Add new entry</Link>
+        <Link to="/add-category">Add new category</Link>
+        <Link to="/results">Check how it's going</Link>
+      </Buttons>
+    </Container>
+  </>
 );
 
 export default StartPage;
