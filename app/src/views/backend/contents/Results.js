@@ -1,30 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import { MainTitle } from '../../../components/common/texts';
+import { ReactComponent as ListImage } from './../../../static/illustrations/list.svg';
+import { ReactComponent as ChartImage } from './../../../static/illustrations/chart.svg';
+import { ReactComponent as PredictionsImage } from './../../../static/illustrations/predictions.svg';
+import startBannerImage from './../../../static/banners/results.jpg';
+
 import { Container } from '../../../components/common/containers';
-import ResultsList from '../../../components/backend/results/List';
+import {
+  boxIllustrationStyles,
+  LinkBoxes,
+  LinkBox,
+  BoxedLink,
+} from '../../../components/common/links';
 
-const Results = () => {
-  const [results, setResults] = useState([]);
+import Banner from '../../../components/backend/Banner';
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/get-all-entries`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    }).then((response) => {
-      response.json().then((data) => setResults(Object.values(data)));
-    });
-  }, []);
-
-  return (
+const StartPage = () => (
+  <>
+    <Banner style={{ 'background-image': `url(${startBannerImage})` }}>
+      Which kind of results do you want?
+    </Banner>
     <Container>
-      <header>
-        <MainTitle>Results</MainTitle>
-      </header>
-      <ResultsList results={results} />
+      <LinkBoxes>
+        <LinkBox to="/results/list">
+          <ListImage style={boxIllustrationStyles} />
+          <BoxedLink>List</BoxedLink>
+        </LinkBox>
+        <LinkBox to="/results/chart">
+          <ChartImage style={boxIllustrationStyles} />
+          <BoxedLink>Chart</BoxedLink>
+        </LinkBox>
+        <LinkBox to="/results/predictions">
+          <PredictionsImage style={boxIllustrationStyles} />
+          <BoxedLink>Predictions</BoxedLink>
+        </LinkBox>
+      </LinkBoxes>
     </Container>
-  );
-};
+  </>
+);
 
-export default Results;
+export default StartPage;

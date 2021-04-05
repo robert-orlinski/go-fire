@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { VisuallyHiddenElement } from '../../../../common/helpers/mixins';
-import { FormLine, TextInput } from '../../../common/fields';
+import { VisuallyHiddenElement } from '../../../common/accesibility';
+import { Label, FormLine, TextInput } from '../../../common/fields';
 
 const TextField = ({ name, placeholder, ...props }) => (
   <FormLine>

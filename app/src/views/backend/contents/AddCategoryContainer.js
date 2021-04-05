@@ -1,27 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as Categories } from './../../../static/illustrations/categories.svg';
+import startBannerImage from './../../../static/banners/add-entry.jpg';
 
-import { MainTitle } from '../../../components/common/texts';
-import { Container } from '../../../components/common/containers';
+import { NarrowContainer } from '../../../components/common/containers';
 import AddCategoryForm from '../../../components/backend/forms/AddCategoryForm';
-
-const HeaderFigure = styled(Categories)`
-  max-width: 200px;
-  height: auto;
-
-  margin: 3rem auto 4rem;
-`;
+import Banner from '../../../components/backend/Banner';
 
 const AddCategoryContainer = () => (
-  <Container>
-    <header>
-      <HeaderFigure />
-      <MainTitle>Add category</MainTitle>
-    </header>
-    <AddCategoryForm />
-  </Container>
+  <>
+    <Banner style={{ 'background-image': `url(${startBannerImage})` }}>
+      Add category
+    </Banner>
+    <NarrowContainer>
+      <AddCategoryForm />
+    </NarrowContainer>
+  </>
 );
 
 export default AddCategoryContainer;

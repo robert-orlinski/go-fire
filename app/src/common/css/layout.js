@@ -76,7 +76,8 @@ const GlobalStyles = createGlobalStyle`
   h4,
   h5,
   h6,
-  a {
+  a,
+  .link-text {
     position: relative;
     z-index: 9;
 
@@ -118,7 +119,8 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1.7rem;
   }
 
-  a {
+  a,
+  .link-text {
     color: #000;
     text-decoration: none;
     transition: opacity var(--short-transition-duration);
@@ -136,7 +138,7 @@ const GlobalStyles = createGlobalStyle`
       }
     }
 
-    &:focus {
+    &:focus-visible {
       outline: 3px solid var(--primary-green);
     }
   }

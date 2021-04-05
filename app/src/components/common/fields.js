@@ -1,12 +1,17 @@
 import styled, { css } from 'styled-components';
 import { Field, Form } from 'formik';
 
-import { VisuallyHiddenElement, pointer } from '../../common/helpers/mixins';
+import { pointer } from '../../common/helpers/mixins';
+import { VisuallyHiddenElement } from '../common/accesibility';
 
 const shagreenInputStyles = css`
   border: 0;
-  border-bottom: 3px solid var(--primary-blue);
+  border-bottom: 3px solid var(--primary-green);
   background-color: var(--secondary-gray);
+`;
+
+export const Label = styled.label`
+  text-align: center;
 `;
 
 export const CustomForm = styled(Form)`
@@ -46,13 +51,21 @@ export const Checkboxes = styled.fieldset`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
+  width: 70%;
+`;
+
+export const CheckboxContainer = styled.div`
+  width: 50%;
 `;
 
 export const CheckboxLabel = styled.label`
   ${shagreenInputStyles}
 
   display: flex;
+  justify-content: center;
   align-items: center;
+
   height: var(--input-height);
 
   padding: 0 1.3rem;
@@ -61,7 +74,7 @@ export const CheckboxLabel = styled.label`
   ${pointer}
 
   ${VisuallyHiddenElement}:checked + & {
-    background-color: var(--secondary-blue);
+    background-color: var(--secondary-green);
   }
 
   ${VisuallyHiddenElement}:focus + & {
@@ -74,7 +87,7 @@ export const FormSubmit = styled.button`
   padding: 15px 50px;
 
   border: none;
-  background-color: var(--primary-blue);
+  background-color: var(--primary-green);
   color: #fff;
   font-weight: 700;
 

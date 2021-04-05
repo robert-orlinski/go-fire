@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
 const Container = styled.article`
-  padding: 8rem 0;
+  margin: 8rem 0;
 `;
 
-export { Container };
+const NarrowContainer = styled(Container)`
+  margin: 5rem auto;
+  width: min(86vw, 700px);
+`;
+
+export { Container, NarrowContainer };
