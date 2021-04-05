@@ -13,6 +13,7 @@ const AddCategoryContainer = () => (
       Add category
     </Banner>
     <NarrowContainer>
+      <p>The category you add, will be shown in the "add new result" form.</p>
       <AddCategoryForm />
     </NarrowContainer>
   </>

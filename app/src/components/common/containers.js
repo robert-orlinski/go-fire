@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.article`
   margin: 8rem 0;
+  text-align: center;
 `;
 
 const NarrowContainer = styled(Container)`
