@@ -14,8 +14,8 @@ const AddEntryContainer = () => (
     </Banner>
     <NarrowContainer>
       <p>
-        Choose account type, write down all the needed info and select
-        categories that match Your investment or saving entry.
+        Choose account type, write down all the needed info and select category
+        that'll match Your investment or saving entry.
       </p>
       <AddEntryForm />
     </NarrowContainer>

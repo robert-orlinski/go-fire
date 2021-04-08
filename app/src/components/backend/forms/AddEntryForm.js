@@ -8,7 +8,6 @@ import TextField from './fields/Text';
 import Checkbox from './fields/Checkbox';
 
 const AddEntryForm = () => {
-  const [todayDate, setTodayDate] = useState('');
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -20,12 +19,19 @@ const AddEntryForm = () => {
       initialValues={{
         account: 'standard',
         name: '',
-        categories: [],
-        price: '',
-        month: '',
+        type: '',
+        initialPrice: '',
+        initialDate: '',
         message: '',
       }}
       onSubmit={(values, { resetForm }) => {
+        values.values = [
+          {
+            price: values.initialPrice,
+            date: values.initialDate,
+          },
+        ];
+
         addEntry(values);
         resetForm();
       }}
@@ -67,13 +73,13 @@ const AddEntryForm = () => {
             })}
           </Checkboxes>
           <TextField
-            name="price"
+            name="initialPrice"
             placeholder="Price (in PLN)"
             type="number"
             step="0.01"
             min="0.01"
           />
-          <TextField name="month" placeholder="Date" type="month" />
+          <TextField name="initialDate" placeholder="Date" type="date" />
           <TextField
             name="message"
             placeholder="Additional info"
