@@ -8,6 +8,7 @@ import TextField from './fields/Text';
 import Checkbox from './fields/Checkbox';
 
 const AddEntryForm = () => {
+  const [todayDate, setTodayDate] = useState('');
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -47,12 +48,7 @@ const AddEntryForm = () => {
 
               return (
                 category.type === 'account' && (
-                  <Checkbox
-                    name="account"
-                    value={value}
-                    placeholder={name}
-                    type="radio"
-                  />
+                  <Checkbox name="account" value={value} placeholder={name} />
                 )
               );
             })}

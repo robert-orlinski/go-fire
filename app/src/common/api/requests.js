@@ -22,3 +22,12 @@ export const getCategories = (setCategories) => {
     response.json().then((data) => setCategories(data));
   });
 };
+
+export const getEntries = (setResults) => {
+  fetch(`${process.env.REACT_APP_API_URL}/get-all-entries`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  }).then((response) => {
+    response.json().then((data) => setResults(Object.values(data)));
+  });
+};

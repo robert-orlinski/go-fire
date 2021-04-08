@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import startBannerImage from './../../../static/banners/add-entry.jpg';
+import bannerImage from './../../../../static/banners/add-entry.jpg';
 
-import { NarrowContainer } from '../../../components/common/containers';
-import AddEntryForm from '../../../components/backend/forms/AddEntryForm';
-import Banner from '../../../components/backend/Banner';
+import { NarrowContainer } from '../../../../components/common/containers';
+import AddEntryForm from '../../../../components/backend/forms/AddEntryForm';
+import Banner from '../../../../components/backend/Banner';
 
 const AddEntryContainer = () => (
   <>
-    <Banner style={{ 'background-image': `url(${startBannerImage})` }}>
+    <Banner style={{ 'background-image': `url(${bannerImage})` }}>
       Add new entry
     </Banner>
     <NarrowContainer>

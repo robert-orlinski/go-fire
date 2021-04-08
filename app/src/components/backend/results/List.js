@@ -1,5 +1,5 @@
-const ResultsList = ({ results }) => {
+const ResultsListInner = ({ results }) => {
   return results && results.map((result) => result.name);
 };
 
-export default ResultsList;
+export default ResultsListInner;

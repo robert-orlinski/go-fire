@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as NewEntryImage } from './../../../static/illustrations/new-entry.svg';
 import { ReactComponent as CategoriesImage } from './../../../static/illustrations/categories.svg';
 import { ReactComponent as EntriesImage } from './../../../static/illustrations/entries.svg';
-import startBannerImage from './../../../static/banners/start.jpg';
+import bannerImage from './../../../static/banners/start.jpg';
 
 import { Container } from '../../../components/common/containers';
 import {
@@ -19,7 +19,7 @@ import Banner from '../../../components/backend/Banner';
 
 const StartPage = () => (
   <>
-    <Banner style={{ 'background-image': `url(${startBannerImage})` }}>
+    <Banner style={{ 'background-image': `url(${bannerImage})` }}>
       What you want to do?
     </Banner>
     <Container>
