@@ -67,7 +67,7 @@ const GlobalStyles = createGlobalStyle`
   h5,
   h6 {
     margin: 0;
-    padding: 0 0 1.5rem;
+    padding: 0 0 1.8rem;
   }
 
   h1,
@@ -88,7 +88,7 @@ const GlobalStyles = createGlobalStyle`
       height: 50%;
       
       right: -0.6em;
-      bottom: 0;
+      top: 0.8em;
       z-index: -1;
 
       transform-origin: bottom;
@@ -106,8 +106,26 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 700;
 
     &::after {
-      bottom: 0.3em;
       background-color: var(--secondary-green);
+    }
+  }
+
+  h1,
+  h2 {
+    &::after {
+      top: 0.7em;
+    }
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    display: inline-block;
+
+    &::after {
+      height: 0.3em;
+      top: 1.2em;
     }
   }
 
@@ -117,6 +135,14 @@ const GlobalStyles = createGlobalStyle`
 
   h2 {
     font-size: 1.7rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  h4 {
+    font-size: 1.4rem;
   }
 
   a,

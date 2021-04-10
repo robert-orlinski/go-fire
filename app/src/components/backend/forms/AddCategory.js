@@ -3,7 +3,8 @@ import { Formik } from 'formik';
 
 import { addCategory } from '../../../common/api/requests';
 
-import { CustomForm, Checkboxes, FormSubmit } from '../../common/fields';
+import { CustomForm, Checkboxes } from '../../common/fields';
+import { SpacedButton } from '../../common/buttons';
 
 import TextField from './fields/Text';
 import Checkbox from './fields/Checkbox';
@@ -46,7 +47,7 @@ const AddCategoryForm = () => {
               type="radio"
             />
           </Checkboxes>
-          <FormSubmit type="submit">Add category</FormSubmit>
+          <SpacedButton type="submit">Add category</SpacedButton>
         </CustomForm>
       )}
     </Formik>

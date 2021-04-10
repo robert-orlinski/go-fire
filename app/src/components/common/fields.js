@@ -81,23 +81,3 @@ export const CheckboxLabel = styled.label`
     border-bottom-width: 5px;
   }
 `;
-
-export const FormSubmit = styled.button`
-  margin: 25px auto 0;
-  padding: 15px 50px;
-
-  border: none;
-  background-color: var(--primary-green);
-  color: #fff;
-  font-weight: 700;
-
-  &:focus,
-  &:active {
-    outline: none;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  }
-
-  &:active {
-    transform: scale(0.98);
-  }
-`;

@@ -24,6 +24,10 @@ const StartPage = () => (
     </Banner>
     <Container>
       <LinkBoxes>
+        <LinkBox to="/results">
+          <EntriesImage style={boxIllustrationStyles} />
+          <BoxedLink>Check how it's going</BoxedLink>
+        </LinkBox>
         <LinkBox to="/add-entry">
           <NewEntryImage style={boxIllustrationStyles} />
           <BoxedLink>Add new entry</BoxedLink>
@@ -31,10 +35,6 @@ const StartPage = () => (
         <LinkBox to="/add-category">
           <CategoriesImage style={boxIllustrationStyles} />
           <BoxedLink>Add new category</BoxedLink>
-        </LinkBox>
-        <LinkBox to="/results">
-          <EntriesImage style={boxIllustrationStyles} />
-          <BoxedLink>Check how it's going</BoxedLink>
         </LinkBox>
       </LinkBoxes>
     </Container>

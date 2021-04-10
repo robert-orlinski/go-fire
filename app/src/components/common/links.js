@@ -3,11 +3,6 @@ import { Link } from 'react-router-dom';
 
 import { UnstyledList } from './texts';
 
-export const boxIllustrationStyles = {
-  width: 'auto',
-  height: '100px',
-};
-
 export const UnstyledLink = styled(Link)`
   &::after {
     content: none;
@@ -46,3 +41,8 @@ export const BoxedLink = ({ children }) => (
     {children}
   </BoxedLinkText>
 );
+
+export const boxIllustrationStyles = {
+  width: 'auto',
+  height: '100px',
+};

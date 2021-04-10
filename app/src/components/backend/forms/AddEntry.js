@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 
 import { addEntry, getCategories } from '../../../common/api/requests';
-import { CustomForm, Checkboxes, FormSubmit } from '../../common/fields';
+import { CustomForm, Checkboxes } from '../../common/fields';
+import { SpacedButton } from '../../common/buttons';
 
 import TextField from './fields/Text';
 import Checkbox from './fields/Checkbox';
@@ -48,29 +49,21 @@ const AddEntryForm = () => {
       }) => (
         <CustomForm>
           <Checkboxes>
-            {categories.map((category) => {
-              const { name } = category;
-              const value = name.toLowerCase().replace(' ', '-');
-
-              return (
-                category.type === 'account' && (
-                  <Checkbox name="account" value={value} placeholder={name} />
+            {categories.map(
+              ({ type, name }) =>
+                type === 'account' && (
+                  <Checkbox name="account" value={name} placeholder={name} />
                 )
-              );
-            })}
+            )}
           </Checkboxes>
           <TextField name="name" placeholder="Title" type="text" />
           <Checkboxes>
-            {categories.map((category) => {
-              const { name } = category;
-              const value = name.toLowerCase().replace(' ', '-');
-
-              return (
-                category.type === 'type' && (
-                  <Checkbox name="type" value={value} placeholder={name} />
+            {categories.map(
+              ({ type, name }) =>
+                type === 'type' && (
+                  <Checkbox name="type" value={name} placeholder={name} />
                 )
-              );
-            })}
+            )}
           </Checkboxes>
           <TextField
             name="initialPrice"
@@ -85,7 +78,7 @@ const AddEntryForm = () => {
             placeholder="Additional info"
             component="textarea"
           />
-          <FormSubmit type="submit">Add entry</FormSubmit>
+          <SpacedButton type="submit">Add entry</SpacedButton>
         </CustomForm>
       )}
     </Formik>
