@@ -17,7 +17,7 @@ const EditEntryForm = ({ id, style }) => {
       }}
       onSubmit={(values, { resetForm }) => {
         editEntry({ id, values });
-        // resetForm();
+        resetForm();
       }}
     >
       {({
