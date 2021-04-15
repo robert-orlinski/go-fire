@@ -17,7 +17,7 @@ import Banner from '../../../../components/backend/Banner';
 
 const StartPage = () => (
   <>
-    <Banner style={{ 'background-image': `url(${bannerImage})` }}>
+    <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
       Which kind of results do you want?
     </Banner>
     <Container>

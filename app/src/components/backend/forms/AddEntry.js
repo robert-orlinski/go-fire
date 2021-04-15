@@ -22,6 +22,7 @@ const AddEntryForm = () => {
         name: '',
         type: '',
         initialPrice: '',
+        initialAmount: '',
         initialDate: '',
         message: '',
       }}
@@ -29,6 +30,7 @@ const AddEntryForm = () => {
         values.values = [
           {
             price: values.initialPrice,
+            amount: values.initialAmount,
             date: values.initialDate,
           },
         ];
@@ -67,10 +69,15 @@ const AddEntryForm = () => {
           </Checkboxes>
           <TextField
             name="initialPrice"
-            placeholder="Price (in PLN)"
+            placeholder="Price per paper (in PLN)"
             type="number"
             step="0.01"
             min="0.01"
+          />
+          <TextField
+            name="initialAmount"
+            placeholder="Amount of papers"
+            type="number"
           />
           <TextField name="initialDate" placeholder="Date" type="date" />
           <TextField

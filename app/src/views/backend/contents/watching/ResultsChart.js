@@ -16,7 +16,7 @@ const ResultsChart = () => {
 
   return (
     <>
-      <Banner style={{ 'background-image': `url(${bannerImage})` }}>
+      <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
         Results chart
       </Banner>
       <NarrowContainer>

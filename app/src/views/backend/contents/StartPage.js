@@ -19,7 +19,7 @@ import Banner from '../../../components/backend/Banner';
 
 const StartPage = () => (
   <>
-    <Banner style={{ 'background-image': `url(${bannerImage})` }}>
+    <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
       What you want to do?
     </Banner>
     <Container>

@@ -9,7 +9,7 @@ import Banner from '../../../../components/backend/Banner';
 
 const AddEntryContainer = () => (
   <>
-    <Banner style={{ 'background-image': `url(${bannerImage})` }}>
+    <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
       Add new entry
     </Banner>
     <NarrowCenterContainer>

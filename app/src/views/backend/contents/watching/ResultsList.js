@@ -17,7 +17,7 @@ const ResultsList = () => {
 
   return (
     <>
-      <Banner style={{ 'background-image': `url(${bannerImage})` }}>
+      <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
         Results list
       </Banner>
       <NarrowContainer>
