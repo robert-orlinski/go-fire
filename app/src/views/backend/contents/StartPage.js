@@ -1,6 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 import { ReactComponent as NewEntryImage } from './../../../static/illustrations/new-entry.svg';
 import { ReactComponent as CategoriesImage } from './../../../static/illustrations/categories.svg';

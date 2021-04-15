@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Formik } from 'formik';
 
 import { addCategory } from '../../../common/api/requests';

@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import styled from 'styled-components';
 import Chart from 'chart.js/auto';
 
 const ResultsChartInner = ({ results }) => {
   const chartElement = useRef(null);
 
   useEffect(() => {
-    const chart = new Chart(chartElement.current, {
+    new Chart(chartElement.current, {
       type: 'line',
       data: {
         labels: ['Red', 'Blue', 'Yelow', 'Green', 'Purple', 'Orange'],

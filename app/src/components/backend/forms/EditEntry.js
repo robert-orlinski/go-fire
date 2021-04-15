@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Formik } from 'formik';
 
 import { editEntry } from '../../../common/api/requests';

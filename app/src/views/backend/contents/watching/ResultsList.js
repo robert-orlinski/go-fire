@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 
 import { getEntries } from '../../../../common/api/requests';
 import { NarrowContainer } from '../../../../components/common/containers';
