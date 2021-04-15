@@ -4,7 +4,7 @@ import { Field, Form } from 'formik';
 import { pointer } from '../../common/helpers/mixins';
 import { VisuallyHiddenElement } from '../common/accesibility';
 
-const shagreenInputStyles = css`
+const sharedInputStyles = css`
   border: 0;
   border-bottom: 3px solid var(--primary-green);
   background-color: var(--secondary-gray);
@@ -15,13 +15,13 @@ export const Label = styled.label`
 `;
 
 export const CustomForm = styled(Form)`
+  --input-height: 54px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 
   margin: 1.5rem auto 0;
-
-  --input-height: 50px;
 `;
 
 export const FormLine = styled.p`
@@ -29,10 +29,10 @@ export const FormLine = styled.p`
 `;
 
 export const TextInput = styled(Field)`
-  ${shagreenInputStyles}
+  ${sharedInputStyles}
 
   width: 100%;
-  height: 54px;
+  height: var(--input-height);
 
   padding: 1.2rem 1rem;
   font-size: 1rem;
@@ -60,13 +60,13 @@ export const CheckboxContainer = styled.div`
 `;
 
 export const CheckboxLabel = styled.label`
-  ${shagreenInputStyles}
+  ${sharedInputStyles}
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  height: var(--input-height);
+  height: calc(var(--input-height) * 0.9);
 
   padding: 0 1.3rem;
   margin: 0 7px 1.5rem;

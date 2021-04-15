@@ -14,7 +14,10 @@ export const UnstyledTitle = styled.h2`
   }
 `;
 
-export const UnstyledList = styled.ul`
+export const ElementWithoutSpace = styled.p`
   padding: 0;
+`;
+
+export const ListWithoutSpace = styled(ElementWithoutSpace).attrs({ as: 'ul' })`
   list-style: none;
 `;

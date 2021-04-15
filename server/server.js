@@ -1,7 +1,11 @@
 require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
+
 const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectId;
+
 const app = express();
 
 app.use(cors());
@@ -45,6 +49,27 @@ MongoClient.connect(process.env.ATLAS_URL, {
         .then((result) => {
           res.send(result);
         })
+        .catch((error) => console.error(error));
+    });
+
+    app.put('/edit-entry', (req, res) => {
+      collections.entries
+        .update(
+          { _id: ObjectId(req.body.id) },
+          {
+            $push: {
+              values: {
+                $each: [
+                  {
+                    price: req.body.values.price,
+                    amount: req.body.values.amount,
+                    date: req.body.values.date,
+                  },
+                ],
+              },
+            },
+          }
+        )
         .catch((error) => console.error(error));
     });
   })

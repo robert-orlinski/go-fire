@@ -2,15 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { ResultBox, ResultSection } from '../../../../common/containers';
-import { UnstyledTitle } from '../../../../common/texts';
+import {
+  ElementWithoutSpace,
+  ListWithoutSpace,
+  UnstyledTitle,
+} from '../../../../common/texts';
 
-const ResultDate = styled.span`
+const ResultStyledEntry = styled.span`
   &::after {
     display: inline-block;
     position: relative;
     content: '';
 
-    width: 80px;
     height: 2px;
 
     top: -4px;
@@ -20,26 +23,49 @@ const ResultDate = styled.span`
   }
 `;
 
+const ResultDate = styled(ResultStyledEntry)`
+  &::after {
+    width: 60px;
+  }
+`;
+
+const ResultAmount = styled(ResultStyledEntry)`
+  &::after {
+    width: 30px;
+  }
+`;
+
 const ResultHistoricalEntry = styled(ResultBox)`
+  display: flex;
+  justify-content: space-between;
+
   &:not(:last-of-type) {
-    padding-bottom: 1rem;
+    padding-bottom: 0.7rem;
   }
 `;
 
 const ResultHistory = ({ title, values }) => (
   <ResultSection>
     <UnstyledTitle>{title}</UnstyledTitle>
-    {values.map(({ price, date }) => {
-      const dateArray = date.split('-');
-      const formattedDate = `${dateArray[2]}.${dateArray[1]}.${dateArray[0]} `;
+    <ListWithoutSpace>
+      {values.map(({ price, amount, date }) => {
+        const dateArray = date.split('-');
+        const formattedDate = `${dateArray[2]}.${dateArray[1]}.${dateArray[0]} `;
 
-      return (
-        <ResultHistoricalEntry>
-          <ResultDate>{formattedDate}</ResultDate>
-          <span>{price} zł</span>
-        </ResultHistoricalEntry>
-      );
-    })}
+        return (
+          <ResultHistoricalEntry key={`${price}-${amount}-${date}`} as="li">
+            <ElementWithoutSpace>
+              <ResultDate>{formattedDate}</ResultDate>
+              <ResultAmount>{amount} papers</ResultAmount>
+              <span>{price} zł</span>
+            </ElementWithoutSpace>
+            <ElementWithoutSpace>
+              Total: {price * amount} zł
+            </ElementWithoutSpace>
+          </ResultHistoricalEntry>
+        );
+      })}
+    </ListWithoutSpace>
   </ResultSection>
 );
 

@@ -21,8 +21,8 @@ const ResultHeader = ({
   handleButtonClick,
 }) => (
   <ResultHeaderContainer>
-    <ResultsTitle style={{ 'padding-bottom': '0' }}>{name}</ResultsTitle>
-    <Button onClick={() => handleButtonClick(!isContainerVisible)}>
+    <ResultsTitle style={{ paddingBottom: '0' }}>{name}</ResultsTitle>
+    <Button as="button" onClick={() => handleButtonClick(!isContainerVisible)}>
       {buttonTitle}
     </Button>
   </ResultHeaderContainer>

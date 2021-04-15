@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { UnstyledList } from './texts';
+import { ListWithoutSpace } from './texts';
 
 export const UnstyledLink = styled(Link)`
   &::after {
@@ -13,7 +13,7 @@ export const CenteredLink = styled(Link)`
   left: -0.3rem;
 `;
 
-export const LinkBoxes = styled(UnstyledList)`
+export const LinkBoxes = styled(ListWithoutSpace)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

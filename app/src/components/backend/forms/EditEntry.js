@@ -1,34 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 
-import { addEntry, getCategories } from '../../../common/api/requests';
-import { CustomForm, Checkboxes } from '../../common/fields';
-import { SpacedButton } from '../../common/buttons';
+import { editEntry } from '../../../common/api/requests';
+import { CustomForm } from '../../common/fields';
+import { Button } from '../../common/buttons';
 
 import TextField from './fields/Text';
-import Checkbox from './fields/Checkbox';
 
-const EditEntryForm = () => {
+const EditEntryForm = ({ id, style }) => {
   return (
     <Formik
       initialValues={{
-        account: 'standard',
-        name: '',
-        type: '',
-        initialPrice: '',
-        initialDate: '',
-        message: '',
+        price: '',
+        amount: '',
+        date: '',
       }}
       onSubmit={(values, { resetForm }) => {
-        values.values = [
-          {
-            price: values.initialPrice,
-            date: values.initialDate,
-          },
-        ];
-
-        // editEntry(values);
-        resetForm();
+        editEntry({ id, values });
+        // resetForm();
       }}
     >
       {({
@@ -41,16 +30,23 @@ const EditEntryForm = () => {
         handleBlur,
         handleSubmit,
       }) => (
-        <CustomForm style={{ 'padding-top': '3rem' }}>
+        <CustomForm style={style}>
           <TextField
             name="price"
-            placeholder="Price (in PLN)"
+            placeholder="Price per paper (in PLN)"
             type="number"
             step="0.01"
             min="0.01"
           />
+          <TextField
+            name="amount"
+            placeholder="Amount of papers"
+            type="number"
+          />
           <TextField name="date" placeholder="Date" type="date" />
-          <SpacedButton type="submit">Add entry</SpacedButton>
+          <Button type="submit" as="button">
+            Apply
+          </Button>
         </CustomForm>
       )}
     </Formik>

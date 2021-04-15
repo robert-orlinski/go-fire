@@ -47,7 +47,9 @@ const AddCategoryForm = () => {
               type="radio"
             />
           </Checkboxes>
-          <SpacedButton type="submit">Add category</SpacedButton>
+          <SpacedButton type="submit" as="button">
+            Add category
+          </SpacedButton>
         </CustomForm>
       )}
     </Formik>

@@ -13,7 +13,7 @@ const AddEntryForm = () => {
 
   useEffect(() => {
     getCategories(setCategories);
-  }, [categories]);
+  }, []);
 
   return (
     <Formik
@@ -85,7 +85,9 @@ const AddEntryForm = () => {
             placeholder="Additional info"
             component="textarea"
           />
-          <SpacedButton type="submit">Add entry</SpacedButton>
+          <SpacedButton type="submit" as="button">
+            Add entry
+          </SpacedButton>
         </CustomForm>
       )}
     </Formik>

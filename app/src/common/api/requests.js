@@ -6,14 +6,6 @@ export const addEntry = (values) => {
   });
 };
 
-export const editEntry = (values) => {
-  fetch(`${process.env.REACT_APP_API_URL}/edit-entry`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(values, null, 2),
-  });
-};
-
 export const getEntries = (setResults) => {
   fetch(`${process.env.REACT_APP_API_URL}/get-all-entries`, {
     method: 'GET',
@@ -37,5 +29,13 @@ export const getCategories = (setCategories) => {
     headers: { 'Content-Type': 'application/json' },
   }).then((response) => {
     response.json().then((data) => setCategories(data));
+  });
+};
+
+export const editEntry = (values) => {
+  fetch(`${process.env.REACT_APP_API_URL}/edit-entry`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(values, null, 2),
   });
 };

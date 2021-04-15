@@ -15,7 +15,7 @@ export const SmallGreenBox = styled(GreenBox)`
   --padding: 9px 20px;
 `;
 
-export const Button = styled(GreenBox).attrs({ as: 'button' })`
+export const Button = styled(GreenBox)`
   &:focus,
   &:active {
     outline: none;

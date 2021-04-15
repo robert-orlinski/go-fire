@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import ResultAccountAndCategory from './list/AccountAndCategory';
-import ResultEditButton from './list/EditButton';
 import ResultDescription from './list/Description';
 import ResultHistory from './list/History';
 import ResultHeader from './list/Header';
+import EditForm from './list/EditForm';
 
 const ResultContainer = styled.section`
   --vertical-padding: 2rem;
@@ -24,8 +24,9 @@ const ResultContent = styled.article`
   border-top: var(--border-style);
 `;
 
-const ListedResult = ({ name, message, account, type, values }) => {
+const ListedResult = ({ _id, name, message, account, type, values }) => {
   const [isContainerVisible, toggleContainerVisibility] = useState(false);
+  const [isEditFormVisible, toggleEditFormVisibility] = useState(false);
 
   return (
     <ResultContainer>
@@ -36,14 +37,23 @@ const ListedResult = ({ name, message, account, type, values }) => {
         handleButtonClick={toggleContainerVisibility}
       />
       <ResultContent style={isContainerVisible || { display: 'none' }}>
-        <ResultDescription title="Description:" description={message} />
+        {message && (
+          <ResultDescription title="Description:" description={message} />
+        )}
         <ResultAccountAndCategory
           title="Account and category:"
           account={account}
           category={type}
         />
         <ResultHistory title="History:" values={values} />
-        <ResultEditButton buttonTitle="Edit entry" />
+        <EditForm
+          buttonTitle={isEditFormVisible ? 'Close form' : 'Edit entry'}
+          onButtonClick={() => toggleEditFormVisibility(!isEditFormVisible)}
+          id={_id}
+          formStyle={
+            isEditFormVisible ? { marginTop: '3rem' } : { display: 'none' }
+          }
+        />
       </ResultContent>
     </ResultContainer>
   );

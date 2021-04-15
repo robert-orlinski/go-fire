@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { ReactComponent as Brand } from './../../static/identity/go-fire.svg';
-import { UnstyledList } from '../common/texts';
+import { ListWithoutSpace } from '../common/texts';
 import { UnstyledLink } from '../common/links';
 
 const NavContainer = styled.aside`
@@ -24,7 +24,7 @@ const StyledBrand = styled(Brand)`
   height: auto;
 `;
 
-const NavInner = styled(UnstyledList)`
+const NavInner = styled(ListWithoutSpace)`
   padding-top: 4rem;
 `;
 
@@ -42,16 +42,16 @@ const Nav = ({ children }) => (
       <StyledBrand />
     </UnstyledLink>
     <NavInner>
-      <NavElement>
+      <NavElement key="start">
         <Link to="/">Start</Link>
       </NavElement>
-      <NavElement>
+      <NavElement key="results">
         <Link to="/results">Results</Link>
       </NavElement>
-      <NavElement>
+      <NavElement key="addEntry">
         <Link to="/add-entry">Add entry</Link>
       </NavElement>
-      <NavElement>
+      <NavElement key="addCategory">
         <Link to="/add-category">Add category</Link>
       </NavElement>
     </NavInner>
