@@ -52,6 +52,11 @@ const ResultHistory = ({ title, values }) => (
         const dateArray = date.split('-');
         const formattedDate = `${dateArray[2]}.${dateArray[1]}.${dateArray[0]} `;
 
+        const total = price * amount;
+        const totalWithThousandsSeparator = total
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+
         return (
           <ResultHistoricalEntry key={`${price}-${amount}-${date}`} as="li">
             <ElementWithoutSpace>
@@ -60,7 +65,7 @@ const ResultHistory = ({ title, values }) => (
               <span>{price} zł</span>
             </ElementWithoutSpace>
             <ElementWithoutSpace>
-              Total: {price * amount} zł
+              Total: {totalWithThousandsSeparator} zł
             </ElementWithoutSpace>
           </ResultHistoricalEntry>
         );
