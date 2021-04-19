@@ -102,6 +102,8 @@ const GlobalStyles = createGlobalStyle`
   h4,
   h5,
   h6 {
+    display: inline-block;
+    
     line-height: 1.20;
     font-weight: 700;
 
@@ -121,8 +123,6 @@ const GlobalStyles = createGlobalStyle`
   h4,
   h5,
   h6 {
-    display: inline-block;
-
     &::after {
       height: 0.3em;
       top: 1.2em;

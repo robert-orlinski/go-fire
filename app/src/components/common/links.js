@@ -9,10 +9,6 @@ export const UnstyledLink = styled(Link)`
   }
 `;
 
-export const CenteredLink = styled(Link)`
-  left: -0.3rem;
-`;
-
 export const LinkBoxes = styled(ListWithoutSpace)`
   display: flex;
   flex-wrap: wrap;
@@ -32,7 +28,7 @@ export const LinkBox = styled(UnstyledLink)`
   box-shadow: 0 4px 16px 0 var(--transparent-green-max);
 `;
 
-const BoxedLinkText = styled(CenteredLink)`
+const BoxedLinkText = styled(Link)`
   margin-top: 5rem;
 `;
 

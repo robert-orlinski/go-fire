@@ -31,6 +31,7 @@ const BannerInner = styled.header`
 
 const BannerTitle = styled(WhiteTitle)`
   z-index: 9;
+  left: -0.35em;
 `;
 
 const Banner = ({ children, ...props }) => (

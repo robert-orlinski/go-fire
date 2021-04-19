@@ -54,8 +54,8 @@ const ResultHistory = ({ title, values }) => (
 
         const total = price * amount;
         const totalWithThousandsSeparator = total
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+          .toFixed(2)
+          .replace(/(?=(\d{3})+(?!\d))/g, ' ');
 
         return (
           <ResultHistoricalEntry key={`${price}-${amount}-${date}`} as="li">

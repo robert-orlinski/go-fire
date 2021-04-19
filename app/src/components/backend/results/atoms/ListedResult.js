@@ -33,6 +33,7 @@ const ListedResult = ({ _id, name, message, account, type, values }) => {
       <ResultHeader
         name={name}
         buttonTitle="More info"
+        values={values}
         isContainerVisible={isContainerVisible}
         handleButtonClick={toggleContainerVisibility}
       />
@@ -47,7 +48,7 @@ const ListedResult = ({ _id, name, message, account, type, values }) => {
         />
         <ResultHistory title="History:" values={values} />
         <EditForm
-          buttonTitle={isEditFormVisible ? 'Close form' : 'Edit entry'}
+          buttonTitle={isEditFormVisible ? 'Close form' : 'Add new entry'}
           onButtonClick={() => toggleEditFormVisibility(!isEditFormVisible)}
           id={_id}
           formStyle={

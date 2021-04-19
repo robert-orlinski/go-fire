@@ -14,6 +14,10 @@ export const UnstyledTitle = styled.h2`
   }
 `;
 
+export const UnstyledTitleWithoutSpace = styled(UnstyledTitle)`
+  padding: 0;
+`;
+
 export const ElementWithoutSpace = styled.p`
   padding: 0;
 `;
