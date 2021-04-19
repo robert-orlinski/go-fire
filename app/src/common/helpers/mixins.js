@@ -11,3 +11,8 @@ export const ornament = css`
   position: absolute;
   content: '';
 `;
+
+export const returnNiceProduct = (firstNumber, secondNumber) => {
+  const product = firstNumber * secondNumber;
+  return `${product.toFixed(2).replace(/(?=(\d{3})+(?!\d))/g, ' ')} zł`;
+};

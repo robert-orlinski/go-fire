@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { returnNiceProduct } from '../../../../../common/helpers/mixins';
 
 import { ResultBox, ResultSection } from '../../../../common/containers';
 import {
@@ -52,10 +53,7 @@ const ResultHistory = ({ title, values }) => (
         const dateArray = date.split('-');
         const formattedDate = `${dateArray[2]}.${dateArray[1]}.${dateArray[0]} `;
 
-        const total = price * amount;
-        const totalWithThousandsSeparator = total
-          .toFixed(2)
-          .replace(/(?=(\d{3})+(?!\d))/g, ' ');
+        const totalWithThousandsSeparator = returnNiceProduct(price, amount);
 
         return (
           <ResultHistoricalEntry key={`${price}-${amount}-${date}`} as="li">
@@ -65,7 +63,8 @@ const ResultHistory = ({ title, values }) => (
               <span>{price} zł</span>
             </ElementWithoutSpace>
             <ElementWithoutSpace>
-              Total: {totalWithThousandsSeparator} zł
+              Total: {totalWithThousandsSeparator}
+              {/* <DeleteButton /> */}
             </ElementWithoutSpace>
           </ResultHistoricalEntry>
         );

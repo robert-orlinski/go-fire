@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import { returnNiceProduct } from '../../../../../common/helpers/mixins';
 import { Button } from '../../../../common/buttons';
 import { ResultBox } from '../../../../common/containers';
 import { UnstyledTitle, ElementWithoutSpace } from '../../../../common/texts';
@@ -25,10 +26,10 @@ const ResultHeader = ({
 
   useEffect(() => {
     const lastEntryInSingleResult = values[values.length - 1];
-    const lastAmount = lastEntryInSingleResult.amount;
     const lastPrice = lastEntryInSingleResult.price;
+    const lastAmount = lastEntryInSingleResult.amount;
 
-    setLastValue(lastAmount * lastPrice);
+    setLastValue(returnNiceProduct(lastPrice, lastAmount));
   }, []);
 
   return (
@@ -37,7 +38,7 @@ const ResultHeader = ({
         <UnstyledTitle style={{ paddingBottom: '0.3rem' }}>
           {name}
         </UnstyledTitle>
-        <ElementWithoutSpace>{lastValue} zł</ElementWithoutSpace>
+        <ElementWithoutSpace>{lastValue}</ElementWithoutSpace>
       </ResultsHeader>
       <Button
         as="button"
