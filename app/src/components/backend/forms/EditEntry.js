@@ -7,7 +7,7 @@ import { Button } from '../../common/buttons';
 
 import TextField from './fields/Text';
 
-const EditEntryForm = ({ id, style }) => {
+const EditEntryForm = ({ _id, style }) => {
   return (
     <Formik
       initialValues={{
@@ -16,7 +16,7 @@ const EditEntryForm = ({ id, style }) => {
         date: '',
       }}
       onSubmit={(values, { resetForm }) => {
-        editEntry({ id, values });
+        editEntry({ _id, values });
         resetForm();
       }}
     >

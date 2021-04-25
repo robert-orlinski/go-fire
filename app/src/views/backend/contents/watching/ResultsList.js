@@ -12,6 +12,10 @@ const ResultsList = () => {
 
   useEffect(() => {
     getEntries(setResults);
+
+    results.sort((a, b) => {
+      return a.price * a.amount - b.price * b.amount;
+    });
   }, []);
 
   return (

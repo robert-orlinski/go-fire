@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import { returnNiceProduct } from '../../../../../common/helpers/mixins';
 import { Button } from '../../../../common/buttons';
 import { ResultBox } from '../../../../common/containers';
 import { UnstyledTitle, ElementWithoutSpace } from '../../../../common/texts';
@@ -18,27 +17,17 @@ const ResultsHeader = styled.div`
 const ResultHeader = ({
   name,
   buttonTitle,
-  values,
+  wholePrice,
   isContainerVisible,
   handleButtonClick,
 }) => {
-  const [lastValue, setLastValue] = useState(0);
-
-  useEffect(() => {
-    const lastEntryInSingleResult = values[values.length - 1];
-    const lastPrice = lastEntryInSingleResult.price;
-    const lastAmount = lastEntryInSingleResult.amount;
-
-    setLastValue(returnNiceProduct(lastPrice, lastAmount));
-  }, []);
-
   return (
     <ResultHeaderContainer>
       <ResultsHeader>
         <UnstyledTitle style={{ paddingBottom: '0.3rem' }}>
           {name}
         </UnstyledTitle>
-        <ElementWithoutSpace>{lastValue}</ElementWithoutSpace>
+        <ElementWithoutSpace>{wholePrice}</ElementWithoutSpace>
       </ResultsHeader>
       <Button
         as="button"

@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import ResultAccountAndCategory from './list/AccountAndCategory';
+import ResultCategories from './list/Categories';
 import ResultDescription from './list/Description';
-import ResultHistory from './list/History';
 import ResultHeader from './list/Header';
-import EditForm from './list/EditForm';
+import ResultData from './list/Data';
+
+import { returnNiceProduct } from '../../../../common/helpers/mixins';
+import { SpacedButton } from '../../../common/buttons';
 
 const ResultContainer = styled.section`
   --vertical-padding: 2rem;
@@ -24,16 +26,32 @@ const ResultContent = styled.article`
   border-top: var(--border-style);
 `;
 
-const ListedResult = ({ _id, name, message, account, type, values }) => {
+const ListedResult = ({
+  transaction,
+  name,
+  type,
+  price,
+  amount,
+  date,
+  message,
+}) => {
   const [isContainerVisible, toggleContainerVisibility] = useState(false);
-  const [isEditFormVisible, toggleEditFormVisibility] = useState(false);
+  const [wholePrice, setWholePrice] = useState(0);
+  const [formattedDate, setFormattedDate] = useState(0);
+
+  useEffect(() => {
+    const dateArray = date.split('-');
+    setFormattedDate(`${dateArray[2]}.${dateArray[1]}.${dateArray[0]}`);
+
+    setWholePrice(returnNiceProduct(price, amount));
+  }, []);
 
   return (
     <ResultContainer>
       <ResultHeader
         name={name}
         buttonTitle="More info"
-        values={values}
+        wholePrice={wholePrice}
         isContainerVisible={isContainerVisible}
         handleButtonClick={toggleContainerVisibility}
       />
@@ -41,20 +59,18 @@ const ListedResult = ({ _id, name, message, account, type, values }) => {
         {message && (
           <ResultDescription title="Description:" description={message} />
         )}
-        <ResultAccountAndCategory
-          title="Account and category:"
-          account={account}
+        <ResultCategories
+          title="Categories:"
+          transaction={transaction}
           category={type}
         />
-        <ResultHistory title="History:" values={values} />
-        <EditForm
-          buttonTitle={isEditFormVisible ? 'Close form' : 'Add new entry'}
-          onButtonClick={() => toggleEditFormVisibility(!isEditFormVisible)}
-          id={_id}
-          formStyle={
-            isEditFormVisible ? { marginTop: '3rem' } : { display: 'none' }
-          }
+        <ResultData
+          price={price}
+          amount={amount}
+          date={formattedDate}
+          wholePrice={wholePrice}
         />
+        <SpacedButton as="button">Remove entry</SpacedButton>
       </ResultContent>
     </ResultContainer>
   );

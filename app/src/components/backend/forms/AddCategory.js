@@ -36,8 +36,8 @@ const AddCategoryForm = () => {
           <Checkboxes>
             <Checkbox
               name="type"
-              value="account"
-              placeholder="Account"
+              value="transaction"
+              placeholder="Transaction type"
               type="radio"
             />
             <Checkbox

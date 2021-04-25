@@ -11,14 +11,14 @@ const Category = styled(SmallGreenBox)`
   }
 `;
 
-const ResultAccountAndCategory = ({ title, account, category }) => (
+const ResultCategories = ({ title, transaction, category }) => (
   <ResultSection>
     <UnstyledTitle>{title}</UnstyledTitle>
     <div>
-      <Category>{account}</Category>
+      <Category>{transaction}</Category>
       <Category>{category}</Category>
     </div>
   </ResultSection>
 );
 
-export default ResultAccountAndCategory;
+export default ResultCategories;

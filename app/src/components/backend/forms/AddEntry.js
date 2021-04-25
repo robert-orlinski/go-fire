@@ -18,23 +18,15 @@ const AddEntryForm = () => {
   return (
     <Formik
       initialValues={{
-        account: 'standard',
+        transaction: 'buying',
         name: '',
         type: '',
-        initialPrice: '',
-        initialAmount: '',
-        initialDate: '',
+        price: '',
+        amount: '',
+        date: '',
         message: '',
       }}
       onSubmit={(values, { resetForm }) => {
-        values.values = [
-          {
-            price: values.initialPrice,
-            amount: values.initialAmount,
-            date: values.initialDate,
-          },
-        ];
-
         addEntry(values);
         resetForm();
       }}
@@ -53,8 +45,12 @@ const AddEntryForm = () => {
           <Checkboxes>
             {categories.map(
               ({ type, name }) =>
-                type === 'account' && (
-                  <Checkbox name="account" value={name} placeholder={name} />
+                type === 'transaction' && (
+                  <Checkbox
+                    name="transaction"
+                    value={name}
+                    placeholder={name}
+                  />
                 )
             )}
           </Checkboxes>
@@ -68,18 +64,18 @@ const AddEntryForm = () => {
             )}
           </Checkboxes>
           <TextField
-            name="initialPrice"
+            name="price"
             placeholder="Price per paper (in PLN)"
             type="number"
             step="0.01"
             min="0.01"
           />
           <TextField
-            name="initialAmount"
+            name="amount"
             placeholder="Amount of papers"
             type="number"
           />
-          <TextField name="initialDate" placeholder="Date" type="date" />
+          <TextField name="date" placeholder="Date" type="date" />
           <TextField
             name="message"
             placeholder="Additional info"

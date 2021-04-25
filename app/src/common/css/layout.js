@@ -213,10 +213,11 @@ const GlobalStyles = createGlobalStyle`
   }
     
   button {
+    border: none;
     background-color: transparent;
 
     &:hover {
-        cursor: pointer;
+      cursor: pointer;
     }
   }
 `;
