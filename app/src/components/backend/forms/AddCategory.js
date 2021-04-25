@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 
 import { addCategory } from '../../../common/api/requests';
@@ -7,22 +7,29 @@ import {
   handleCategoryValidation,
   highlightFieldIfErrorWillOccur,
 } from './helpers/validation';
+
 import { CustomForm, Checkboxes } from '../../common/fields';
 import { ButtonWithSpace } from '../../common/buttons';
+import { CenteredText } from '../../common/texts';
 
 import TextField from './fields/Text';
 import Checkbox from './fields/Checkbox';
 
 const AddCategoryForm = () => {
+  const [finalMessage, setFinalMessage] = useState(null);
+
   return (
     <Formik
       initialValues={{
         name: '',
-        type: 'type',
+        type: 'transaction',
       }}
       validate={handleCategoryValidation}
       onSubmit={(values, { resetForm }) => {
-        addCategory(values);
+        addCategory(values).then((message) => {
+          setFinalMessage(message);
+        });
+
         resetForm();
       }}
     >
@@ -51,6 +58,9 @@ const AddCategoryForm = () => {
           <ButtonWithSpace type="submit" as="button">
             Add category
           </ButtonWithSpace>
+          <CenteredText style={{ marginTop: '2rem' }}>
+            {finalMessage}
+          </CenteredText>
         </CustomForm>
       )}
     </Formik>

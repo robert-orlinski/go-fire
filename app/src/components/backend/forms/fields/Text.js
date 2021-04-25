@@ -11,9 +11,7 @@ const TextField = ({ name, placeholder, error, style, ...props }) => {
         {placeholder}
       </VisuallyHiddenElement>
       <TextInput name={name} id={name} placeholder={placeholder} {...props} />
-      <ErrorContainer>
-        <ErrorMessage name={name}></ErrorMessage>
-      </ErrorContainer>
+      <ErrorMessage component={ErrorContainer} name={name}></ErrorMessage>
     </FormLine>
   );
 };

@@ -40,6 +40,7 @@ MongoClient.connect(process.env.ATLAS_URL, {
 
     app.post('/add-category', (req, res) => {
       collections.categories.insertOne(req.body);
+      res.end();
     });
 
     app.get('/get-categories', (req, res) => {

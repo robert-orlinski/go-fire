@@ -18,12 +18,18 @@ export const getEntries = async (setResultsFunction) => {
   response.json().then((data) => setResultsFunction(Object.values(data)));
 };
 
-export const addCategory = (values) => {
-  fetch(`${process.env.REACT_APP_API_URL}/add-category`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(values, null, 2),
-  });
+export const addCategory = async (values) => {
+  try {
+    await fetch(`${process.env.REACT_APP_API_URL}/add-category`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(values, null, 2),
+    });
+
+    return 'Category has been added! 🌷';
+  } catch (error) {
+    return `There is an error: ${error} 🙈 `;
+  }
 };
 
 export const getCategories = async (setCategories) => {
