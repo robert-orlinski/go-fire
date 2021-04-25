@@ -3,8 +3,12 @@ import { Formik } from 'formik';
 
 import { addCategory } from '../../../common/api/requests';
 
+import {
+  handleCategoryValidation,
+  highlightFieldIfErrorWillOccur,
+} from './helpers/validation';
 import { CustomForm, Checkboxes } from '../../common/fields';
-import { SpacedButton } from '../../common/buttons';
+import { ButtonWithSpace } from '../../common/buttons';
 
 import TextField from './fields/Text';
 import Checkbox from './fields/Checkbox';
@@ -14,42 +18,39 @@ const AddCategoryForm = () => {
     <Formik
       initialValues={{
         name: '',
-        type: '',
+        type: 'type',
       }}
+      validate={handleCategoryValidation}
       onSubmit={(values, { resetForm }) => {
         addCategory(values);
         resetForm();
       }}
     >
-      {({
-        values,
-        touched,
-        errors,
-        dirty,
-        isSubmitting,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-      }) => (
+      {({ errors }) => (
         <CustomForm>
-          <TextField name="name" placeholder="Category name (singular)" />
+          <TextField
+            name="name"
+            placeholder="Category name (singular)"
+            error={errors.name}
+            style={highlightFieldIfErrorWillOccur(errors, 'name')}
+          />
           <Checkboxes>
             <Checkbox
               name="type"
-              value="transaction"
-              placeholder="Transaction type"
+              value="operation"
+              placeholder="Operation type"
               type="radio"
             />
             <Checkbox
               name="type"
               value="type"
-              placeholder="Investment or saving type"
+              placeholder="Investment type"
               type="radio"
             />
           </Checkboxes>
-          <SpacedButton type="submit" as="button">
+          <ButtonWithSpace type="submit" as="button">
             Add category
-          </SpacedButton>
+          </ButtonWithSpace>
         </CustomForm>
       )}
     </Formik>

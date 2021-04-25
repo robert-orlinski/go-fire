@@ -27,6 +27,6 @@ export const Button = styled(GreenBox)`
   }
 `;
 
-export const SpacedButton = styled(Button)`
+export const ButtonWithSpace = styled(Button)`
   margin: 25px auto 0;
 `;

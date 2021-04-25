@@ -11,11 +11,11 @@ const Category = styled(SmallGreenBox)`
   }
 `;
 
-const ResultCategories = ({ title, transaction, category }) => (
+const ResultCategories = ({ title, operation, category }) => (
   <ResultSection>
     <UnstyledTitle>{title}</UnstyledTitle>
     <div>
-      <Category>{transaction}</Category>
+      <Category>{operation}</Category>
       <Category>{category}</Category>
     </div>
   </ResultSection>

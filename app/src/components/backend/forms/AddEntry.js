@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 
 import { addEntry, getCategories } from '../../../common/api/requests';
 import { CustomForm, Checkboxes } from '../../common/fields';
-import { SpacedButton } from '../../common/buttons';
+import { ButtonWithSpace } from '../../common/buttons';
 
 import TextField from './fields/Text';
 import Checkbox from './fields/Checkbox';
@@ -18,7 +18,7 @@ const AddEntryForm = () => {
   return (
     <Formik
       initialValues={{
-        transaction: '',
+        operation: '',
         name: '',
         type: '',
         price: '',
@@ -45,12 +45,8 @@ const AddEntryForm = () => {
           <Checkboxes>
             {categories.map(
               ({ type, name }) =>
-                type === 'transaction' && (
-                  <Checkbox
-                    name="transaction"
-                    value={name}
-                    placeholder={name}
-                  />
+                type === 'operation' && (
+                  <Checkbox name="operation" value={name} placeholder={name} />
                 )
             )}
           </Checkboxes>
@@ -81,9 +77,9 @@ const AddEntryForm = () => {
             placeholder="Additional info"
             component="textarea"
           />
-          <SpacedButton type="submit" as="button">
+          <ButtonWithSpace type="submit" as="button">
             Add entry
-          </SpacedButton>
+          </ButtonWithSpace>
         </CustomForm>
       )}
     </Formik>

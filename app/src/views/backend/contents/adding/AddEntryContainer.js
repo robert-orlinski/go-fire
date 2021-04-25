@@ -13,7 +13,7 @@ const AddEntryContainer = () => (
     </Banner>
     <NarrowCenterContainer>
       <p>
-        Choose transaction type, write down all the needed info and select
+        Choose operation type, write down all the needed info and select
         category that'll match Your investment or saving entry.
       </p>
       <AddEntryForm />

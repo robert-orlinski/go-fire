@@ -18,6 +18,10 @@ export const ElementWithoutSpace = styled.p`
   padding: 0;
 `;
 
+export const CenteredText = styled.p`
+  text-align: center;
+`;
+
 export const UnstyledTitleWithoutSpace = styled(ElementWithoutSpace).attrs({
   as: UnstyledTitle,
 });

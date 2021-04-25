@@ -3,10 +3,11 @@ import { Field, Form } from 'formik';
 
 import { pointer } from '../../common/helpers/mixins';
 import { VisuallyHiddenElement } from '../common/accesibility';
+import { ElementWithoutSpace } from './texts';
 
 const sharedInputStyles = css`
   border: 0;
-  border-bottom: 3px solid var(--primary-green);
+  border-bottom: 3px solid var(--input-theme, var(--primary-green));
   background-color: var(--secondary-gray);
 `;
 
@@ -80,4 +81,11 @@ export const CheckboxLabel = styled.label`
   ${VisuallyHiddenElement}:focus + & {
     border-bottom-width: 5px;
   }
+`;
+
+export const ErrorContainer = styled.span`
+  display: block;
+
+  color: var(--primary-red);
+  padding-top: 1rem;
 `;

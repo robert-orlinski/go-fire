@@ -7,7 +7,7 @@ import ResultHeader from './list/Header';
 import ResultData from './list/Data';
 
 import { returnNiceWholePrice } from '../../../../common/helpers/mixins';
-import { SpacedButton } from '../../../common/buttons';
+import { ButtonWithSpace } from '../../../common/buttons';
 
 const ResultContainer = styled.section`
   --vertical-padding: 2rem;
@@ -29,7 +29,7 @@ const ResultContent = styled.article`
 const ListedResult = ({
   handleEntryDelete,
   _id,
-  transaction,
+  operation,
   name,
   type,
   price,
@@ -65,7 +65,7 @@ const ListedResult = ({
         )}
         <ResultCategories
           title="Categories:"
-          transaction={transaction}
+          operation={operation}
           category={type}
         />
         <ResultData
