@@ -32,7 +32,6 @@ const ResultAmount = styled(ResultStyledEntry)`
 `;
 
 const ResultDataLine = styled(ResultBox)`
-  display: flex;
   justify-content: space-between;
 
   &:not(:last-of-type) {
@@ -45,12 +44,12 @@ const ResultData = ({ price, amount, date, wholePrice }) => {
     <ResultSection>
       <UnstyledTitle>Data:</UnstyledTitle>
       <ResultDataLine as="p">
-        <ElementWithoutSpace>
+        <span>
           <ResultDate>{date}</ResultDate>
           <ResultAmount>{amount} papers</ResultAmount>
           <span>{price} zł</span>
-        </ElementWithoutSpace>
-        <ElementWithoutSpace>Total: {wholePrice}</ElementWithoutSpace>
+        </span>
+        <span>Total: {wholePrice}</span>
       </ResultDataLine>
     </ResultSection>
   );

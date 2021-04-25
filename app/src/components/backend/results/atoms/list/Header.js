@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import DeleteButton from './DeleteButton';
+
 import { Button } from '../../../../common/buttons';
 import { ResultBox } from '../../../../common/containers';
 import { UnstyledTitle, ElementWithoutSpace } from '../../../../common/texts';
 
 const ResultHeaderContainer = styled(ResultBox)`
+  position: relative;
+
   padding: var(--vertical-padding) var(--horizontal-padding);
   justify-content: space-between;
 `;
@@ -15,11 +19,13 @@ const ResultsHeader = styled.div`
 `;
 
 const ResultHeader = ({
+  _id,
   name,
   buttonTitle,
   wholePrice,
   isContainerVisible,
   handleButtonClick,
+  handleEntryDelete,
 }) => {
   return (
     <ResultHeaderContainer>
@@ -35,6 +41,11 @@ const ResultHeader = ({
       >
         {buttonTitle}
       </Button>
+      <DeleteButton
+        _id={_id}
+        handleEntryDelete={handleEntryDelete}
+        label="Delete entry"
+      />
     </ResultHeaderContainer>
   );
 };

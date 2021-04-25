@@ -6,7 +6,7 @@ import ResultDescription from './list/Description';
 import ResultHeader from './list/Header';
 import ResultData from './list/Data';
 
-import { returnNiceProduct } from '../../../../common/helpers/mixins';
+import { returnNiceWholePrice } from '../../../../common/helpers/mixins';
 import { SpacedButton } from '../../../common/buttons';
 
 const ResultContainer = styled.section`
@@ -27,6 +27,8 @@ const ResultContent = styled.article`
 `;
 
 const ListedResult = ({
+  handleEntryDelete,
+  _id,
   transaction,
   name,
   type,
@@ -43,17 +45,19 @@ const ListedResult = ({
     const dateArray = date.split('-');
     setFormattedDate(`${dateArray[2]}.${dateArray[1]}.${dateArray[0]}`);
 
-    setWholePrice(returnNiceProduct(price, amount));
+    setWholePrice(returnNiceWholePrice(price, amount));
   }, []);
 
   return (
     <ResultContainer>
       <ResultHeader
+        _id={_id}
         name={name}
         buttonTitle="More info"
         wholePrice={wholePrice}
         isContainerVisible={isContainerVisible}
         handleButtonClick={toggleContainerVisibility}
+        handleEntryDelete={handleEntryDelete}
       />
       <ResultContent style={isContainerVisible || { display: 'none' }}>
         {message && (
@@ -70,7 +74,6 @@ const ListedResult = ({
           date={formattedDate}
           wholePrice={wholePrice}
         />
-        <SpacedButton as="button">Remove entry</SpacedButton>
       </ResultContent>
     </ResultContainer>
   );

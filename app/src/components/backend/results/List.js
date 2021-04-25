@@ -1,10 +1,17 @@
 import React from 'react';
-import { NarrowCenterContainer } from '../../common/containers';
-import ListedResult from './atoms/ListedResult';
 
-const ResultsListInner = ({ results }) =>
+import ListedResult from './atoms/ListedResult';
+import { NarrowCenterContainer } from '../../common/containers';
+
+const ResultsListInner = ({ results, handleEntryDelete }) =>
   results ? (
-    results.map((result) => <ListedResult key={result._id} {...result} />)
+    results.map((result) => (
+      <ListedResult
+        key={result._id}
+        handleEntryDelete={handleEntryDelete}
+        {...result}
+      />
+    ))
   ) : (
     <NarrowCenterContainer>
       <p>There is no results :c</p>

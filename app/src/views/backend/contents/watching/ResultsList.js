@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { getEntries } from '../../../../common/api/requests';
+import { getEntries, deleteEntry } from '../../../../common/api/requests';
 import { NarrowContainer } from '../../../../components/common/containers';
 
 import Banner from '../../../../components/backend/Banner';
@@ -12,11 +12,16 @@ const ResultsList = () => {
 
   useEffect(() => {
     getEntries(setResults);
-
-    results.sort((a, b) => {
-      return a.price * a.amount - b.price * b.amount;
-    });
   }, []);
+
+  const handleEntryDelete = (_id) => {
+    const resultsWithoutDeletedEntry = results.filter((entry) => {
+      return entry._id !== _id;
+    });
+    setResults(resultsWithoutDeletedEntry);
+
+    deleteEntry(_id);
+  };
 
   return (
     <>
@@ -24,7 +29,10 @@ const ResultsList = () => {
         Results list
       </Banner>
       <NarrowContainer>
-        <ResultsListInner results={results} />
+        <ResultsListInner
+          results={results}
+          handleEntryDelete={handleEntryDelete}
+        />
       </NarrowContainer>
     </>
   );

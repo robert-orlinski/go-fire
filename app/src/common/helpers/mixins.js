@@ -12,7 +12,7 @@ export const ornament = css`
   content: '';
 `;
 
-export const returnNiceProduct = (firstNumber, secondNumber) => {
+export const returnNiceWholePrice = (firstNumber, secondNumber) => {
   const product = firstNumber * secondNumber;
   return `${product.toFixed(2).replace(/(?=(\d{3})+(?!\d))/g, ' ')} zł`;
 };
