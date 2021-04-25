@@ -55,7 +55,7 @@ MongoClient.connect(process.env.ATLAS_URL, {
 
     app.put('/edit-entry', (req, res) => {
       collections.entries
-        .update(
+        .updateOne(
           { _id: ObjectId(req.body.id) },
           {
             $push: {

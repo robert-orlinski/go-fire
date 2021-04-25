@@ -5,8 +5,8 @@ import { CheckboxContainer, CheckboxLabel } from '../../../common/fields';
 
 const Checkbox = ({ name, value, placeholder, type = 'radio' }) => (
   <CheckboxContainer>
-    <VisuallyHiddenElement name={name} value={value} id={value} type={type} />
-    <CheckboxLabel htmlFor={value}>{placeholder}</CheckboxLabel>
+    <VisuallyHiddenElement name={name} value={value} id={name} type={type} />
+    <CheckboxLabel htmlFor={name}>{placeholder}</CheckboxLabel>
   </CheckboxContainer>
 );
 

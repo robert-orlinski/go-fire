@@ -44,18 +44,28 @@ const AddEntryForm = () => {
         <CustomForm>
           <Checkboxes>
             {categories.map(
-              ({ type, name }) =>
+              ({ type, name }, i) =>
                 type === 'operation' && (
-                  <Checkbox name="operation" value={name} placeholder={name} />
+                  <Checkbox
+                    name="operation"
+                    value={name}
+                    placeholder={name}
+                    key={`operation-${name}-${i}`}
+                  />
                 )
             )}
           </Checkboxes>
           <TextField name="name" placeholder="Title" type="text" />
           <Checkboxes>
             {categories.map(
-              ({ type, name }) =>
+              ({ type, name }, i) =>
                 type === 'type' && (
-                  <Checkbox name="type" value={name} placeholder={name} />
+                  <Checkbox
+                    name="type"
+                    value={name}
+                    placeholder={name}
+                    key={`type-${name}-${i}`}
+                  />
                 )
             )}
           </Checkboxes>
