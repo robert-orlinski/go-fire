@@ -5,7 +5,7 @@ import { ReactComponent as CategoriesImage } from './../../../static/illustratio
 import { ReactComponent as EntriesImage } from './../../../static/illustrations/entries.svg';
 import bannerImage from './../../../static/banners/start.jpg';
 
-import { Container } from '../../../components/common/containers';
+import { CenterContainer } from '../../../components/common/containers';
 import {
   boxIllustrationStyles,
   LinkBoxes,
@@ -20,11 +20,11 @@ const StartPage = () => (
     <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
       What you want to do?
     </Banner>
-    <Container>
+    <CenterContainer>
       <LinkBoxes>
         <LinkBox to="/results">
           <EntriesImage style={boxIllustrationStyles} />
-          <BoxedLink>Check how it's going</BoxedLink>
+          <BoxedLink>Read about my decisions</BoxedLink>
         </LinkBox>
         <LinkBox to="/add-entry">
           <NewEntryImage style={boxIllustrationStyles} />
@@ -35,7 +35,7 @@ const StartPage = () => (
           <BoxedLink>Add new category</BoxedLink>
         </LinkBox>
       </LinkBoxes>
-    </Container>
+    </CenterContainer>
   </>
 );
 

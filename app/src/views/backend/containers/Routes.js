@@ -4,9 +4,7 @@ import styled from 'styled-components';
 
 import AddCategoryContainer from '../contents/adding/AddCategoryContainer';
 import AddEntryContainer from '../contents/adding/AddEntryContainer';
-import Results from '../contents/watching/Results';
-import ResultsList from '../contents/watching/ResultsList';
-import ResultsChart from '../contents/watching/ResultsChart';
+import Results from '../contents/Results';
 import StartPage from '../contents/StartPage';
 
 const PageContent = styled.article`
@@ -24,12 +22,6 @@ const Routes = () => (
       </Route>
       <Route exact path="/results">
         <Results />
-      </Route>
-      <Route exact path="/results/list">
-        <ResultsList />
-      </Route>
-      <Route exact path="/results/chart">
-        <ResultsChart />
       </Route>
       <Route exact path="/">
         <StartPage />

@@ -4,7 +4,7 @@ import ListedResult from './atoms/ListedResult';
 import { NarrowCenterContainer } from '../../common/containers';
 
 const ResultsListInner = ({ results, handleEntryDelete }) =>
-  results ? (
+  results.length > 0 ? (
     results.map((result) => (
       <ListedResult
         key={result._id}
