@@ -55,7 +55,7 @@ const ButtonInner = styled.span`
   }
 `;
 
-const DeleteButton = ({ _id, setEntries, label }) => {
+const DeleteButton = ({ _id, label }) => {
   const { items, setItems } = useContext(ItemsContext);
 
   const handleItemDelete = () => {
@@ -63,6 +63,8 @@ const DeleteButton = ({ _id, setEntries, label }) => {
       return item._id !== _id;
     });
     setItems(itemsWithoutDeletedEntry);
+
+    console.log(_id);
 
     deleteItem(_id);
   };

@@ -82,7 +82,8 @@ const GlobalStyles = createGlobalStyle`
     z-index: 9;
 
     &::after {
-      ${ornament}
+      display: block;
+      position: absolute;
 
       width: 100%;
       height: 50%;
@@ -152,6 +153,8 @@ const GlobalStyles = createGlobalStyle`
     transition: opacity var(--short-transition-duration);
 
     &::after {
+      content: '';
+
       bottom: 0;
       background-color: var(--transparent-green-max);  
     }

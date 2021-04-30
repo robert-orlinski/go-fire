@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import { getCategories, deleteItem } from '../../../common/api/requests';
+import ItemsContext from './Context/ItemsContext';
+
+import { getCategories } from '../../../common/api/requests';
 import { NarrowContainer } from '../../../components/common/containers';
 
 import Banner from '../../../components/backend/Banner';
@@ -14,25 +16,17 @@ const Categories = () => {
     getCategories(setCategories);
   }, []);
 
-  // const handleCategoryDelete = (_id) => {
-  //   const resultsWithoutDeletedEntry = categories.filter((entry) => {
-  //     return entry._id !== _id;
-  //   });
-  //   setCategories(resultsWithoutDeletedEntry);
-  //   deleteItem(_id);
-  // };
-
   return (
     <>
       <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
         Categories list
       </Banner>
       <NarrowContainer>
-        <CategoriesList
-          categories={categories}
-          setCategories={setCategories}
-          // handleCategoryDelete={handleEntryDelete}
-        />
+        <ItemsContext.Provider
+          value={{ items: categories, setItems: setCategories }}
+        >
+          <CategoriesList />
+        </ItemsContext.Provider>
       </NarrowContainer>
     </>
   );

@@ -1,31 +1,35 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const noPadding = css`
+  padding: 0;
+`;
 
 export const MainTitle = styled.h1`
   text-align: center;
+
+  &::after {
+    content: '';
+  }
 `;
 
 export const WhiteTitle = styled(MainTitle)`
   color: #fff;
 `;
 
-export const UnstyledTitle = styled.h2`
-  &::after {
-    content: none;
-  }
-`;
-
-export const ElementWithoutSpace = styled.p`
-  padding: 0;
-`;
-
 export const CenteredText = styled.p`
   text-align: center;
 `;
 
-export const UnstyledTitleWithoutSpace = styled(ElementWithoutSpace).attrs({
-  as: UnstyledTitle,
-});
+export const TextWithoutSpace = styled.p`
+  ${noPadding}
+`;
 
-export const ListWithoutSpace = styled(ElementWithoutSpace).attrs({ as: 'ul' })`
+export const HeaderWithoutSpace = styled.h2`
+  ${noPadding}
+`;
+
+export const ListWithoutSpace = styled.ul`
+  ${noPadding}
+
   list-style: none;
 `;

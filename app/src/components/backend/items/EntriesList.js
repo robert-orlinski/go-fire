@@ -9,7 +9,11 @@ const EntriesList = () => {
   const { items } = useContext(ItemsContext);
 
   return items.length > 0 ? (
-    items.map((item) => <ListedEntry key={item._id} {...item} />)
+    items.map((entry) => {
+      const { _id } = entry;
+
+      return <ListedEntry key={_id} {...entry} />;
+    })
   ) : (
     <NarrowCenterContainer>
       <p>There are no results :c</p>

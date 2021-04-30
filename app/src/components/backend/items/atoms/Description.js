@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { ResultSection } from '../../../common/containers';
-import { ElementWithoutSpace, UnstyledTitle } from '../../../common/texts';
+import { TextWithoutSpace } from '../../../common/texts';
 
 const ResultDescription = ({ title, description }) => (
   <ResultSection>
-    <UnstyledTitle>{title}</UnstyledTitle>
-    <ElementWithoutSpace>{description}</ElementWithoutSpace>
+    <h2>{title}</h2>
+    <TextWithoutSpace>{description}</TextWithoutSpace>
   </ResultSection>
 );
 

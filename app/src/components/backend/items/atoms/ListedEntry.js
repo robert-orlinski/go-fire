@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import ResultContainer from './Container';
 import ResultContent from './Content';
-import ResultCategories from './Categories';
+import ResultCategories from './ItemCategories';
 import ResultDescription from './Description';
 import ResultHeader from './Header';
 import ResultData from './Data';
@@ -10,7 +10,6 @@ import ResultData from './Data';
 import { returnNiceWholePrice } from '../../../../common/helpers/mixins';
 
 const ListedEntry = ({
-  setEntries,
   _id,
   operation,
   name,
@@ -36,10 +35,11 @@ const ListedEntry = ({
       <ResultHeader
         _id={_id}
         name={name}
-        buttonTitle="More info"
         wholePrice={wholePrice}
         isContainerVisible={isContainerVisible}
         handleButtonClick={toggleContainerVisibility}
+        buttonLabel="More info"
+        deleteButtonLabel="Delete entry"
       />
       <ResultContent style={isContainerVisible || { display: 'none' }}>
         {message && (

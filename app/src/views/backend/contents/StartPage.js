@@ -21,7 +21,7 @@ const StartPage = () => (
       What you want to do?
     </Banner>
     <CenterContainer>
-      <LinkBoxes>
+      <LinkBoxes as="ul">
         <LinkBox to="/results">
           <EntriesImage style={boxIllustrationStyles} />
           <BoxedLink>Read about my decisions</BoxedLink>

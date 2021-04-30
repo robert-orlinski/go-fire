@@ -8,7 +8,7 @@ const ResultContainer = styled.section`
   border: var(--border-style);
 
   &:not(:last-of-type) {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 `;
 

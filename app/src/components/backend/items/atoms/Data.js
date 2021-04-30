@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { ResultBox, ResultSection } from '../../../common/containers';
-import { UnstyledTitle } from '../../../common/texts';
 
 const ResultStyledEntry = styled.span`
   &::after {
@@ -42,7 +41,7 @@ const ResultDataLine = styled(ResultBox)`
 const ResultData = ({ price, amount, date, wholePrice }) => {
   return (
     <ResultSection>
-      <UnstyledTitle>Data:</UnstyledTitle>
+      <h2>Data:</h2>
       <ResultDataLine as="p">
         <span>
           <ResultDate>{date}</ResultDate>

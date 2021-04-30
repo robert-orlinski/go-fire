@@ -41,21 +41,21 @@ const Nav = ({ children }) => (
     <UnstyledLink to="/">
       <StyledBrand />
     </UnstyledLink>
-    <NavInner>
+    <NavInner as="ul">
       <NavElement key="start">
         <Link to="/">Start</Link>
       </NavElement>
       <NavElement key="results">
         <Link to="/results">Results</Link>
       </NavElement>
+      <NavElement key="categories">
+        <Link to="/categories">Categories</Link>
+      </NavElement>
       <NavElement key="addEntry">
         <Link to="/add-entry">Add entry</Link>
       </NavElement>
       <NavElement key="addCategory">
         <Link to="/add-category">Add category</Link>
-      </NavElement>
-      <NavElement key="categories">
-        <Link to="/categories">Categories</Link>
       </NavElement>
     </NavInner>
   </NavContainer>

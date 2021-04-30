@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { SmallGreenBox } from '../../../common/buttons';
 import { ResultSection } from '../../../common/containers';
-import { UnstyledTitle } from '../../../common/texts';
 
 const Category = styled(SmallGreenBox)`
   &:not(:last-of-type) {
@@ -13,7 +12,7 @@ const Category = styled(SmallGreenBox)`
 
 const ResultCategories = ({ title, operation, category }) => (
   <ResultSection>
-    <UnstyledTitle>{title}</UnstyledTitle>
+    <h2>{title}</h2>
     <div>
       <Category>{operation}</Category>
       <Category>{category}</Category>

@@ -5,7 +5,7 @@ import DeleteButton from './DeleteButton';
 
 import { Button } from '../../../common/buttons';
 import { ResultBox } from '../../../common/containers';
-import { UnstyledTitle, ElementWithoutSpace } from '../../../common/texts';
+import { HeaderWithoutSpace, TextWithoutSpace } from '../../../common/texts';
 
 const ResultHeaderContainer = styled(ResultBox)`
   position: relative;
@@ -14,34 +14,40 @@ const ResultHeaderContainer = styled(ResultBox)`
   justify-content: space-between;
 `;
 
-const ResultsHeader = styled.div`
+const ResultHeaderInner = styled.div`
   max-width: calc(100% - 200px);
 `;
 
 const ResultHeader = ({
   _id,
   name,
-  buttonTitle,
   wholePrice,
   isContainerVisible,
   handleButtonClick,
-  setEntries,
+  as,
+  headerLevel,
+  buttonLabel,
+  deleteButtonLabel,
 }) => {
   return (
-    <ResultHeaderContainer>
-      <ResultsHeader>
-        <UnstyledTitle style={{ paddingBottom: '0.3rem' }}>
-          {name}
-        </UnstyledTitle>
-        <ElementWithoutSpace>{wholePrice}</ElementWithoutSpace>
-      </ResultsHeader>
-      <Button
-        as="button"
-        onClick={() => handleButtonClick(!isContainerVisible)}
-      >
-        {buttonTitle}
-      </Button>
-      <DeleteButton _id={_id} label="Delete entry" />
+    <ResultHeaderContainer as={as}>
+      <ResultHeaderInner>
+        <HeaderWithoutSpace as={headerLevel}>{name}</HeaderWithoutSpace>
+        {wholePrice && (
+          <TextWithoutSpace style={{ padding: '0.3rem 0 0' }}>
+            {wholePrice}
+          </TextWithoutSpace>
+        )}
+      </ResultHeaderInner>
+      {buttonLabel && (
+        <Button
+          as="button"
+          onClick={() => handleButtonClick(!isContainerVisible)}
+        >
+          {buttonLabel}
+        </Button>
+      )}
+      <DeleteButton _id={_id} label={deleteButtonLabel} />
     </ResultHeaderContainer>
   );
 };

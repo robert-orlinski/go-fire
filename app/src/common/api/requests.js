@@ -13,13 +13,10 @@ export const addEntry = async (values) => {
 };
 
 export const getEntries = async (setEntriesHandler) => {
-  const response = await fetch(
-    `${process.env.REACT_APP_API_URL}/get-all-entries`,
-    {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    }
-  );
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/get-entries`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  });
 
   response.json().then((data) => setEntriesHandler(Object.values(data)));
 };
@@ -38,7 +35,7 @@ export const addCategory = async (values) => {
   }
 };
 
-export const getCategories = async (setCategories) => {
+export const getCategories = async (setCategoriesHandler) => {
   const response = await fetch(
     `${process.env.REACT_APP_API_URL}/get-categories`,
     {
@@ -47,7 +44,7 @@ export const getCategories = async (setCategories) => {
     }
   );
 
-  response.json().then((data) => setCategories(data));
+  response.json().then((data) => setCategoriesHandler(Object.values(data)));
 };
 
 export const editEntry = (values) => {
@@ -58,10 +55,10 @@ export const editEntry = (values) => {
   });
 };
 
-export const deleteItem = async (id) => {
+export const deleteItem = async (_id) => {
   await fetch(`${process.env.REACT_APP_API_URL}/delete-item`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ id }, null, 2),
+    body: JSON.stringify({ _id }, null, 2),
   });
 };

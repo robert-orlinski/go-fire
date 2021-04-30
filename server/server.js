@@ -29,7 +29,7 @@ MongoClient.connect(process.env.ATLAS_URL, {
       res.end();
     });
 
-    app.get('/get-all-entries', (req, res) => {
+    app.get('/get-entries', (req, res) => {
       collections.entries
         .find()
         .toArray()
@@ -77,9 +77,16 @@ MongoClient.connect(process.env.ATLAS_URL, {
     });
 
     app.delete('/delete-item', (req, res) => {
-      collections.entries
-        .deleteOne({ _id: ObjectId(req.body.id) })
-        .catch((error) => console.error(error));
+      const { _id } = req.body;
+
+      Object.keys(collections).map((collection) => {
+        console.log(_id);
+
+        collections[collection]
+          .deleteOne({ _id: ObjectId(_id) })
+          .catch((error) => console.error(error));
+      });
+
       res.end();
     });
   })
