@@ -14,7 +14,7 @@ const ResultsListInner = ({ results, handleEntryDelete }) =>
     ))
   ) : (
     <NarrowCenterContainer>
-      <p>There is no results :c</p>
+      <p>There are no results :c</p>
     </NarrowCenterContainer>
   );
 
