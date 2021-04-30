@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ResultBox, ResultSection } from '../../../../common/containers';
-import { UnstyledTitle } from '../../../../common/texts';
+import { ResultBox, ResultSection } from '../../../common/containers';
+import { UnstyledTitle } from '../../../common/texts';
 
 const ResultStyledEntry = styled.span`
   &::after {

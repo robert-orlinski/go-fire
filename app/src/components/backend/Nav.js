@@ -54,6 +54,9 @@ const Nav = ({ children }) => (
       <NavElement key="addCategory">
         <Link to="/add-category">Add category</Link>
       </NavElement>
+      <NavElement key="categories">
+        <Link to="/categories">Categories</Link>
+      </NavElement>
     </NavInner>
   </NavContainer>
 );

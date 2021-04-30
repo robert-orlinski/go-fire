@@ -1,11 +1,11 @@
 import React from 'react';
 
-import bannerImage from './../../../../static/banners/add-category.jpg';
+import bannerImage from './../../../static/banners/add-category.jpg';
 
-import { NarrowContainer } from '../../../../components/common/containers';
-import { CenteredText } from '../../../../components/common/texts';
-import AddCategoryForm from '../../../../components/backend/forms/AddCategory';
-import Banner from '../../../../components/backend/Banner';
+import { NarrowContainer } from '../../../components/common/containers';
+import { CenteredText } from '../../../components/common/texts';
+import AddCategoryForm from '../../../components/backend/forms/AddCategoryForm';
+import Banner from '../../../components/backend/Banner';
 
 const AddCategoryContainer = () => (
   <>

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import bannerImage from './../../../../static/banners/add-entry.jpg';
+import bannerImage from './../../../static/banners/add-entry.jpg';
 
-import { NarrowContainer } from '../../../../components/common/containers';
-import { CenteredText } from '../../../../components/common/texts';
+import { NarrowContainer } from '../../../components/common/containers';
+import { CenteredText } from '../../../components/common/texts';
 
-import AddEntryForm from '../../../../components/backend/forms/AddEntry';
-import Banner from '../../../../components/backend/Banner';
+import AddEntryForm from '../../../components/backend/forms/AddEntryForm';
+import Banner from '../../../components/backend/Banner';
 
 const AddEntryContainer = () => (
   <>

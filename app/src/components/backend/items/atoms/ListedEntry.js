@@ -1,32 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 
-import ResultCategories from './list/Categories';
-import ResultDescription from './list/Description';
-import ResultHeader from './list/Header';
-import ResultData from './list/Data';
+import ResultContainer from './Container';
+import ResultContent from './Content';
+import ResultCategories from './Categories';
+import ResultDescription from './Description';
+import ResultHeader from './Header';
+import ResultData from './Data';
 
 import { returnNiceWholePrice } from '../../../../common/helpers/mixins';
 
-const ResultContainer = styled.section`
-  --vertical-padding: 2rem;
-  --horizontal-padding: 3.5rem;
-  --border-style: 3px solid var(--transparent-green-max);
-
-  border: var(--border-style);
-
-  &:not(:last-of-type) {
-    margin-bottom: 3rem;
-  }
-`;
-
-const ResultContent = styled.article`
-  padding: calc(var(--vertical-padding) * 1.6) var(--horizontal-padding);
-  border-top: var(--border-style);
-`;
-
-const ListedResult = ({
-  handleEntryDelete,
+const ListedEntry = ({
+  setEntries,
   _id,
   operation,
   name,
@@ -56,7 +40,6 @@ const ListedResult = ({
         wholePrice={wholePrice}
         isContainerVisible={isContainerVisible}
         handleButtonClick={toggleContainerVisibility}
-        handleEntryDelete={handleEntryDelete}
       />
       <ResultContent style={isContainerVisible || { display: 'none' }}>
         {message && (
@@ -78,4 +61,4 @@ const ListedResult = ({
   );
 };
 
-export default ListedResult;
+export default ListedEntry;

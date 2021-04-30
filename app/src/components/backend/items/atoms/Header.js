@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import DeleteButton from './DeleteButton';
 
-import { Button } from '../../../../common/buttons';
-import { ResultBox } from '../../../../common/containers';
-import { UnstyledTitle, ElementWithoutSpace } from '../../../../common/texts';
+import { Button } from '../../../common/buttons';
+import { ResultBox } from '../../../common/containers';
+import { UnstyledTitle, ElementWithoutSpace } from '../../../common/texts';
 
 const ResultHeaderContainer = styled(ResultBox)`
   position: relative;
@@ -25,7 +25,7 @@ const ResultHeader = ({
   wholePrice,
   isContainerVisible,
   handleButtonClick,
-  handleEntryDelete,
+  setEntries,
 }) => {
   return (
     <ResultHeaderContainer>
@@ -41,11 +41,7 @@ const ResultHeader = ({
       >
         {buttonTitle}
       </Button>
-      <DeleteButton
-        _id={_id}
-        handleEntryDelete={handleEntryDelete}
-        label="Delete entry"
-      />
+      <DeleteButton _id={_id} label="Delete entry" />
     </ResultHeaderContainer>
   );
 };

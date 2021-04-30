@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-import { ornament } from '../../../../../common/helpers/mixins';
+import ItemsContext from '../../../../views/backend/contents/Context/ItemsContext';
+
+import { deleteItem } from '../../../../common/api/requests';
+import { ornament } from '../../../../common/helpers/mixins';
 
 const Button = styled.button`
   --button-size: 32px;
@@ -52,9 +55,20 @@ const ButtonInner = styled.span`
   }
 `;
 
-const DeleteButton = ({ _id, handleEntryDelete, label }) => {
+const DeleteButton = ({ _id, setEntries, label }) => {
+  const { items, setItems } = useContext(ItemsContext);
+
+  const handleItemDelete = () => {
+    const itemsWithoutDeletedEntry = items.filter((item) => {
+      return item._id !== _id;
+    });
+    setItems(itemsWithoutDeletedEntry);
+
+    deleteItem(_id);
+  };
+
   return (
-    <Button aria-label={label} onClick={() => handleEntryDelete(_id)}>
+    <Button aria-label={label} onClick={handleItemDelete}>
       <ButtonInner />
     </Button>
   );

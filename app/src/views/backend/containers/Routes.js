@@ -2,9 +2,10 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import AddCategoryContainer from '../contents/adding/AddCategoryContainer';
-import AddEntryContainer from '../contents/adding/AddEntryContainer';
-import Results from '../contents/Results';
+import AddCategoryContainer from '../contents/AddCategory';
+import AddEntryContainer from '../contents/AddEntry';
+import Categories from '../contents/Categories';
+import Entries from '../contents/Entries';
 import StartPage from '../contents/StartPage';
 
 const PageContent = styled.article`
@@ -20,8 +21,11 @@ const Routes = () => (
       <Route exact path="/add-entry">
         <AddEntryContainer />
       </Route>
+      <Route exact path="/categories">
+        <Categories />
+      </Route>
       <Route exact path="/results">
-        <Results />
+        <Entries />
       </Route>
       <Route exact path="/">
         <StartPage />

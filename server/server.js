@@ -76,7 +76,7 @@ MongoClient.connect(process.env.ATLAS_URL, {
       res.end();
     });
 
-    app.delete('/delete-entry', (req, res) => {
+    app.delete('/delete-item', (req, res) => {
       collections.entries
         .deleteOne({ _id: ObjectId(req.body.id) })
         .catch((error) => console.error(error));

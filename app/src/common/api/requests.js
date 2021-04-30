@@ -12,7 +12,7 @@ export const addEntry = async (values) => {
   }
 };
 
-export const getEntries = async (setResultsHandler) => {
+export const getEntries = async (setEntriesHandler) => {
   const response = await fetch(
     `${process.env.REACT_APP_API_URL}/get-all-entries`,
     {
@@ -21,7 +21,7 @@ export const getEntries = async (setResultsHandler) => {
     }
   );
 
-  response.json().then((data) => setResultsHandler(Object.values(data)));
+  response.json().then((data) => setEntriesHandler(Object.values(data)));
 };
 
 export const addCategory = async (values) => {
@@ -58,8 +58,8 @@ export const editEntry = (values) => {
   });
 };
 
-export const deleteEntry = async (id) => {
-  await fetch(`${process.env.REACT_APP_API_URL}/delete-entry`, {
+export const deleteItem = async (id) => {
+  await fetch(`${process.env.REACT_APP_API_URL}/delete-item`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ id }, null, 2),

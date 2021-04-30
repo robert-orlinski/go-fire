@@ -1,12 +1,12 @@
 import React from 'react';
 
-import ListedResult from './atoms/ListedResult';
+import ListedCategory from './atoms/ListedCategory';
 import { NarrowCenterContainer } from '../../common/containers';
 
-const ResultsListInner = ({ results, handleEntryDelete }) =>
+const CategoriesList = ({ results, handleEntryDelete }) =>
   results.length > 0 ? (
     results.map((result) => (
-      <ListedResult
+      <ListedCategory
         key={result._id}
         handleEntryDelete={handleEntryDelete}
         {...result}
@@ -14,8 +14,8 @@ const ResultsListInner = ({ results, handleEntryDelete }) =>
     ))
   ) : (
     <NarrowCenterContainer>
-      <p>There are no results :c</p>
+      <p>There are no categories! You can add anyone.</p>
     </NarrowCenterContainer>
   );
 
-export default ResultsListInner;
+export default CategoriesList;
