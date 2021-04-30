@@ -3,7 +3,6 @@ import { Field, Form } from 'formik';
 
 import { pointer } from '../../common/helpers/mixins';
 import { VisuallyHiddenElement } from '../common/accesibility';
-import { ElementWithoutSpace } from './texts';
 
 const sharedInputStyles = css`
   border: 0;

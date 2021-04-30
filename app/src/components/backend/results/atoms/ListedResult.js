@@ -7,7 +7,6 @@ import ResultHeader from './list/Header';
 import ResultData from './list/Data';
 
 import { returnNiceWholePrice } from '../../../../common/helpers/mixins';
-import { ButtonWithSpace } from '../../../common/buttons';
 
 const ResultContainer = styled.section`
   --vertical-padding: 2rem;
@@ -46,7 +45,7 @@ const ListedResult = ({
     setFormattedDate(`${dateArray[2]}.${dateArray[1]}.${dateArray[0]}`);
 
     setWholePrice(returnNiceWholePrice(price, amount));
-  }, []);
+  }, [amount, date, price]);
 
   return (
     <ResultContainer>

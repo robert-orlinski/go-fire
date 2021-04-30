@@ -25,7 +25,7 @@ const AddEntryForm = () => {
   return (
     <Formik
       initialValues={{
-        operation: 'buying',
+        operation: 'purchase',
         name: '',
         type: 'stock',
         price: '',

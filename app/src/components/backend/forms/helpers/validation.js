@@ -9,13 +9,13 @@ export const handleEntryAddValidation = ({ name, price, amount, date }) => {
 
   if (!price) {
     errors.price = 'Price is required';
-  } else if (!Number.isInteger(price)) {
+  } else if (Number(price) !== price) {
     errors.price = 'Price has to be a number';
   }
 
   if (!amount) {
     errors.amount = 'Amount is required';
-  } else if (!Number.isInteger(amount)) {
+  } else if (Number(amount) !== amount) {
     errors.amount = 'Amount has to be a number';
   }
 
