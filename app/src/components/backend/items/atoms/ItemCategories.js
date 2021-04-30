@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { SmallGreenBox } from '../../../common/buttons';
-import { ResultSection } from '../../../common/containers';
+import { ItemSection } from '../../../common/containers';
 
 const Category = styled(SmallGreenBox)`
   &:not(:last-of-type) {
@@ -10,14 +10,14 @@ const Category = styled(SmallGreenBox)`
   }
 `;
 
-const ResultCategories = ({ title, operation, category }) => (
-  <ResultSection>
+const ItemCategories = ({ title, operation, category }) => (
+  <ItemSection>
     <h2>{title}</h2>
     <div>
       <Category>{operation}</Category>
       <Category>{category}</Category>
     </div>
-  </ResultSection>
+  </ItemSection>
 );
 
-export default ResultCategories;
+export default ItemCategories;

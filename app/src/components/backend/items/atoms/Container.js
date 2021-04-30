@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ResultContainer = styled.section`
+const ItemContainer = styled.section`
   --vertical-padding: 2rem;
   --horizontal-padding: 3.5rem;
   --border-style: 3px solid var(--transparent-green-max);
@@ -12,4 +12,4 @@ const ResultContainer = styled.section`
   }
 `;
 
-export default ResultContainer;
+export default ItemContainer;

@@ -24,7 +24,7 @@ const Routes = () => (
       <Route exact path="/categories">
         <Categories />
       </Route>
-      <Route exact path="/results">
+      <Route exact path="/entries">
         <Entries />
       </Route>
       <Route exact path="/">

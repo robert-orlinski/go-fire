@@ -17,13 +17,13 @@ export const NarrowCenterContainer = styled(NarrowContainer)`
   text-align: center;
 `;
 
-export const ResultSection = styled.section`
+export const ItemSection = styled.section`
   &:not(:first-child) {
     padding-top: 3rem;
   }
 `;
 
-export const ResultBox = styled.header`
+export const ItemBox = styled.header`
   display: flex;
   align-items: center;
 `;

@@ -33,8 +33,8 @@ MongoClient.connect(process.env.ATLAS_URL, {
       collections.entries
         .find()
         .toArray()
-        .then((result) => {
-          res.send(result);
+        .then((entry) => {
+          res.send(entry);
         })
         .catch((error) => console.error(error));
     });
@@ -48,8 +48,8 @@ MongoClient.connect(process.env.ATLAS_URL, {
       collections.categories
         .find()
         .toArray()
-        .then((result) => {
-          res.send(result);
+        .then((category) => {
+          res.send(category);
         })
         .catch((error) => console.error(error));
     });

@@ -45,8 +45,8 @@ const Nav = ({ children }) => (
       <NavElement key="start">
         <Link to="/">Start</Link>
       </NavElement>
-      <NavElement key="results">
-        <Link to="/results">Results</Link>
+      <NavElement key="entries">
+        <Link to="/entries">Entries</Link>
       </NavElement>
       <NavElement key="categories">
         <Link to="/categories">Categories</Link>

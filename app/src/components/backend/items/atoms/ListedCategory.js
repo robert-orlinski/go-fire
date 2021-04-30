@@ -1,18 +1,18 @@
 import React from 'react';
 
-import ResultContainer from './Container';
-import ResultHeader from './Header';
+import ItemContainer from './Container';
+import ItemHeader from './Header';
 
 const ListedCategory = ({ _id, name }) => (
-  <ResultContainer as="li">
-    <ResultHeader
+  <ItemContainer as="li">
+    <ItemHeader
       _id={_id}
       name={name}
       as="div"
       headerLevel="h3"
       deleteButtonLabel="Delete category"
     />
-  </ResultContainer>
+  </ItemContainer>
 );
 
 export default ListedCategory;

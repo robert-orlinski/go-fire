@@ -22,7 +22,7 @@ const StartPage = () => (
     </Banner>
     <CenterContainer>
       <LinkBoxes as="ul">
-        <LinkBox to="/results">
+        <LinkBox to="/entries">
           <EntriesImage style={boxIllustrationStyles} />
           <BoxedLink>Read about my decisions</BoxedLink>
         </LinkBox>

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ResultBox, ResultSection } from '../../../common/containers';
+import { ItemBox, ItemSection } from '../../../common/containers';
 
-const ResultStyledEntry = styled.span`
+const ItemStyledEntry = styled.span`
   &::after {
     display: inline-block;
     position: relative;
@@ -18,19 +18,19 @@ const ResultStyledEntry = styled.span`
   }
 `;
 
-const ResultDate = styled(ResultStyledEntry)`
+const ItemDate = styled(ItemStyledEntry)`
   &::after {
     width: 60px;
   }
 `;
 
-const ResultAmount = styled(ResultStyledEntry)`
+const ItemAmount = styled(ItemStyledEntry)`
   &::after {
     width: 30px;
   }
 `;
 
-const ResultDataLine = styled(ResultBox)`
+const ItemDataLine = styled(ItemBox)`
   justify-content: space-between;
 
   &:not(:last-of-type) {
@@ -38,20 +38,20 @@ const ResultDataLine = styled(ResultBox)`
   }
 `;
 
-const ResultData = ({ price, amount, date, wholePrice }) => {
+const ItemData = ({ price, amount, date, wholePrice }) => {
   return (
-    <ResultSection>
+    <ItemSection>
       <h2>Data:</h2>
-      <ResultDataLine as="p">
+      <ItemDataLine as="p">
         <span>
-          <ResultDate>{date}</ResultDate>
-          <ResultAmount>{amount} papers</ResultAmount>
+          <ItemDate>{date}</ItemDate>
+          <ItemAmount>{amount} papers</ItemAmount>
           <span>{price} zł</span>
         </span>
         <span>Total: {wholePrice}</span>
-      </ResultDataLine>
-    </ResultSection>
+      </ItemDataLine>
+    </ItemSection>
   );
 };
 
-export default ResultData;
+export default ItemData;

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { ResultSection } from '../../../common/containers';
+import { ItemSection } from '../../../common/containers';
 import { TextWithoutSpace } from '../../../common/texts';
 
-const ResultDescription = ({ title, description }) => (
-  <ResultSection>
+const ItemDescription = ({ title, description }) => (
+  <ItemSection>
     <h2>{title}</h2>
     <TextWithoutSpace>{description}</TextWithoutSpace>
-  </ResultSection>
+  </ItemSection>
 );
 
-export default ResultDescription;
+export default ItemDescription;

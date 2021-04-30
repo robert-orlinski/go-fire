@@ -4,21 +4,21 @@ import styled from 'styled-components';
 import DeleteButton from './DeleteButton';
 
 import { Button } from '../../../common/buttons';
-import { ResultBox } from '../../../common/containers';
+import { ItemBox } from '../../../common/containers';
 import { HeaderWithoutSpace, TextWithoutSpace } from '../../../common/texts';
 
-const ResultHeaderContainer = styled(ResultBox)`
+const ItemHeaderContainer = styled(ItemBox)`
   position: relative;
 
   padding: var(--vertical-padding) var(--horizontal-padding);
   justify-content: space-between;
 `;
 
-const ResultHeaderInner = styled.div`
+const ItemHeaderInner = styled.div`
   max-width: calc(100% - 200px);
 `;
 
-const ResultHeader = ({
+const ItemHeader = ({
   _id,
   name,
   wholePrice,
@@ -30,15 +30,15 @@ const ResultHeader = ({
   deleteButtonLabel,
 }) => {
   return (
-    <ResultHeaderContainer as={as}>
-      <ResultHeaderInner>
+    <ItemHeaderContainer as={as}>
+      <ItemHeaderInner>
         <HeaderWithoutSpace as={headerLevel}>{name}</HeaderWithoutSpace>
         {wholePrice && (
           <TextWithoutSpace style={{ padding: '0.3rem 0 0' }}>
             {wholePrice}
           </TextWithoutSpace>
         )}
-      </ResultHeaderInner>
+      </ItemHeaderInner>
       {buttonLabel && (
         <Button
           as="button"
@@ -48,8 +48,8 @@ const ResultHeader = ({
         </Button>
       )}
       <DeleteButton _id={_id} label={deleteButtonLabel} />
-    </ResultHeaderContainer>
+    </ItemHeaderContainer>
   );
 };
 
-export default ResultHeader;
+export default ItemHeader;

@@ -14,7 +14,7 @@ const AddCategoryContainer = () => (
     </Banner>
     <NarrowContainer>
       <CenteredText>
-        The category you add, will be shown in the "add new result" form.
+        The category you add, will be shown in the "add new entry" form.
       </CenteredText>
       <AddCategoryForm />
     </NarrowContainer>
