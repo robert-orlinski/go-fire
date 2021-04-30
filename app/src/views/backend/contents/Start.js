@@ -15,7 +15,7 @@ import {
 
 import Banner from '../../../components/backend/Banner';
 
-const StartPage = () => (
+const Start = () => (
   <>
     <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
       What you want to do?
@@ -39,4 +39,4 @@ const StartPage = () => (
   </>
 );
 
-export default StartPage;
+export default Start;

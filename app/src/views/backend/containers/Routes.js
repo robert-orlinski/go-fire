@@ -2,11 +2,11 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import AddCategoryContainer from '../contents/AddCategory';
-import AddEntryContainer from '../contents/AddEntry';
+import AddCategory from '../contents/AddCategory';
+import AddEntry from '../contents/AddEntry';
 import Categories from '../contents/Categories';
 import Entries from '../contents/Entries';
-import StartPage from '../contents/StartPage';
+import Start from '../contents/Start';
 
 const PageContent = styled.article`
   width: calc(100%);
@@ -16,10 +16,10 @@ const Routes = () => (
   <Switch>
     <PageContent>
       <Route exact path="/add-category">
-        <AddCategoryContainer />
+        <AddCategory />
       </Route>
       <Route exact path="/add-entry">
-        <AddEntryContainer />
+        <AddEntry />
       </Route>
       <Route exact path="/categories">
         <Categories />
@@ -28,7 +28,7 @@ const Routes = () => (
         <Entries />
       </Route>
       <Route exact path="/">
-        <StartPage />
+        <Start />
       </Route>
     </PageContent>
   </Switch>

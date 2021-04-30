@@ -7,7 +7,7 @@ import { CenteredText } from '../../../components/common/texts';
 import AddCategoryForm from '../../../components/backend/forms/AddCategoryForm';
 import Banner from '../../../components/backend/Banner';
 
-const AddCategoryContainer = () => (
+const AddCategory = () => (
   <>
     <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
       Add category
@@ -21,4 +21,4 @@ const AddCategoryContainer = () => (
   </>
 );
 
-export default AddCategoryContainer;
+export default AddCategory;

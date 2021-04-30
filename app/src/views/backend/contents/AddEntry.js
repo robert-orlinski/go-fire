@@ -8,7 +8,7 @@ import { CenteredText } from '../../../components/common/texts';
 import AddEntryForm from '../../../components/backend/forms/AddEntryForm';
 import Banner from '../../../components/backend/Banner';
 
-const AddEntryContainer = () => (
+const AddEntry = () => (
   <>
     <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
       Add new entry
@@ -23,4 +23,4 @@ const AddEntryContainer = () => (
   </>
 );
 
-export default AddEntryContainer;
+export default AddEntry;
