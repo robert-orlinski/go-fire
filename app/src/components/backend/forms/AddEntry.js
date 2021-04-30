@@ -12,11 +12,13 @@ import {
 import { CustomForm, Checkboxes } from '../../common/fields';
 import { ButtonWithSpace } from '../../common/buttons';
 
-import TextField from './fields/Text';
-import Checkbox from './fields/Checkbox';
+import TextField from './atoms/Text';
+import Checkbox from './atoms/Checkbox';
+import FinalMessage from './atoms/FinalMessage';
 
 const AddEntryForm = () => {
   const [categories, setCategories] = useState([]);
+  const [finalMessage, setFinalMessage] = useState(null);
 
   useEffect(() => {
     getCategories(setCategories);
@@ -35,7 +37,9 @@ const AddEntryForm = () => {
       }}
       validate={handleEntryAddValidation}
       onSubmit={(values, { resetForm }) => {
-        addEntry(values);
+        addEntry(values).then((message) => {
+          setFinalMessage(message);
+        });
 
         resetForm();
       }}
@@ -117,6 +121,7 @@ const AddEntryForm = () => {
           <ButtonWithSpace type="submit" as="button">
             Add entry
           </ButtonWithSpace>
+          <FinalMessage message={finalMessage} />
         </CustomForm>
       )}
     </Formik>

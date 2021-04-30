@@ -10,10 +10,10 @@ import {
 
 import { CustomForm, Checkboxes } from '../../common/fields';
 import { ButtonWithSpace } from '../../common/buttons';
-import { CenteredText } from '../../common/texts';
 
-import TextField from './fields/Text';
-import Checkbox from './fields/Checkbox';
+import TextField from './atoms/Text';
+import Checkbox from './atoms/Checkbox';
+import FinalMessage from './atoms/FinalMessage';
 
 const AddCategoryForm = () => {
   const [finalMessage, setFinalMessage] = useState(null);
@@ -58,9 +58,7 @@ const AddCategoryForm = () => {
           <ButtonWithSpace type="submit" as="button">
             Add category
           </ButtonWithSpace>
-          <CenteredText style={{ marginTop: '2rem' }}>
-            {finalMessage}
-          </CenteredText>
+          <FinalMessage message={finalMessage} />
         </CustomForm>
       )}
     </Formik>

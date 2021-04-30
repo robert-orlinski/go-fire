@@ -1,12 +1,18 @@
-export const addEntry = (values) => {
-  fetch(`${process.env.REACT_APP_API_URL}/add-entry`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(values, null, 2),
-  });
+export const addEntry = async (values) => {
+  try {
+    await fetch(`${process.env.REACT_APP_API_URL}/add-entry`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(values, null, 2),
+    });
+
+    return 'Entry has been added! 🌷';
+  } catch (error) {
+    return `There is an error: ${error} 🙈 `;
+  }
 };
 
-export const getEntries = async (setResultsFunction) => {
+export const getEntries = async (setResultsHandler) => {
   const response = await fetch(
     `${process.env.REACT_APP_API_URL}/get-all-entries`,
     {
@@ -15,7 +21,7 @@ export const getEntries = async (setResultsFunction) => {
     }
   );
 
-  response.json().then((data) => setResultsFunction(Object.values(data)));
+  response.json().then((data) => setResultsHandler(Object.values(data)));
 };
 
 export const addCategory = async (values) => {
@@ -52,8 +58,8 @@ export const editEntry = (values) => {
   });
 };
 
-export const deleteEntry = (id) => {
-  fetch(`${process.env.REACT_APP_API_URL}/delete-entry`, {
+export const deleteEntry = async (id) => {
+  await fetch(`${process.env.REACT_APP_API_URL}/delete-entry`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ id }, null, 2),
