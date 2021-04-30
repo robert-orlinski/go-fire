@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import { addCategory } from '../../../common/api/requests';
 
 import {
-  handleCategoryValidation,
+  handleCategoryAddValidation,
   highlightFieldIfErrorWillOccur,
 } from './helpers/validation';
 
@@ -24,7 +24,7 @@ const AddCategoryForm = () => {
         name: '',
         type: 'transaction',
       }}
-      validate={handleCategoryValidation}
+      validate={handleCategoryAddValidation}
       onSubmit={(values, { resetForm }) => {
         addCategory(values).then((message) => {
           setFinalMessage(message);

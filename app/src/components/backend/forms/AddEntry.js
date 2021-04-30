@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 
+import { returnSlug } from '../../../common/helpers/mixins';
 import { addEntry, getCategories } from '../../../common/api/requests';
+
+import {
+  handleEntryAddValidation,
+  highlightFieldIfErrorWillOccur,
+} from './helpers/validation';
+
 import { CustomForm, Checkboxes } from '../../common/fields';
 import { ButtonWithSpace } from '../../common/buttons';
 
@@ -18,51 +25,53 @@ const AddEntryForm = () => {
   return (
     <Formik
       initialValues={{
-        operation: '',
+        operation: 'buying',
         name: '',
-        type: '',
+        type: 'stock',
         price: '',
         amount: '',
         date: '',
         message: '',
       }}
+      validate={handleEntryAddValidation}
       onSubmit={(values, { resetForm }) => {
         addEntry(values);
+
         resetForm();
       }}
     >
-      {({
-        values,
-        touched,
-        errors,
-        dirty,
-        isSubmitting,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-      }) => (
+      {({ touched, errors }) => (
         <CustomForm>
           <Checkboxes>
-            {categories.map(
-              ({ type, name }, i) =>
+            {categories.map(({ type, name }, i) => {
+              const slug = returnSlug(name);
+
+              return (
                 type === 'operation' && (
                   <Checkbox
                     name="operation"
-                    value={name}
+                    value={slug}
                     placeholder={name}
                     key={`operation-${name}-${i}`}
                   />
                 )
-            )}
+              );
+            })}
           </Checkboxes>
-          <TextField name="name" placeholder="Title" type="text" />
+          <TextField
+            name="name"
+            placeholder="Title"
+            type="text"
+            error={errors.name}
+            style={highlightFieldIfErrorWillOccur(errors, 'name', touched.name)}
+          />
           <Checkboxes>
             {categories.map(
               ({ type, name }, i) =>
                 type === 'type' && (
                   <Checkbox
                     name="type"
-                    value={name}
+                    value={name.toLowerCase()}
                     placeholder={name}
                     key={`type-${name}-${i}`}
                   />
@@ -75,13 +84,31 @@ const AddEntryForm = () => {
             type="number"
             step="0.01"
             min="0.01"
+            error={errors.price}
+            style={highlightFieldIfErrorWillOccur(
+              errors,
+              'price',
+              touched.price
+            )}
           />
           <TextField
             name="amount"
             placeholder="Amount of papers"
             type="number"
+            error={errors.amount}
+            style={highlightFieldIfErrorWillOccur(
+              errors,
+              'amount',
+              touched.amount
+            )}
           />
-          <TextField name="date" placeholder="Date" type="date" />
+          <TextField
+            name="date"
+            placeholder="Date"
+            type="date"
+            error={errors.date}
+            style={highlightFieldIfErrorWillOccur(errors, 'date', touched.date)}
+          />
           <TextField
             name="message"
             placeholder="Additional info"

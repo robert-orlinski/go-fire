@@ -16,3 +16,10 @@ export const returnNiceWholePrice = (firstNumber, secondNumber) => {
   const product = firstNumber * secondNumber;
   return `${product.toFixed(2).replace(/(?=(\d{3})+(?!\d))/g, ' ')} zł`;
 };
+
+export const returnSlug = (name) => {
+  return name
+    .toLowerCase()
+    .replace(/([^\w ]+)/g, '')
+    .replace(/ +/g, '-');
+};

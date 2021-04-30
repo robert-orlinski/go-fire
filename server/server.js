@@ -26,6 +26,7 @@ MongoClient.connect(process.env.ATLAS_URL, {
 
     app.post('/add-entry', (req, res) => {
       collections.entries.insertOne(req.body);
+      res.end();
     });
 
     app.get('/get-all-entries', (req, res) => {
@@ -36,6 +37,7 @@ MongoClient.connect(process.env.ATLAS_URL, {
           res.send(result);
         })
         .catch((error) => console.error(error));
+      res.end();
     });
 
     app.post('/add-category', (req, res) => {
@@ -72,12 +74,14 @@ MongoClient.connect(process.env.ATLAS_URL, {
           }
         )
         .catch((error) => console.error(error));
+      res.end();
     });
 
     app.delete('/delete-entry', (req, res) => {
       collections.entries
         .deleteOne({ _id: ObjectId(req.body.id) })
         .catch((error) => console.error(error));
+      res.end();
     });
   })
   .catch((error) => console.log(error));
