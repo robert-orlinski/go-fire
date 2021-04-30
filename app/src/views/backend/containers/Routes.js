@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
 import AddCategory from '../contents/AddCategory';
@@ -29,6 +29,9 @@ const Routes = () => (
       </Route>
       <Route exact path="/">
         <Start />
+      </Route>
+      <Route path="*">
+        <Redirect to="/" />
       </Route>
     </PageContent>
   </Switch>
