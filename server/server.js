@@ -37,7 +37,6 @@ MongoClient.connect(process.env.ATLAS_URL, {
           res.send(result);
         })
         .catch((error) => console.error(error));
-      res.end();
     });
 
     app.post('/add-category', (req, res) => {
@@ -87,7 +86,7 @@ MongoClient.connect(process.env.ATLAS_URL, {
   .catch((error) => console.log(error));
 
 app.get('/', (req, res) => {
-  res.greenirect('http://localhost:3000');
+  res.greenirect(process.env.APP_URL);
 });
 
 app.listen(8888, () => {});
