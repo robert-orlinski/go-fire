@@ -43,6 +43,7 @@ const ItemHeader = ({
         <Button
           as="button"
           onClick={() => handleButtonClick(!isContainerVisible)}
+          style={{ minWidth: '180px' }}
         >
           {buttonLabel}
         </Button>

@@ -40,7 +40,7 @@ const ListedEntry = ({
         wholePrice={wholePrice}
         isContainerVisible={isContainerVisible}
         handleButtonClick={toggleContainerVisibility}
-        buttonLabel="More info"
+        buttonLabel={isContainerVisible ? 'Show less' : 'Show more'}
         deleteButtonLabel="Delete entry"
       />
       <ItemContent
