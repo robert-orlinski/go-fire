@@ -53,7 +53,6 @@ const ListedEntry = ({
           title="Categories:"
           operation={operation}
           category={type}
-          // TODO: make it display whole category names
         />
         <ItemData
           price={price}
