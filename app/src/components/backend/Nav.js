@@ -1,68 +1,23 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
-import { ReactComponent as Brand } from './../../static/identity/go-fire.svg';
-import { ListWithoutSpace } from '../common/texts';
-import { UnstyledLink } from '../common/links';
-import { VisuallyHiddenElement } from '../common/accesibility';
+import NavContainer from './nav/NavContainer';
+import Brand from './nav/Brand';
+import HamburgerMenu from './nav/HamburgerMenu';
+import NavList from './nav/NavList';
 
-const NavContainer = styled.nav`
-  position: fixed;
+const Nav = () => {
+  const [isMobileMenuVisible, setMobileMenuVisibility] = useState(false);
 
-  width: var(--nav-width-desktop);
-  height: 100vh;
-  padding: 3rem;
-
-  top: 0;
-  left: 0;
-
-  box-shadow: 0 4px 16px 0 var(--transparent-green-max);
-`;
-
-const StyledBrand = styled(Brand)`
-  width: 130px;
-  height: auto;
-`;
-
-const NavInner = styled(ListWithoutSpace)`
-  padding-top: 4rem;
-`;
-
-const NavElement = styled.li`
-  font-size: 1.4rem;
-
-  &:not(:last-of-type) {
-    padding-bottom: 1rem;
-  }
-`;
-
-const Nav = () => (
-  <NavContainer>
-    <UnstyledLink to="/">
-      <StyledBrand />
-      <VisuallyHiddenElement as="h1">
-        GoFIRE - the app to help you become financially independent
-      </VisuallyHiddenElement>
-    </UnstyledLink>
-    <NavInner as="ul">
-      <NavElement key="start">
-        <Link to="/">Start</Link>
-      </NavElement>
-      <NavElement key="entries">
-        <Link to="/entries">Entries</Link>
-      </NavElement>
-      <NavElement key="categories">
-        <Link to="/categories">Categories</Link>
-      </NavElement>
-      <NavElement key="addEntry">
-        <Link to="/add-entry">Add entry</Link>
-      </NavElement>
-      <NavElement key="addCategory">
-        <Link to="/add-category">Add category</Link>
-      </NavElement>
-    </NavInner>
-  </NavContainer>
-);
+  return (
+    <NavContainer>
+      <Brand />
+      <HamburgerMenu
+        onClick={() => setMobileMenuVisibility(!isMobileMenuVisible)}
+        isActive={isMobileMenuVisible}
+      />
+      <NavList isVisible={isMobileMenuVisible} />
+    </NavContainer>
+  );
+};
 
 export default Nav;

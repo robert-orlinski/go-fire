@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { ornament } from '../helpers/mixins';
+import { maxD } from '../helpers/devices';
+
 import cssVariables from './variables';
 
 import '@fontsource/montserrat/700.css';
@@ -17,6 +18,10 @@ const GlobalStyles = createGlobalStyle`
   :root {
     font-weight: 700;
     font-size: 14px;
+
+    @media ${maxD.mobileS} {
+      font-size: 12.5px;
+    }
   }
 
   *::selection {
@@ -27,16 +32,18 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
+    width: 100vw;
+
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+
     touch-action: manipulation;
-    font-size: 80%;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
     scroll-behavior: smooth;
     overflow-x: hidden;
-
-    width: 100vw;
 
     &.disabled-scroll {
         overflow: hidden;
@@ -217,6 +224,7 @@ const GlobalStyles = createGlobalStyle`
     
   button {
     border: none;
+    padding: 0;
     background-color: transparent;
 
     &:hover {

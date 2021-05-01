@@ -1,5 +1,7 @@
 import { css } from 'styled-components';
 
+import { maxD } from '../helpers/devices';
+
 const cssVariables = css`
   :root {
     --flex: display: flex;
@@ -24,8 +26,20 @@ const cssVariables = css`
     --brightened-opacity: 0.7;
     --short-transition-duration: 300ms;
 
-    --nav-width-desktop: min(350px, 20vw);
-    --banner-height-desktop: 300px;
+    --max-z-index: 999;
+
+    --nav-width: max(270px, 20vw);
+    --nav-height: 100vh;
+    --banner-height: 300px;
+
+    @media ${maxD.tabletL} {
+      --nav-width: 100%;
+      --nav-height: calc(6.3rem);
+    }
+
+    @media ${maxD.mobileL} {
+      --nav-height: calc(5.4rem);
+    }
   }
 `;
 

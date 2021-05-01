@@ -47,8 +47,8 @@ export const getCategories = async (setCategoriesHandler) => {
   response.json().then((data) => setCategoriesHandler(Object.values(data)));
 };
 
-export const editEntry = (values) => {
-  fetch(`${process.env.REACT_APP_API_URL}/edit-entry`, {
+export const editEntry = async (values) => {
+  await fetch(`${process.env.REACT_APP_API_URL}/edit-entry`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(values, null, 2),

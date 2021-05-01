@@ -12,9 +12,9 @@ const BannerInner = styled.header`
   position: relative;
 
   width: 100%;
-  height: var(--banner-height-desktop);
+  height: var(--banner-height);
 
-  padding: 0 min(8vw 100px);
+  padding: 0 min(8vw, 100px);
 
   background-size: cover;
   background-position: center;
