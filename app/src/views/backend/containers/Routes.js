@@ -13,8 +13,8 @@ const PageContent = styled.article`
 `;
 
 const Routes = () => (
-  <Switch>
-    <PageContent>
+  <PageContent>
+    <Switch>
       <Route exact path="/add-category">
         <AddCategory />
       </Route>
@@ -30,11 +30,11 @@ const Routes = () => (
       <Route exact path="/">
         <Start />
       </Route>
-      <Route path="*">
+      <Route exact path="*">
         <Redirect to="/" />
       </Route>
-    </PageContent>
-  </Switch>
+    </Switch>
+  </PageContent>
 );
 
 export default Routes;

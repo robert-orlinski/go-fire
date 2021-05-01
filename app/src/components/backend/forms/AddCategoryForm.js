@@ -45,12 +45,14 @@ const AddCategoryForm = () => {
             <Checkbox
               name="type"
               value="operation"
+              id="operation"
               placeholder="Operation type"
               type="radio"
             />
             <Checkbox
               name="type"
               value="type"
+              id="type"
               placeholder="Investment type"
               type="radio"
             />

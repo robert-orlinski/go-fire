@@ -6,8 +6,10 @@ import ItemCategories from './ItemCategories';
 import ItemDescription from './Description';
 import ItemHeader from './Header';
 import ItemData from './Data';
+import EditForm from './EditForm';
 
 import { returnNiceWholePrice } from '../../../../common/helpers/mixins';
+import { visuallyHiddenElementInlineStyle } from '../../../common/accesibility';
 
 const ListedEntry = ({
   _id,
@@ -41,7 +43,9 @@ const ListedEntry = ({
         buttonLabel="More info"
         deleteButtonLabel="Delete entry"
       />
-      <ItemContent style={isContainerVisible || { display: 'none' }}>
+      <ItemContent
+        style={isContainerVisible || visuallyHiddenElementInlineStyle}
+      >
         {message && (
           <ItemDescription title="Description:" description={message} />
         )}
@@ -49,12 +53,23 @@ const ListedEntry = ({
           title="Categories:"
           operation={operation}
           category={type}
+          // TODO: make it display whole category names
         />
         <ItemData
           price={price}
           amount={amount}
           date={formattedDate}
           wholePrice={wholePrice}
+        />
+        <EditForm
+          _id={_id}
+          operation={operation}
+          name={name}
+          type={type}
+          price={price}
+          amount={amount}
+          date={date}
+          message={message}
         />
       </ItemContent>
     </ItemContainer>

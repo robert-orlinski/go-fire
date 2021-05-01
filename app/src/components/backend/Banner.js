@@ -11,7 +11,7 @@ const BannerInner = styled.header`
 
   position: relative;
 
-  width: calc(100%);
+  width: 100%;
   height: var(--banner-height-desktop);
 
   padding: 0 min(8vw 100px);

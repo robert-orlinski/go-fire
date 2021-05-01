@@ -25,7 +25,17 @@ MongoClient.connect(process.env.ATLAS_URL, {
     };
 
     app.post('/add-entry', (req, res) => {
-      collections.entries.insertOne(req.body);
+      const _id = req.body._id || ObjectId();
+
+      (() => {
+        const isNewEntry = _id !== req.body._id;
+        if (isNewEntry) delete req.body._id;
+      })();
+
+      collections.entries.replaceOne({ _id: _id }, req.body, {
+        upsert: true,
+      });
+
       res.end();
     });
 

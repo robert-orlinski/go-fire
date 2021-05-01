@@ -1,22 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 
+import TextField from './atoms/Text';
+import Checkbox from './atoms/Checkbox';
+import FinalMessage from './atoms/FinalMessage';
+
 import { returnSlug } from '../../../common/helpers/mixins';
 import { addEntry, getCategories } from '../../../common/api/requests';
-
 import {
   handleEntryAddValidation,
   highlightFieldIfErrorWillOccur,
 } from './helpers/validation';
 
 import { CustomForm, Checkboxes } from '../../common/fields';
-import { ButtonWithSpace } from '../../common/buttons';
+import { Button } from '../../common/buttons';
 
-import TextField from './atoms/Text';
-import Checkbox from './atoms/Checkbox';
-import FinalMessage from './atoms/FinalMessage';
-
-const AddEntryForm = () => {
+const AddEntryForm = ({
+  _id,
+  operation,
+  name,
+  type,
+  price,
+  amount,
+  date,
+  message,
+  formStyle,
+  buttonStyle,
+  buttonLabel = 'Add entry',
+}) => {
   const [categories, setCategories] = useState([]);
   const [finalMessage, setFinalMessage] = useState(null);
 
@@ -27,13 +38,14 @@ const AddEntryForm = () => {
   return (
     <Formik
       initialValues={{
-        operation: 'purchase',
-        name: '',
-        type: 'stock',
-        price: '',
-        amount: '',
-        date: '',
-        message: '',
+        _id: _id || null,
+        operation: operation || 'purchase',
+        name: name || '',
+        type: type || 'stock',
+        price: price || '',
+        amount: amount || '',
+        date: date || '',
+        message: message || '',
       }}
       validate={handleEntryAddValidation}
       onSubmit={(values, { resetForm }) => {
@@ -45,7 +57,7 @@ const AddEntryForm = () => {
       }}
     >
       {({ touched, errors }) => (
-        <CustomForm>
+        <CustomForm style={formStyle}>
           <Checkboxes>
             {categories.map(({ type, name }, i) => {
               const slug = returnSlug(name);
@@ -55,6 +67,7 @@ const AddEntryForm = () => {
                   <Checkbox
                     name="operation"
                     value={slug}
+                    id={_id ? `${_id}-${slug}` : slug}
                     placeholder={name}
                     key={`operation-${name}-${i}`}
                   />
@@ -70,17 +83,21 @@ const AddEntryForm = () => {
             style={highlightFieldIfErrorWillOccur(errors, 'name', touched.name)}
           />
           <Checkboxes>
-            {categories.map(
-              ({ type, name }, i) =>
+            {categories.map(({ type, name }, i) => {
+              const slug = returnSlug(name);
+
+              return (
                 type === 'type' && (
                   <Checkbox
                     name="type"
-                    value={name.toLowerCase()}
+                    value={slug}
+                    id={_id ? `${_id}-${slug}` : slug}
                     placeholder={name}
                     key={`type-${name}-${i}`}
                   />
                 )
-            )}
+              );
+            })}
           </Checkboxes>
           <TextField
             name="price"
@@ -118,9 +135,9 @@ const AddEntryForm = () => {
             placeholder="Additional info"
             component="textarea"
           />
-          <ButtonWithSpace type="submit" as="button">
-            Add entry
-          </ButtonWithSpace>
+          <Button type="submit" as="button" style={buttonStyle}>
+            {buttonLabel}
+          </Button>
           <FinalMessage message={finalMessage} />
         </CustomForm>
       )}

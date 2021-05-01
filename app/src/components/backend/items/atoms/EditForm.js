@@ -1,16 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import AddEntryForm from '../../forms/AddEntryForm';
 
 import { Button } from '../../../common/buttons';
 import { ItemSection } from '../../../common/containers';
-import EditEntryForm from '../../forms/EditEntry';
 
-const EditForm = ({ buttonTitle, onButtonClick, id, formStyle }) => (
-  <ItemSection as="footer">
-    <Button as="button" onClick={onButtonClick}>
-      {buttonTitle}
-    </Button>
-    <EditEntryForm id={id} style={formStyle} />
-  </ItemSection>
-);
+import { visuallyHiddenElementInlineStyle } from '../../../common/accesibility';
+
+const EditForm = ({
+  _id,
+  operation,
+  name,
+  type,
+  price,
+  amount,
+  date,
+  message,
+}) => {
+  const [isFormVisible, toggleFormVisibility] = useState(false);
+
+  return (
+    <ItemSection as="footer" style={{ paddingTop: '1.5rem' }}>
+      <Button as="button" onClick={() => toggleFormVisibility(!isFormVisible)}>
+        Edit entry
+      </Button>
+      <AddEntryForm
+        _id={_id}
+        operation={operation}
+        name={name}
+        type={type}
+        price={price}
+        amount={amount}
+        date={date}
+        message={message}
+        formStyle={
+          isFormVisible
+            ? { paddingTop: '1.5rem' }
+            : visuallyHiddenElementInlineStyle
+        }
+        buttonLabel="Apply"
+      />
+    </ItemSection>
+  );
+};
 
 export default EditForm;

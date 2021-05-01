@@ -14,8 +14,8 @@ const ItemCategories = ({ title, operation, category }) => (
   <ItemSection>
     <h2>{title}</h2>
     <div>
-      <Category>{operation}</Category>
-      <Category>{category}</Category>
+      <Category>#{operation}</Category>
+      <Category>#{category}</Category>
     </div>
   </ItemSection>
 );
