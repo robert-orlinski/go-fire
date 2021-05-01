@@ -37,7 +37,7 @@ const ListedEntry = ({
       <ItemHeader
         _id={_id}
         name={name}
-        wholePrice={wholePrice}
+        date={formattedDate}
         isContainerVisible={isContainerVisible}
         handleButtonClick={toggleContainerVisibility}
         buttonLabel={isContainerVisible ? 'Show less' : 'Show more'}

@@ -21,7 +21,7 @@ const ItemHeaderInner = styled.div`
 const ItemHeader = ({
   _id,
   name,
-  wholePrice,
+  date,
   isContainerVisible,
   handleButtonClick,
   as,
@@ -33,9 +33,9 @@ const ItemHeader = ({
     <ItemHeaderContainer as={as}>
       <ItemHeaderInner>
         <HeaderWithoutSpace as={headerLevel}>{name}</HeaderWithoutSpace>
-        {wholePrice && (
+        {date && (
           <TextWithoutSpace style={{ padding: '0.3rem 0 0' }}>
-            {wholePrice}
+            {date}
           </TextWithoutSpace>
         )}
       </ItemHeaderInner>
