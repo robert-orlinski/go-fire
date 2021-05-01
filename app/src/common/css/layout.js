@@ -131,15 +131,15 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.4rem;
   }
 
   h2 {
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
 
   h3 {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
   }
 
   h4 {

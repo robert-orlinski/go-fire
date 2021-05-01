@@ -4,7 +4,7 @@ const noPadding = css`
   padding: 0;
 `;
 
-export const MainTitle = styled.h1`
+export const MainTitle = styled.h2`
   text-align: center;
 
   &::after {
@@ -24,7 +24,7 @@ export const TextWithoutSpace = styled.p`
   ${noPadding}
 `;
 
-export const HeaderWithoutSpace = styled.h2`
+export const HeaderWithoutSpace = styled.h3`
   ${noPadding}
 `;
 

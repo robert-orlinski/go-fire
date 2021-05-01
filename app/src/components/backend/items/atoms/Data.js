@@ -41,7 +41,7 @@ const ItemDataLine = styled(ItemBox)`
 const ItemData = ({ price, amount, date, wholePrice }) => {
   return (
     <ItemSection>
-      <h2>Data:</h2>
+      <h3>Data:</h3>
       <ItemDataLine as="p">
         <span>
           <ItemDate>{date}</ItemDate>

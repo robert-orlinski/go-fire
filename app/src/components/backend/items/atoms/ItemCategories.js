@@ -12,7 +12,7 @@ const Category = styled(SmallGreenBox)`
 
 const ItemCategories = ({ title, operation, category }) => (
   <ItemSection>
-    <h2>{title}</h2>
+    <h3>{title}</h3>
     <div>
       <Category>#{operation}</Category>
       <Category>#{category}</Category>

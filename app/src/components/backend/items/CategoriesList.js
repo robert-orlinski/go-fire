@@ -7,7 +7,7 @@ import ListedCategory from './atoms/ListedCategory';
 import { NarrowCenterContainer } from '../../common/containers';
 import { ListWithoutSpace } from '../../common/texts';
 
-const CategoriesListHeader = styled.h2`
+const CategoriesListHeader = styled.h3`
   padding-bottom: 3rem;
 `;
 

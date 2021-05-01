@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as Brand } from './../../static/identity/go-fire.svg';
 import { ListWithoutSpace } from '../common/texts';
 import { UnstyledLink } from '../common/links';
+import { VisuallyHiddenElement } from '../common/accesibility';
 
-const NavContainer = styled.aside`
+const NavContainer = styled.nav`
   position: fixed;
 
   width: var(--nav-width-desktop);
@@ -36,10 +37,13 @@ const NavElement = styled.li`
   }
 `;
 
-const Nav = ({ children }) => (
+const Nav = () => (
   <NavContainer>
     <UnstyledLink to="/">
       <StyledBrand />
+      <VisuallyHiddenElement as="h1">
+        GoFIRE - the app to help you become financially independent
+      </VisuallyHiddenElement>
     </UnstyledLink>
     <NavInner as="ul">
       <NavElement key="start">

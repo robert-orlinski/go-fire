@@ -9,7 +9,7 @@ const ListedCategory = ({ _id, name }) => (
       _id={_id}
       name={name}
       as="div"
-      headerLevel="h3"
+      headerLevel="h4"
       deleteButtonLabel="Delete category"
     />
   </ItemContainer>
