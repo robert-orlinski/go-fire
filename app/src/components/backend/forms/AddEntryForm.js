@@ -6,7 +6,11 @@ import Checkbox from './atoms/Checkbox';
 import FinalMessage from './atoms/FinalMessage';
 
 import { returnSlug } from '../../../common/helpers/mixins';
-import { addEntry, getCategories } from '../../../common/api/requests';
+import {
+  addEntry,
+  editEntry,
+  getCategories,
+} from '../../../common/api/requests';
 import {
   handleEntryAddValidation,
   highlightFieldIfErrorWillOccur,
@@ -49,11 +53,21 @@ const AddEntryForm = ({
       }}
       validate={handleEntryAddValidation}
       onSubmit={(values, { resetForm }) => {
-        addEntry(values).then((message) => {
-          setFinalMessage(message);
-        });
+        const isNewEntry = values._id ? false : true;
 
-        resetForm();
+        if (isNewEntry) {
+          delete values._id;
+
+          addEntry(values).then((message) => {
+            setFinalMessage(message);
+          });
+
+          resetForm();
+        } else {
+          editEntry(values).then((message) => {
+            setFinalMessage(message);
+          });
+        }
       }}
     >
       {({ touched, errors }) => (

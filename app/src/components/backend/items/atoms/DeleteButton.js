@@ -69,8 +69,6 @@ const DeleteButton = ({ _id, label }) => {
     });
     setItems(itemsWithoutDeletedEntry);
 
-    console.log(_id);
-
     deleteItem(_id);
   };
 

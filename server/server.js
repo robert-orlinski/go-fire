@@ -25,17 +25,15 @@ MongoClient.connect(process.env.ATLAS_URL, {
     };
 
     app.post('/add-entry', (req, res) => {
-      const _id = req.body._id || ObjectId();
+      collections.entries.insertOne(req.body);
+      res.end();
+    });
 
-      (() => {
-        const isNewEntry = _id !== req.body._id;
-        if (isNewEntry) delete req.body._id;
-      })();
+    app.put('/edit-entry', (req, res) => {
+      const { _id } = req.body;
+      delete req.body._id;
 
-      collections.entries.replaceOne({ _id: _id }, req.body, {
-        upsert: true,
-      });
-
+      collections.entries.replaceOne({ _id: ObjectId(_id) }, req.body);
       res.end();
     });
 
@@ -62,28 +60,6 @@ MongoClient.connect(process.env.ATLAS_URL, {
           res.send(category);
         })
         .catch((error) => console.error(error));
-    });
-
-    app.put('/edit-entry', (req, res) => {
-      collections.entries
-        .updateOne(
-          { _id: ObjectId(req.body.id) },
-          {
-            $push: {
-              values: {
-                $each: [
-                  {
-                    price: req.body.values.price,
-                    amount: req.body.values.amount,
-                    date: req.body.values.date,
-                  },
-                ],
-              },
-            },
-          }
-        )
-        .catch((error) => console.error(error));
-      res.end();
     });
 
     app.delete('/delete-item', (req, res) => {
