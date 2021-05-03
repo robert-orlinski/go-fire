@@ -75,6 +75,11 @@ const GlobalStyles = createGlobalStyle`
   h6 {
     margin: 0;
     padding: 0 0 1.8rem;
+
+    @media ${maxD.mobileM} {
+    padding: 0 0 1.5rem;
+
+    }
   }
 
   h1,

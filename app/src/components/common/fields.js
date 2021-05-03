@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 import { Field, Form } from 'formik';
 
+import { maxD } from '../../common/helpers/devices';
+
 import { pointer } from '../../common/helpers/mixins';
 import { VisuallyHiddenElement } from '../common/accesibility';
 
@@ -52,11 +54,19 @@ export const Checkboxes = styled.fieldset`
   flex-wrap: wrap;
   justify-content: center;
 
-  width: 70%;
+  width: calc(70% + 1rem);
+
+  @media ${maxD.mobileL} {
+    width: calc(80% + 1rem);
+  }
 `;
 
 export const CheckboxContainer = styled.div`
   width: 50%;
+
+  @media ${maxD.tablet} {
+    width: 100%;
+  }
 `;
 
 export const CheckboxLabel = styled.label`
@@ -69,7 +79,9 @@ export const CheckboxLabel = styled.label`
   height: calc(var(--input-height) * 0.9);
 
   padding: 0 1.3rem;
-  margin: 0 7px 1.5rem;
+  margin: 0 0.5rem 1.5rem;
+
+  text-align: center;
 
   ${pointer}
 

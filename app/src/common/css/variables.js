@@ -40,6 +40,10 @@ const cssVariables = css`
     @media ${maxD.mobileL} {
       --nav-height: calc(5.4rem);
     }
+
+    @media ${maxD.mobileS} {
+      --banner-height: 250px;
+    }
   }
 `;
 
