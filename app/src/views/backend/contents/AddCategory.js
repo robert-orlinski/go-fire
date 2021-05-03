@@ -1,5 +1,3 @@
-import React from 'react';
-
 import BannerImage from './../../../static/banners/add-category.jpg';
 
 import { NarrowContainer } from '../../../components/common/containers';

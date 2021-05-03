@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-import { CenteredText } from '../../../common/texts';
+import { CenteredTextWithoutSpace } from '../../../common/texts';
 
 const FinalMessage = ({ message }) => {
   const [messageToDisplay, setMessageToDisplay] = useState(null);
@@ -15,9 +15,9 @@ const FinalMessage = ({ message }) => {
 
   return (
     messageToDisplay && (
-      <CenteredText style={{ marginTop: '2rem' }}>
+      <CenteredTextWithoutSpace style={{ marginTop: '2rem' }}>
         {messageToDisplay}
-      </CenteredText>
+      </CenteredTextWithoutSpace>
     )
   );
 };

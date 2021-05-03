@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ItemSection } from '../../../common/containers';
 import { TextWithoutSpace } from '../../../common/texts';
 

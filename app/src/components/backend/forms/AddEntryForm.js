@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 
 import TextField from './atoms/Text';

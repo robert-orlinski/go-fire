@@ -33,3 +33,7 @@ export const ListWithoutSpace = styled.ul`
 
   list-style: none;
 `;
+
+export const CenteredTextWithoutSpace = styled(CenteredText)`
+  ${noPadding}
+`;

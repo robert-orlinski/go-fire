@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ReactComponent as NewEntryImage } from './../../../static/illustrations/new-entry.svg';
 import { ReactComponent as CategoriesImage } from './../../../static/illustrations/categories.svg';
 import { ReactComponent as EntriesImage } from './../../../static/illustrations/entries.svg';

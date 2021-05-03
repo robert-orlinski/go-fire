@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { VisuallyHiddenElement } from '../../../common/accesibility';
 import { CheckboxContainer, CheckboxLabel } from '../../../common/fields';
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import NavContainer from './nav/NavContainer';
 import Brand from './nav/Brand';

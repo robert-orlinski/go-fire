@@ -1,5 +1,4 @@
 import { ErrorMessage } from 'formik';
-import React from 'react';
 
 import { VisuallyHiddenElement } from '../../../common/accesibility';
 import { ErrorContainer, FormLine, TextInput } from '../../../common/fields';
