@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { minD, maxD } from '../../../../common/helpers/devices';
+import { maxD } from '../../../../common/helpers/devices';
 
 const ItemContainer = styled.section`
   --item-vertical-padding: 2rem;

@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import styled from 'styled-components';
 
 import { ReactComponent as Arrow } from './../../../../static/icons/arrow-down.svg';

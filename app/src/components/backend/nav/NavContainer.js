@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { minD, maxD } from '../../../common/helpers/devices';
+import { maxD } from '../../../common/helpers/devices';
 
 const NavContainer = styled.nav`
   position: fixed;
