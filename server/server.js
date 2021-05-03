@@ -90,8 +90,6 @@ MongoClient.connect(process.env.ATLAS_URL, {
       const { _id } = req.body;
 
       Object.keys(collections).map((collection) => {
-        console.log(_id);
-
         collections[collection]
           .deleteOne({ _id: ObjectId(_id) })
           .catch((error) => console.error(error));

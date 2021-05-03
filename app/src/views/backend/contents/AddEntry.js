@@ -1,6 +1,6 @@
 import React from 'react';
 
-import bannerImage from './../../../static/banners/add-entry.jpg';
+import BannerImage from './../../../static/banners/add-entry.jpg';
 
 import { NarrowContainer } from '../../../components/common/containers';
 import { CenteredText } from '../../../components/common/texts';
@@ -10,7 +10,7 @@ import Banner from '../../../components/backend/Banner';
 
 const AddEntry = () => (
   <>
-    <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
+    <Banner style={{ backgroundImage: `url(${BannerImage})` }}>
       Add new entry
     </Banner>
     <NarrowContainer>

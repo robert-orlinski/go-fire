@@ -3,45 +3,32 @@ import React from 'react';
 import { ReactComponent as NewEntryImage } from './../../../static/illustrations/new-entry.svg';
 import { ReactComponent as CategoriesImage } from './../../../static/illustrations/categories.svg';
 import { ReactComponent as EntriesImage } from './../../../static/illustrations/entries.svg';
-import bannerImage from './../../../static/banners/start.jpg';
+import BannerImage from './../../../static/banners/start.jpg';
 
-import { NarrowCenterContainer } from '../../../components/common/containers';
-import {
-  boxIllustrationStyles,
-  LinkBoxes,
-  LinkBox,
-  BoxedLink,
-} from '../../../components/common/links';
+import { CenterContainer } from '../../../components/common/containers';
 
+import BoxesContainer from '../../../components/backend/link-boxes/BoxesContainer';
+import Box from '../../../components/backend/link-boxes/Box';
 import Banner from '../../../components/backend/Banner';
 
 const Start = () => (
   <>
-    <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
+    <Banner style={{ backgroundImage: `url(${BannerImage})` }}>
       What you want to do?
     </Banner>
-    <NarrowCenterContainer>
-      <LinkBoxes>
-        <li>
-          <LinkBox to="/entries">
-            <EntriesImage style={boxIllustrationStyles} />
-            <BoxedLink>Read about my decisions</BoxedLink>
-          </LinkBox>
-        </li>
-        <li>
-          <LinkBox to="/add-entry">
-            <NewEntryImage style={boxIllustrationStyles} />
-            <BoxedLink>Add new entry</BoxedLink>
-          </LinkBox>
-        </li>
-        <li>
-          <LinkBox to="/add-category">
-            <CategoriesImage style={boxIllustrationStyles} />
-            <BoxedLink>Add new category</BoxedLink>
-          </LinkBox>
-        </li>
-      </LinkBoxes>
-    </NarrowCenterContainer>
+    <CenterContainer>
+      <BoxesContainer>
+        <Box to="/entries" title="Read about my decisions">
+          <EntriesImage />
+        </Box>
+        <Box to="/add-entry" title="Add new entry">
+          <NewEntryImage />
+        </Box>
+        <Box to="/add-category" title="Add new category">
+          <CategoriesImage />
+        </Box>
+      </BoxesContainer>
+    </CenterContainer>
   </>
 );
 

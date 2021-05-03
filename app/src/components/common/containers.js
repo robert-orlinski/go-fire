@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.article`
-  margin: 8rem 0;
+  width: min(86%, 950px);
+  margin: min(8rem, 10vw) auto;
 `;
 
 export const CenterContainer = styled(Container)`
@@ -9,8 +10,8 @@ export const CenterContainer = styled(Container)`
 `;
 
 export const NarrowContainer = styled(Container)`
+  max-width: 700px;
   margin: 5rem auto;
-  width: min(86vw, 700px);
 `;
 
 export const NarrowCenterContainer = styled(NarrowContainer)`

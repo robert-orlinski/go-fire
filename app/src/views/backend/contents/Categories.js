@@ -6,7 +6,7 @@ import { getCategories } from '../../../common/api/requests';
 import { NarrowContainer } from '../../../components/common/containers';
 
 import Banner from '../../../components/backend/Banner';
-import bannerImage from '../../../static/banners/entries.jpg';
+import BannerImage from '../../../static/banners/entries.jpg';
 import CategoriesList from '../../../components/backend/items/CategoriesList';
 
 const Categories = () => {
@@ -18,7 +18,7 @@ const Categories = () => {
 
   return (
     <>
-      <Banner style={{ backgroundImage: `url(${bannerImage})` }}>
+      <Banner style={{ backgroundImage: `url(${BannerImage})` }}>
         Categories list
       </Banner>
       <NarrowContainer>
