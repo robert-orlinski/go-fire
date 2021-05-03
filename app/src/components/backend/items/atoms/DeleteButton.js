@@ -1,46 +1,51 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
+import { maxD } from '../../../../common/helpers/devices';
+
 import ItemsContext from '../../../../views/backend/contents/Context/ItemsContext';
 
 import { deleteItem } from '../../../../common/api/requests';
 import { ornament } from '../../../../common/helpers/mixins';
 
 const Button = styled.button`
-  --button-size: 32px;
-
   display: flex;
   justify-content: center;
   align-items: center;
 
   position: absolute;
-  width: var(--button-size);
-  height: var(--button-size);
+  width: var(--item-delete-button-size);
+  height: var(--item-delete-button-size);
 
-  top: calc(50% - var(--button-size) / 2);
-  right: calc(var(--button-size) * -2);
+  top: calc(50% - var(--item-delete-button-size) / 2);
+  right: calc(var(--item-delete-button-size) * -1.5 - var(--item-border-size));
 
   border-radius: 50%;
   background-color: var(--primary-green);
 
-  transition: opacity 200ms ease;
+  transition: opacity var(--short-transition-duration) ease;
 
   &:hover {
     opacity: 0.7;
     cursor: pointer;
   }
+
+  @media ${maxD.mobileL} {
+    top: calc(var(--item-delete-button-size) * -0.5);
+    right: calc(var(--item-delete-button-size) * -0.5);
+  }
 `;
 
 const ButtonInner = styled.span`
-  width: calc(var(--button-size) * 0.44);
-  height: calc(var(--button-size) * 0.44);
+  width: calc(var(--item-delete-button-size) * 0.44);
+  height: calc(var(--item-delete-button-size) * 0.44);
 
   &:before,
   &:after {
     ${ornament}
 
     width: 1px;
-    height: calc(var(--button-size) * 0.44);
+    height: calc(var(--item-delete-button-size) * 0.44);
     left: 50%;
 
     background-color: #fff;

@@ -1,21 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import DeleteButton from './DeleteButton';
-
-import { Button } from '../../../common/buttons';
-import { ItemBox } from '../../../common/containers';
 import { HeaderWithoutSpace, TextWithoutSpace } from '../../../common/texts';
 
-const ItemHeaderContainer = styled(ItemBox)`
-  position: relative;
+import DeleteButton from './DeleteButton';
+import MoreButton from './MoreButton';
 
-  padding: var(--vertical-padding) var(--horizontal-padding);
-  justify-content: space-between;
+const ItemHeaderContainer = styled.header`
+  position: relative;
+`;
+
+const ItemHeaderContent = styled.div`
+  width: 100%;
+  padding: var(--item-vertical-padding) var(--item-horizontal-padding);
+
+  transition: background-color var(--short-transition-duration);
+
+  &:hover {
+    background-color: var(--transparent-green-med);
+  }
 `;
 
 const ItemHeaderInner = styled.div`
-  max-width: calc(100% - 200px);
+  padding-right: calc(var(--item-more-button-size) + 1rem);
 `;
 
 const ItemHeader = ({
@@ -31,23 +38,22 @@ const ItemHeader = ({
 }) => {
   return (
     <ItemHeaderContainer as={as}>
-      <ItemHeaderInner>
-        <HeaderWithoutSpace as={headerLevel}>{name}</HeaderWithoutSpace>
-        {date && (
-          <TextWithoutSpace style={{ padding: '0.3rem 0 0' }}>
-            {date}
-          </TextWithoutSpace>
+      <ItemHeaderContent>
+        <ItemHeaderInner>
+          <HeaderWithoutSpace as={headerLevel}>{name}</HeaderWithoutSpace>
+          {date && (
+            <TextWithoutSpace style={{ padding: '0.4rem 0 0' }}>
+              {date}
+            </TextWithoutSpace>
+          )}
+        </ItemHeaderInner>
+        {buttonLabel && (
+          <MoreButton
+            label={buttonLabel}
+            onClick={() => handleButtonClick(!isContainerVisible)}
+          />
         )}
-      </ItemHeaderInner>
-      {buttonLabel && (
-        <Button
-          as="button"
-          onClick={() => handleButtonClick(!isContainerVisible)}
-          style={{ minWidth: '180px' }}
-        >
-          {buttonLabel}
-        </Button>
-      )}
+      </ItemHeaderContent>
       <DeleteButton _id={_id} label={deleteButtonLabel} />
     </ItemHeaderContainer>
   );

@@ -24,6 +24,10 @@ export const CustomForm = styled(Form)`
   align-items: center;
 
   margin: 1.5rem auto 0;
+
+  @media ${maxD.mobileM} {
+    --input-height: 48px;
+  }
 `;
 
 export const FormLine = styled.p`
@@ -36,7 +40,7 @@ export const TextInput = styled(Field)`
   width: 100%;
   height: var(--input-height);
 
-  padding: 1.2rem 1rem;
+  padding: 1.3rem;
   font-size: 1rem;
 
   &:focus {
@@ -87,6 +91,7 @@ export const CheckboxLabel = styled.label`
 
   ${VisuallyHiddenElement}:checked + & {
     background-color: var(--secondary-green);
+    color: #fff;
   }
 
   ${VisuallyHiddenElement}:focus + & {

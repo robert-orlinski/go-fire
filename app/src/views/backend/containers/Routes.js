@@ -8,8 +8,8 @@ import Categories from '../contents/Categories';
 import Entries from '../contents/Entries';
 import Start from '../contents/Start';
 
-const PageContent = styled.article`
-  width: calc(100%);
+const PageContent = styled.main`
+  width: 100%;
 `;
 
 const Routes = () => (

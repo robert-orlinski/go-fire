@@ -20,11 +20,11 @@ const cssVariables = css`
     --secondary-red: #FFCDD2;
     
     --transparent-green-min: rgba(200, 230, 201, 0.1);
-    --transparent-green-med: rgba(200, 230, 201, 0.5);
+    --transparent-green-med: rgba(200, 230, 201, 0.35);
     --transparent-green-max: rgba(200, 230, 201, 0.7);
 
     --brightened-opacity: 0.7;
-    --short-transition-duration: 300ms;
+    --short-transition-duration: 200ms;
 
     --max-z-index: 999;
 

@@ -20,9 +20,9 @@ const EditForm = ({
   const [isFormVisible, toggleFormVisibility] = useState(false);
 
   return (
-    <ItemSection as="footer" style={{ paddingTop: '1.5rem' }}>
+    <ItemSection as="footer" style={{ paddingTop: '0' }}>
       <Button as="button" onClick={() => toggleFormVisibility(!isFormVisible)}>
-        Edit entry
+        {isFormVisible ? 'Stop editing' : 'Edit entry'}
       </Button>
       <AddEntryForm
         _id={_id}

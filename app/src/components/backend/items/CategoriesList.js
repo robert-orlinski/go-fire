@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
+import { maxD } from '../../../common/helpers/devices';
+
 import ItemsContext from '../../../views/backend/contents/Context/ItemsContext';
 
 import ListedCategory from './atoms/ListedCategory';
@@ -9,6 +11,10 @@ import { ListWithoutSpace } from '../../common/texts';
 
 const CategoriesListHeader = styled.h3`
   padding-bottom: 3rem;
+
+  @media ${maxD.mobileL} {
+    padding-bottom: 2.2rem;
+  }
 `;
 
 const CategoriesListInner = styled(ListWithoutSpace)`
