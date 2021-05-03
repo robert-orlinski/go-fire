@@ -51,6 +51,7 @@ const ItemHeader = ({
           <MoreButton
             label={buttonLabel}
             onClick={() => handleButtonClick(!isContainerVisible)}
+            style={isContainerVisible ? { transform: 'rotate(180deg)' } : null}
           />
         )}
       </ItemHeaderContent>

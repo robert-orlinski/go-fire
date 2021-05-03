@@ -21,9 +21,9 @@ const StyledArrow = styled(Arrow)`
   fill: var(--primary-green);
 `;
 
-const MoreButton = ({ label, onClick }) => (
+const MoreButton = ({ label, onClick, style }) => (
   <ButtonContainer aria-label={label} onClick={onClick}>
-    <StyledArrow />
+    <StyledArrow style={style} />
   </ButtonContainer>
 );
 
