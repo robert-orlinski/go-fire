@@ -11,8 +11,8 @@ const BoxedLinkText = styled(Link)`
   }
 `;
 
-export const BoxedLink = ({ children }) => (
-  <BoxedLinkText Name="link-text" as="span">
+export const BoxedLink: React.FC = ({ children }) => (
+  <BoxedLinkText className="link-text" as="span">
     {children}
   </BoxedLinkText>
 );

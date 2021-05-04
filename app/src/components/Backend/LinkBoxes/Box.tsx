@@ -28,7 +28,12 @@ const LinkBox = styled(UnstyledLink)`
   }
 `;
 
-const Box = ({ to, title, children }) => (
+interface Props {
+  to: string;
+  title: string;
+}
+
+const Box: React.FC<Props> = ({ to, title, children }) => (
   <li>
     <LinkBox to={to}>
       {children}
