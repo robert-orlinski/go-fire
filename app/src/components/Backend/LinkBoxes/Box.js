@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { maxD } from '../../../common/helpers/devices';
 
-import { UnstyledLink } from '../../common/links';
+import { UnstyledLink } from '../../Common/links';
 
 import BoxedLink from './Link';
 

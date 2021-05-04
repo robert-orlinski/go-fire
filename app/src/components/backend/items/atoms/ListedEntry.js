@@ -9,7 +9,7 @@ import ItemData from './Data';
 import EditForm from './EditForm';
 
 import { returnNiceWholePrice } from '../../../../common/helpers/mixins';
-import { visuallyHiddenElementInlineStyle } from '../../../common/accesibility';
+import { visuallyHiddenElementInlineStyle } from '../../../Common/accesibility';
 
 const ListedEntry = ({
   _id,

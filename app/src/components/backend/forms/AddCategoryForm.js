@@ -6,14 +6,14 @@ import { addCategory } from '../../../common/api/requests';
 import {
   handleCategoryAddValidation,
   highlightFieldIfErrorWillOccur,
-} from './helpers/validation';
+} from './Helpers/validation';
 
-import { CustomForm, Checkboxes } from '../../common/fields';
-import { ButtonWithSpace } from '../../common/buttons';
+import { CustomForm, Checkboxes } from '../../Common/fields';
+import { ButtonWithSpace } from '../../Common/buttons';
 
-import TextField from './atoms/Text';
-import Checkbox from './atoms/Checkbox';
-import FinalMessage from './atoms/FinalMessage';
+import TextField from './Atoms/Text';
+import Checkbox from './Atoms/Checkbox';
+import FinalMessage from './Atoms/FinalMessage';
 
 const AddCategoryForm = () => {
   const [finalMessage, setFinalMessage] = useState(null);

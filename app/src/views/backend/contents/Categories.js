@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 import ItemsContext from './Context/ItemsContext';
 
 import { getCategories } from '../../../common/api/requests';
-import { NarrowContainer } from '../../../components/common/containers';
+import { NarrowContainer } from '../../../components/Common/containers';
 
-import Banner from '../../../components/backend/Banner';
+import Banner from '../../../components/Backend/Banner';
 import BannerImage from '../../../static/banners/entries.jpg';
-import CategoriesList from '../../../components/backend/items/CategoriesList';
+import CategoriesList from '../../../components/Backend/Items/CategoriesList';
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);

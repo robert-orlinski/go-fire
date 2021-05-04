@@ -1,11 +1,11 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
-import AddCategory from '../contents/AddCategory';
-import AddEntry from '../contents/AddEntry';
-import Categories from '../contents/Categories';
-import Entries from '../contents/Entries';
-import Start from '../contents/Start';
+import AddCategory from '../Contents/AddCategory';
+import AddEntry from '../Contents/AddEntry';
+import Categories from '../Contents/Categories';
+import Entries from '../Contents/Entries';
+import Start from '../Contents/Start';
 
 const PageContent = styled.main`
   width: 100%;

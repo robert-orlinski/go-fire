@@ -1,7 +1,7 @@
 import { ErrorMessage } from 'formik';
 
-import { VisuallyHiddenElement } from '../../../common/accesibility';
-import { ErrorContainer, FormLine, TextInput } from '../../../common/fields';
+import { VisuallyHiddenElement } from '../../../Common/accesibility';
+import { ErrorContainer, FormLine, TextInput } from '../../../Common/fields';
 
 const TextField = ({ name, placeholder, error, style, ...props }) => {
   return (

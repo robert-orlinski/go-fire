@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 import { maxD } from '../../../common/helpers/devices';
 
-import ItemsContext from '../../../views/backend/contents/Context/ItemsContext';
+import ItemsContext from '../../../views/Backend/Contents/Context/ItemsContext';
 
-import ListedCategory from './atoms/ListedCategory';
-import { NarrowCenterContainer } from '../../common/containers';
-import { ListWithoutSpace } from '../../common/texts';
+import ListedCategory from './Atoms/ListedCategory';
+import { NarrowCenterContainer } from '../../Common/containers';
+import { ListWithoutSpace } from '../../Common/texts';
 
 const CategoriesListHeader = styled.h3`
   padding-bottom: 3rem;

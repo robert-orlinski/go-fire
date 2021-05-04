@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 
-import TextField from './atoms/Text';
-import Checkbox from './atoms/Checkbox';
-import FinalMessage from './atoms/FinalMessage';
+import TextField from './Atoms/Text';
+import Checkbox from './Atoms/Checkbox';
+import FinalMessage from './Atoms/FinalMessage';
 
 import { returnSlug } from '../../../common/helpers/mixins';
 import {
@@ -14,10 +14,10 @@ import {
 import {
   handleEntryAddValidation,
   highlightFieldIfErrorWillOccur,
-} from './helpers/validation';
+} from './Helpers/validation';
 
-import { CustomForm, Checkboxes } from '../../common/fields';
-import { Button } from '../../common/buttons';
+import { CustomForm, Checkboxes } from '../../Common/fields';
+import { Button } from '../../Common/buttons';
 
 const AddEntryForm = ({
   _id,

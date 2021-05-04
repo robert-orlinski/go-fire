@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { minD, maxD } from '../../../../common/helpers/devices';
 
-import { ItemBox, ItemSection } from '../../../common/containers';
+import { ItemBox, ItemSection } from '../../../Common/containers';
 
 const ItemDataLine = styled(ItemBox)`
   justify-content: space-between;

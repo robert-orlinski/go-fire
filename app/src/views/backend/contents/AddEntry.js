@@ -1,10 +1,10 @@
 import BannerImage from './../../../static/banners/add-entry.jpg';
 
-import { NarrowContainer } from '../../../components/common/containers';
-import { CenteredText } from '../../../components/common/texts';
+import { NarrowContainer } from '../../../components/Common/containers';
+import { CenteredText } from '../../../components/Common/texts';
 
-import AddEntryForm from '../../../components/backend/forms/AddEntryForm';
-import Banner from '../../../components/backend/Banner';
+import AddEntryForm from '../../../components/Backend/Forms/AddEntryForm';
+import Banner from '../../../components/Backend/Banner';
 
 const AddEntry = () => (
   <>

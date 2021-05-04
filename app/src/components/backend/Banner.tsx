@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { ornament } from '../../common/helpers/mixins';
-import { WhiteTitle } from '../common/texts';
+import { WhiteTitle } from '../Common/texts';
 
 const BannerInner = styled.header`
   display: flex;

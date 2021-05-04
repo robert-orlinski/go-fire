@@ -1,5 +1,5 @@
-import { VisuallyHiddenElement } from '../../../common/accesibility';
-import { CheckboxContainer, CheckboxLabel } from '../../../common/fields';
+import { VisuallyHiddenElement } from '../../../Common/accesibility';
+import { CheckboxContainer, CheckboxLabel } from '../../../Common/fields';
 
 const Checkbox = ({ name, value, id, placeholder, type = 'radio' }) => {
   return (

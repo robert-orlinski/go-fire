@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { SmallGreenBox } from '../../../common/buttons';
-import { ItemSection } from '../../../common/containers';
+import { SmallGreenBox } from '../../../Common/buttons';
+import { ItemSection } from '../../../Common/containers';
 
 const Categories = styled.div`
   margin-bottom: -1rem;

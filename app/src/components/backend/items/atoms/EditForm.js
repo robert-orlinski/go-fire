@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import AddEntryForm from '../../forms/AddEntryForm';
+import AddEntryForm from '../../Forms/AddEntryForm';
 
-import { Button } from '../../../common/buttons';
-import { ItemSection } from '../../../common/containers';
+import { Button } from '../../../Common/buttons';
+import { ItemSection } from '../../../Common/containers';
 
-import { visuallyHiddenElementInlineStyle } from '../../../common/accesibility';
+import { visuallyHiddenElementInlineStyle } from '../../../Common/accesibility';
 
 const EditForm = ({
   _id,

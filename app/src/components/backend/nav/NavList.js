@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { maxD } from '../../../common/helpers/devices';
 
-import { ListWithoutSpace } from '../../common/texts';
+import { ListWithoutSpace } from '../../Common/texts';
 
 const NavInner = styled(ListWithoutSpace)`
   padding: 4rem 0 0;

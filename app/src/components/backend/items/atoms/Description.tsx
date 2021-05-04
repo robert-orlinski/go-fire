@@ -1,5 +1,5 @@
-import { ItemSection } from '../../../common/containers';
-import { TextWithoutSpace } from '../../../common/texts';
+import { ItemSection } from '../../../Common/containers';
+import { TextWithoutSpace } from '../../../Common/texts';
 
 interface Props {
   title: string;

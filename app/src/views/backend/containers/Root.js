@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { minD, maxD } from './../../../common/helpers/devices';
+import { minD, maxD } from '../../../common/helpers/devices';
 
-import Nav from '../../../components/backend/Nav';
+import Nav from '../../../components/Backend/Nav';
 import Routes from './Routes';
 
 const Main = styled.div`

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import NavContainer from './nav/NavContainer';
-import Brand from './nav/Brand';
-import HamburgerMenu from './nav/HamburgerMenu';
-import NavList from './nav/NavList';
+import NavContainer from './Nav/NavContainer';
+import Brand from './Nav/Brand';
+import HamburgerMenu from './Nav/HamburgerMenu';
+import NavList from './Nav/NavList';
 
 const Nav = () => {
   const [isMobileMenuVisible, setMobileMenuVisibility] = useState(false);

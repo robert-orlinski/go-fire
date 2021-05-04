@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { CenteredTextWithoutSpace } from '../../../common/texts';
+import { CenteredTextWithoutSpace } from '../../../Common/texts';
 
 const FinalMessage = ({ message }) => {
   const [messageToDisplay, setMessageToDisplay] = useState(null);
