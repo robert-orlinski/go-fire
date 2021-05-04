@@ -20,7 +20,13 @@ const StyledArrow = styled(Arrow)`
   fill: var(--primary-green);
 `;
 
-const MoreButton = ({ label, onClick, style }) => (
+interface Props {
+  label: string;
+  onClick: () => void;
+  style: object;
+}
+
+const MoreButton: React.FC<Props> = ({ label, onClick, style }) => (
   <ButtonContainer aria-label={label} onClick={onClick}>
     <StyledArrow style={style} />
   </ButtonContainer>

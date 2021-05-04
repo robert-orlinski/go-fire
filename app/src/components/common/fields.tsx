@@ -4,7 +4,7 @@ import { Field, Form } from 'formik';
 import { maxD } from '../../common/helpers/devices';
 
 import { pointer } from '../../common/helpers/mixins';
-import { VisuallyHiddenElement } from '../common/accesibility';
+import { VisuallyHiddenElement } from './accesibility';
 
 const sharedInputStyles = css`
   border: 0;

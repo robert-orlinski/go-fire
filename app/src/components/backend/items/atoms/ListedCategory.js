@@ -1,6 +1,11 @@
 import ItemContainer from './Container';
 import ItemHeader from './Header';
 
+// interface Props {
+//   _id: number;
+//   name: string;
+// }
+
 const ListedCategory = ({ _id, name }) => (
   <ItemContainer as="li">
     <ItemHeader

@@ -11,7 +11,13 @@ const Category = styled(SmallGreenBox)`
   margin: 0 1rem 1rem 0;
 `;
 
-const ItemCategories = ({ title, operation, category }) => (
+interface Props {
+  title: string;
+  operation: string;
+  category: string;
+}
+
+const ItemCategories: React.FC<Props> = ({ title, operation, category }) => (
   <ItemSection>
     <h3>{title}</h3>
     <Categories>

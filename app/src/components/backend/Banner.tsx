@@ -33,8 +33,12 @@ const BannerTitle = styled(WhiteTitle)`
   left: -0.35em;
 `;
 
-const Banner = ({ children, ...props }) => (
-  <BannerInner {...props}>
+interface Props {
+  style: object;
+}
+
+const Banner: React.FC<Props> = ({ children, style }) => (
+  <BannerInner style={style}>
     <BannerTitle>{children}</BannerTitle>
   </BannerInner>
 );

@@ -65,7 +65,14 @@ const ItemAmount = styled(ItemDataEntry)`
   }
 `;
 
-const ItemData = ({ price, amount, date, wholePrice }) => {
+interface Props {
+  price: number;
+  amount: number;
+  date: Date;
+  wholePrice: string;
+}
+
+const ItemData: React.FC<Props> = ({ price, amount, date, wholePrice }) => {
   return (
     <ItemSection>
       <h3>Data:</h3>
