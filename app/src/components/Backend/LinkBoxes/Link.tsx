@@ -1,14 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { maxD } from '../../../common/helpers/devices';
-
 const BoxedLinkText = styled(Link)`
-  margin-top: 5rem;
-
-  @media ${maxD.mobileL} {
-    margin-top: 3rem;
-  }
+  margin-top: 3.5rem;
 `;
 
 export const BoxedLink: React.FC = ({ children }) => (

@@ -13,7 +13,7 @@ const LinkBox = styled(UnstyledLink)`
 
   width: 250px;
 
-  padding: 3rem 2rem;
+  padding: 3.5rem 2rem;
   margin: 0 var(--link-box-margin) calc(var(--link-box-margin) * 2);
 
   box-shadow: 0 4px 16px 0 var(--transparent-green-max);

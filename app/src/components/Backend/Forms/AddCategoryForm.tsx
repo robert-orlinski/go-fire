@@ -3,10 +3,8 @@ import { Formik } from 'formik';
 
 import { addCategory } from '../../../common/api/requests';
 
-import {
-  handleCategoryAddValidation,
-  highlightFieldIfErrorWillOccur,
-} from './Helpers/validation';
+import handleCategoryAddingValidation from './Helpers/categoryAddingValidation';
+import handleFieldHighlightIfErrorWillOccur from './Helpers/fieldHighlight';
 
 import { CustomForm, Checkboxes } from '../../Common/fields';
 import { ButtonWithSpace } from '../../Common/buttons';
@@ -16,30 +14,35 @@ import Checkbox from './Atoms/Checkbox';
 import FinalMessage from './Atoms/FinalMessage';
 
 const AddCategoryForm = () => {
-  const [finalMessage, setFinalMessage] = useState(null);
+  const [finalMessage, setFinalMessage] = useState<string | null>(null);
 
   return (
     <Formik
       initialValues={{
         name: '',
-        type: 'transaction',
+        type: 'operation',
       }}
-      validate={handleCategoryAddValidation}
+      validate={handleCategoryAddingValidation}
       onSubmit={(values, { resetForm }) => {
         addCategory(values).then((message) => {
           setFinalMessage(message);
-        });
+          resetForm();
 
-        resetForm();
+          setTimeout(() => setFinalMessage(null), 3000);
+        });
       }}
     >
-      {({ errors }) => (
+      {({ touched, errors }) => (
         <CustomForm>
           <TextField
             name="name"
             placeholder="Category name (singular)"
             error={errors.name}
-            style={highlightFieldIfErrorWillOccur(errors, 'name')}
+            style={handleFieldHighlightIfErrorWillOccur(
+              errors,
+              'name',
+              touched.name
+            )}
           />
           <Checkboxes>
             <Checkbox
@@ -60,7 +63,7 @@ const AddCategoryForm = () => {
           <ButtonWithSpace type="submit" as="button">
             Add category
           </ButtonWithSpace>
-          <FinalMessage message={finalMessage} />
+          {finalMessage && <FinalMessage message={finalMessage} />}
         </CustomForm>
       )}
     </Formik>

@@ -11,15 +11,28 @@ import {
   editEntry,
   getCategories,
 } from '../../../common/api/requests';
-import {
-  handleEntryAddValidation,
-  highlightFieldIfErrorWillOccur,
-} from './Helpers/validation';
+
+import handleEntryAddingValidation from './Helpers/entryAddingValidation';
+import handleFieldHighlightIfErrorWillOccur from './Helpers/fieldHighlight';
 
 import { CustomForm, Checkboxes } from '../../Common/fields';
 import { Button } from '../../Common/buttons';
 
-const AddEntryForm = ({
+interface Props {
+  _id?: number | null;
+  operation: string;
+  name: string;
+  type: string;
+  price: number;
+  amount: number;
+  date: Date;
+  message: string;
+  formStyle?: object;
+  buttonStyle?: object;
+  buttonLabel: string;
+}
+
+const AddEntryForm: React.FC<Props> = ({
   _id,
   operation,
   name,
@@ -33,7 +46,7 @@ const AddEntryForm = ({
   buttonLabel = 'Add entry',
 }) => {
   const [categories, setCategories] = useState([]);
-  const [finalMessage, setFinalMessage] = useState(null);
+  const [finalMessage, setFinalMessage] = useState<string | null>(null);
 
   useEffect(() => {
     getCategories(setCategories);
@@ -42,7 +55,7 @@ const AddEntryForm = ({
   return (
     <Formik
       initialValues={{
-        _id: _id || null,
+        _id: _id,
         operation: operation || 'purchase',
         name: name || '',
         type: type || 'stock',
@@ -51,7 +64,7 @@ const AddEntryForm = ({
         date: date || '',
         message: message || '',
       }}
-      validate={handleEntryAddValidation}
+      validate={handleEntryAddingValidation}
       onSubmit={(values, { resetForm }) => {
         const isNewEntry = values._id ? false : true;
 
@@ -60,9 +73,8 @@ const AddEntryForm = ({
 
           addEntry(values).then((message) => {
             setFinalMessage(message);
+            resetForm();
           });
-
-          resetForm();
         } else {
           editEntry(values).then((message) => {
             setFinalMessage(message);
@@ -94,7 +106,11 @@ const AddEntryForm = ({
             placeholder="Title"
             type="text"
             error={errors.name}
-            style={highlightFieldIfErrorWillOccur(errors, 'name', touched.name)}
+            style={handleFieldHighlightIfErrorWillOccur(
+              errors,
+              'name',
+              touched.name
+            )}
           />
           <Checkboxes>
             {categories.map(({ type, name }, i) => {
@@ -117,10 +133,10 @@ const AddEntryForm = ({
             name="price"
             placeholder="Price per paper (in PLN)"
             type="number"
-            step="0.01"
-            min="0.01"
+            step={0.01}
+            min={0.01}
             error={errors.price}
-            style={highlightFieldIfErrorWillOccur(
+            style={handleFieldHighlightIfErrorWillOccur(
               errors,
               'price',
               touched.price
@@ -131,7 +147,7 @@ const AddEntryForm = ({
             placeholder="Amount of papers"
             type="number"
             error={errors.amount}
-            style={highlightFieldIfErrorWillOccur(
+            style={handleFieldHighlightIfErrorWillOccur(
               errors,
               'amount',
               touched.amount
@@ -142,7 +158,11 @@ const AddEntryForm = ({
             placeholder="Date"
             type="date"
             error={errors.date}
-            style={highlightFieldIfErrorWillOccur(errors, 'date', touched.date)}
+            style={handleFieldHighlightIfErrorWillOccur(
+              errors,
+              'date',
+              touched.date
+            )}
           />
           <TextField
             name="message"
@@ -152,7 +172,7 @@ const AddEntryForm = ({
           <Button type="submit" as="button" style={buttonStyle}>
             {buttonLabel}
           </Button>
-          <FinalMessage message={finalMessage} />
+          {finalMessage && <FinalMessage message={finalMessage} />}
         </CustomForm>
       )}
     </Formik>

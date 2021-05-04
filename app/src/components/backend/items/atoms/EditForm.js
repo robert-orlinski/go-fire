@@ -7,6 +7,19 @@ import { ItemSection } from '../../../Common/containers';
 
 import { visuallyHiddenElementInlineStyle } from '../../../Common/accesibility';
 
+// interface Props {
+//   _id: number;
+//   operation: string;
+//   name: string;
+//   type: string;
+//   price: number;
+//   amount: number;
+//   date: Date;
+//   message: string;
+// }
+
+// : React.FC<Props>
+
 const EditForm = ({
   _id,
   operation,
