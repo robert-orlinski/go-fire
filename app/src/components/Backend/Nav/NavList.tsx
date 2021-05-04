@@ -37,8 +37,12 @@ const NavElement = styled.li`
   }
 `;
 
-const NavList = ({ isVisible }) => (
-  <NavInner as="ul" className={isVisible && 'visible'}>
+interface Props {
+  isVisible: boolean;
+}
+
+const NavList: React.FC<Props> = ({ isVisible }) => (
+  <NavInner as="ul" className={isVisible ? 'visible' : ''}>
     <NavElement key="start">
       <Link to="/">Start</Link>
     </NavElement>

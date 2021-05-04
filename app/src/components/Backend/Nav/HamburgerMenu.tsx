@@ -61,12 +61,17 @@ const HamburgerInner = styled.span`
   }
 `;
 
-const HamburgerMenu = ({ onClick, isActive }) => (
+interface Props {
+  onClick: () => void;
+  isActive: boolean;
+}
+
+const HamburgerMenu: React.FC<Props> = ({ onClick, isActive }) => (
   <Hamburger
     onClick={onClick}
     aria-label={isActive ? 'Close navigation' : 'Open navigation'}
   >
-    <HamburgerInner className={isActive && 'active'} />
+    <HamburgerInner className={isActive ? 'active' : ''} />
   </Hamburger>
 );
 
