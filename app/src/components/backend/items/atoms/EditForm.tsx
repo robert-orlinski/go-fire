@@ -1,34 +1,22 @@
 import { useState } from 'react';
 
-import AddEntryForm from '../../Forms/AddEntryForm';
+import AddEntryForm from '../../forms/AddEntryForm';
 
-import { Button } from '../../../Common/buttons';
-import { ItemSection } from '../../../Common/containers';
+import { Button } from '../../../common/buttons';
+import { ItemSection } from '../../../common/containers';
 
-import { visuallyHiddenElementInlineStyle } from '../../../Common/accesibility';
+import { visuallyHiddenElementInlineStyle } from '../../../common/accesibility';
+import { EntryProps } from '../../../../common/types';
 
-// interface Props {
-//   _id: number;
-//   operation: string;
-//   name: string;
-//   type: string;
-//   price: number;
-//   amount: number;
-//   date: Date;
-//   message: string;
-// }
-
-// : React.FC<Props>
-
-const EditForm = ({
+const EditForm: React.FC<EntryProps> = ({
   _id,
   operation,
   name,
-  type,
+  category,
   price,
   amount,
   date,
-  message,
+  description,
 }) => {
   const [isFormVisible, toggleFormVisibility] = useState(false);
 
@@ -41,11 +29,11 @@ const EditForm = ({
         _id={_id}
         operation={operation}
         name={name}
-        type={type}
+        category={category}
         price={price}
         amount={amount}
         date={date}
-        message={message}
+        description={description}
         formStyle={
           isFormVisible
             ? { paddingTop: '1.5rem' }

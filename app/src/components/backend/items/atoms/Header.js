@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { HeaderWithoutSpace, TextWithoutSpace } from '../../../Common/texts';
+import { HeaderWithoutSpace, TextWithoutSpace } from '../../../common/texts';
 
 import DeleteButton from './DeleteButton';
 import MoreButton from './MoreButton';

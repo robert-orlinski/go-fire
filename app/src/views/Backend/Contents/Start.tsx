@@ -3,11 +3,11 @@ import { ReactComponent as CategoriesImage } from './../../../static/illustratio
 import { ReactComponent as EntriesImage } from './../../../static/illustrations/entries.svg';
 import BannerImage from './../../../static/banners/start.jpg';
 
-import { CenterContainer } from '../../../components/Common/containers';
+import { CenterContainer } from '../../../components/common/containers';
 
-import BoxesContainer from '../../../components/Backend/LinkBoxes/BoxesContainer';
-import Box from '../../../components/Backend/LinkBoxes/Box';
-import Banner from '../../../components/Backend/Banner';
+import BoxesContainer from '../../../components/backend/link-boxes/BoxesContainer';
+import Box from '../../../components/backend/link-boxes/Box';
+import Banner from '../../../components/backend/Banner';
 
 const Start = () => (
   <>

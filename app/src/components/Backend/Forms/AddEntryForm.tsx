@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 
-import TextField from './Atoms/Text';
-import Checkbox from './Atoms/Checkbox';
-import FinalMessage from './Atoms/FinalMessage';
+import TextField from './atoms/Text';
+import Checkbox from './atoms/Checkbox';
+import FinalMessage from './atoms/FinalMessage';
 
 import { returnSlug } from '../../../common/helpers/mixins';
 import {
@@ -12,35 +12,22 @@ import {
   getCategories,
 } from '../../../common/api/requests';
 
-import handleEntryAddingValidation from './Helpers/entryAddingValidation';
-import handleFieldHighlightIfErrorWillOccur from './Helpers/fieldHighlight';
+import handleEntryAddingValidation from './helpers/entryAddingValidation';
+import handleFieldHighlightIfErrorWillOccur from './helpers/fieldHighlight';
 
-import { CustomForm, Checkboxes } from '../../Common/fields';
-import { Button } from '../../Common/buttons';
+import { CustomForm, Checkboxes } from '../../common/fields';
+import { Button } from '../../common/buttons';
+import { EntryFormProps } from '../../../common/types';
 
-interface Props {
-  _id?: number | null;
-  operation: string;
-  name: string;
-  type: string;
-  price: number;
-  amount: number;
-  date: Date;
-  message: string;
-  formStyle?: object;
-  buttonStyle?: object;
-  buttonLabel: string;
-}
-
-const AddEntryForm: React.FC<Props> = ({
+const AddEntryForm: React.FC<EntryFormProps> = ({
   _id,
   operation,
   name,
-  type,
+  category,
   price,
   amount,
   date,
-  message,
+  description,
   formStyle,
   buttonStyle,
   buttonLabel = 'Add entry',
@@ -58,11 +45,11 @@ const AddEntryForm: React.FC<Props> = ({
         _id: _id,
         operation: operation || 'purchase',
         name: name || '',
-        type: type || 'stock',
+        category: category || 'stock',
         price: price || '',
         amount: amount || '',
         date: date || '',
-        message: message || '',
+        description: description || '',
       }}
       validate={handleEntryAddingValidation}
       onSubmit={(values, { resetForm }) => {
@@ -117,13 +104,13 @@ const AddEntryForm: React.FC<Props> = ({
               const slug = returnSlug(name);
 
               return (
-                type === 'type' && (
+                type === 'category' && (
                   <Checkbox
-                    name="type"
+                    name="category"
                     value={slug}
                     id={_id ? `${_id}-${slug}` : slug}
                     placeholder={name}
-                    key={`type-${name}-${i}`}
+                    key={`category-${name}-${i}`}
                   />
                 )
               );
@@ -165,14 +152,14 @@ const AddEntryForm: React.FC<Props> = ({
             )}
           />
           <TextField
-            name="message"
+            name="description"
             placeholder="Additional info"
             component="textarea"
           />
           <Button type="submit" as="button" style={buttonStyle}>
             {buttonLabel}
           </Button>
-          {finalMessage && <FinalMessage message={finalMessage} />}
+          {finalMessage && <FinalMessage>{finalMessage}</FinalMessage>}
         </CustomForm>
       )}
     </Formik>

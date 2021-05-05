@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 
-import ItemsContext from '../../../views/Backend/Contents/Context/ItemsContext';
+import ItemsContext from '../../../views/Backend/contents/Context/ItemsContext';
 
-import ListedEntry from './Atoms/ListedEntry';
-import { NarrowCenterContainer } from '../../Common/containers';
+import ListedEntry from './atoms/ListedEntry';
+import { NarrowCenterContainer } from '../../common/containers';
 
 const EntriesList = () => {
   const { items } = useContext(ItemsContext);

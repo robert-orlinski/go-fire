@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { maxD } from '../../../common/helpers/devices';
+import { ButtonProps } from '../../../common/types';
 
 const Hamburger = styled.button`
   display: none;
@@ -61,12 +62,7 @@ const HamburgerInner = styled.span`
   }
 `;
 
-interface Props {
-  onClick: () => void;
-  isActive: boolean;
-}
-
-const HamburgerMenu: React.FC<Props> = ({ onClick, isActive }) => (
+const HamburgerMenu: React.FC<ButtonProps> = ({ onClick, isActive }) => (
   <Hamburger
     onClick={onClick}
     aria-label={isActive ? 'Close navigation' : 'Open navigation'}

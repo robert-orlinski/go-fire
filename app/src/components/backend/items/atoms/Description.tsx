@@ -1,14 +1,10 @@
-import { ItemSection } from '../../../Common/containers';
-import { TextWithoutSpace } from '../../../Common/texts';
+import { EntryDescriptionProps } from '../../../../common/types';
+import { ItemSection } from '../../../common/containers';
+import { TextWithoutSpace } from '../../../common/texts';
 
-interface Props {
-  title: string;
-  description: string;
-}
-
-const ItemDescription: React.FC<Props> = ({ title, description }) => (
+const ItemDescription: React.FC<EntryDescriptionProps> = ({ description }) => (
   <ItemSection>
-    <h3>{title}</h3>
+    <h3>Description:</h3>
     <TextWithoutSpace>{description}</TextWithoutSpace>
   </ItemSection>
 );

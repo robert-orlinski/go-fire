@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { maxD } from '../../../common/helpers/devices';
 
-import { ListWithoutSpace } from '../../Common/texts';
+import { ListWithoutSpace } from '../../common/texts';
+import { ToggledElementProps } from '../../../common/types';
 
 const NavInner = styled(ListWithoutSpace)`
   padding: 4rem 0 0;
@@ -37,11 +38,7 @@ const NavElement = styled.li`
   }
 `;
 
-interface Props {
-  isVisible: boolean;
-}
-
-const NavList: React.FC<Props> = ({ isVisible }) => (
+const NavList: React.FC<ToggledElementProps> = ({ isVisible }) => (
   <NavInner as="ul" className={isVisible ? 'visible' : ''}>
     <NavElement key="start">
       <Link to="/">Start</Link>

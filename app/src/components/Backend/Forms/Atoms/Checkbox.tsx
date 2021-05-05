@@ -1,15 +1,8 @@
-import { VisuallyHiddenElement } from '../../../Common/accesibility';
-import { CheckboxContainer, CheckboxLabel } from '../../../Common/fields';
+import { CheckboxProps } from '../../../../common/types';
+import { VisuallyHiddenElement } from '../../../common/accesibility';
+import { CheckboxContainer, CheckboxLabel } from '../../../common/fields';
 
-interface Props {
-  name: string;
-  value: string;
-  id: string;
-  placeholder: string;
-  type?: string;
-}
-
-const Checkbox: React.FC<Props> = ({
+const Checkbox: React.FC<CheckboxProps> = ({
   name,
   value,
   id,

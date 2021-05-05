@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 import { maxD } from '../../../common/helpers/devices';
 
-import { UnstyledLink } from '../../Common/links';
-
+import { UnstyledLink } from '../../common/links';
+import { LinkProps } from '../../../common/types';
 import BoxedLink from './Link';
 
 const LinkBox = styled(UnstyledLink)`
@@ -28,12 +28,7 @@ const LinkBox = styled(UnstyledLink)`
   }
 `;
 
-interface Props {
-  to: string;
-  title: string;
-}
-
-const Box: React.FC<Props> = ({ to, title, children }) => (
+const Box: React.FC<LinkProps> = ({ to, title, children }) => (
   <li>
     <LinkBox to={to}>
       {children}

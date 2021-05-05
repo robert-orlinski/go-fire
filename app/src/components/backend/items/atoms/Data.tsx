@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 import { minD, maxD } from '../../../../common/helpers/devices';
+import { EntryDataProps } from '../../../../common/types';
 
-import { ItemBox, ItemSection } from '../../../Common/containers';
+import { ItemBox, ItemSection } from '../../../common/containers';
 
 const ItemDataLine = styled(ItemBox)`
   justify-content: space-between;
@@ -65,10 +66,7 @@ const ItemAmount = styled(ItemDataEntry)`
   }
 `;
 
-interface Props {
-  price: number;
-  amount: number;
-  date: Date;
+interface Props extends EntryDataProps {
   wholePrice: string;
 }
 

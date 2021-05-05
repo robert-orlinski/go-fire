@@ -1,12 +1,8 @@
-import { CenteredTextWithoutSpace } from '../../../Common/texts';
+import { CenteredTextWithoutSpace } from '../../../common/texts';
 
-interface Props {
-  message: string;
-}
-
-const FinalMessage: React.FC<Props> = ({ message }) => (
+const FinalMessage: React.FC = ({ children }) => (
   <CenteredTextWithoutSpace style={{ marginTop: '2rem' }}>
-    {message}
+    {children}
   </CenteredTextWithoutSpace>
 );
 export default FinalMessage;

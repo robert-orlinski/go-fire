@@ -2,24 +2,24 @@ import { useEffect, useState } from 'react';
 
 import ItemContainer from './Container';
 import ItemContent from './Content';
-import ItemCategories from './ItemCategories';
+import ItemCategories from './EntryCategories';
 import ItemDescription from './Description';
 import ItemHeader from './Header';
 import ItemData from './Data';
 import EditForm from './EditForm';
 
 import { returnNiceWholePrice } from '../../../../common/helpers/mixins';
-import { visuallyHiddenElementInlineStyle } from '../../../Common/accesibility';
+import { visuallyHiddenElementInlineStyle } from '../../../common/accesibility';
 
 const ListedEntry = ({
   _id,
   operation,
   name,
-  type,
+  category,
   price,
   amount,
   date,
-  message,
+  description,
 }) => {
   const [isContainerVisible, toggleContainerVisibility] = useState(false);
   const [wholePrice, setWholePrice] = useState(0);
@@ -46,13 +46,11 @@ const ListedEntry = ({
       <ItemContent
         style={isContainerVisible || visuallyHiddenElementInlineStyle}
       >
-        {message && (
-          <ItemDescription title="Description:" description={message} />
-        )}
+        {description && <ItemDescription description={description} />}
         <ItemCategories
           title="Categories:"
           operation={operation}
-          category={type}
+          category={category}
         />
         <ItemData
           price={price}
@@ -64,11 +62,11 @@ const ListedEntry = ({
           _id={_id}
           operation={operation}
           name={name}
-          type={type}
+          category={category}
           price={price}
           amount={amount}
           date={date}
-          message={message}
+          description={description}
         />
       </ItemContent>
     </ItemContainer>

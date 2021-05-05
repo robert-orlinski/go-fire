@@ -1,20 +1,10 @@
-import { ErrorMessage, FormikErrors } from 'formik';
+import { ErrorMessage } from 'formik';
 
-import { VisuallyHiddenElement } from '../../../Common/accesibility';
-import { ErrorContainer, FormLine, TextInput } from '../../../Common/fields';
+import { VisuallyHiddenElement } from '../../../common/accesibility';
+import { ErrorContainer, FormLine, TextInput } from '../../../common/fields';
+import { TextInputProps } from '../../../../common/types';
 
-interface Props {
-  name: string;
-  placeholder: string;
-  error?: string | FormikErrors<Date>;
-  style?: object;
-  type?: string;
-  step?: number;
-  min?: number;
-  component?: string;
-}
-
-const TextField: React.FC<Props> = ({
+const TextField: React.FC<TextInputProps> = ({
   name,
   placeholder,
   error,

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ReactComponent as Arrow } from './../../../../static/icons/arrow-down.svg';
 
 import { overlay } from '../../../../common/helpers/mixins';
+import { ButtonProps } from '../../../../common/types';
 
 const ButtonContainer = styled.button`
   display: flex;
@@ -20,13 +21,7 @@ const StyledArrow = styled(Arrow)`
   fill: var(--primary-green);
 `;
 
-interface Props {
-  label: string;
-  onClick: () => void;
-  style: object;
-}
-
-const MoreButton: React.FC<Props> = ({ label, onClick, style }) => (
+const MoreButton: React.FC<ButtonProps> = ({ label, onClick, style }) => (
   <ButtonContainer aria-label={label} onClick={onClick}>
     <StyledArrow style={style} />
   </ButtonContainer>

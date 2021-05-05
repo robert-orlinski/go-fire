@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 import ItemsContext from './Context/ItemsContext';
 
 import { getEntries } from '../../../common/api/requests';
-import { NarrowContainer } from '../../../components/Common/containers';
+import { NarrowContainer } from '../../../components/common/containers';
 
-import Banner from '../../../components/Backend/Banner';
+import Banner from '../../../components/backend/Banner';
 import BannerImage from '../../../static/banners/entries.jpg';
-import EntriesList from '../../../components/Backend/Items/EntriesList';
+import EntriesList from '../../../components/backend/items/EntriesList';
 
 const Entries = () => {
   const [entries, setEntries] = useState([]);

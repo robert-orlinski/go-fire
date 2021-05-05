@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ListWithoutSpace } from '../../Common/texts';
+import { ListWithoutSpace } from '../../common/texts';
 
 const BoxesContainer = styled(ListWithoutSpace)`
   --link-box-margin: 1.5rem;

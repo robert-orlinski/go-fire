@@ -1,9 +1,9 @@
 import BannerImage from './../../../static/banners/add-category.jpg';
 
-import { NarrowContainer } from '../../../components/Common/containers';
-import { CenteredText } from '../../../components/Common/texts';
-import AddCategoryForm from '../../../components/Backend/Forms/AddCategoryForm';
-import Banner from '../../../components/Backend/Banner';
+import { NarrowContainer } from '../../../components/common/containers';
+import { CenteredText } from '../../../components/common/texts';
+import AddCategoryForm from '../../../components/backend/forms/AddCategoryForm';
+import Banner from '../../../components/backend/Banner';
 
 const AddCategory = () => (
   <>

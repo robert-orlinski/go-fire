@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { VisuallyHiddenElement } from '../../Common/accesibility';
-import { UnstyledLink } from '../../Common/links';
+import { VisuallyHiddenElement } from '../../common/accesibility';
+import { UnstyledLink } from '../../common/links';
 
 import { ReactComponent as BrandLogo } from './../../../static/identity/go-fire.svg';
 

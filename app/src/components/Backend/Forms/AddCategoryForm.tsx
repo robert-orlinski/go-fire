@@ -3,15 +3,15 @@ import { Formik } from 'formik';
 
 import { addCategory } from '../../../common/api/requests';
 
-import handleCategoryAddingValidation from './Helpers/categoryAddingValidation';
-import handleFieldHighlightIfErrorWillOccur from './Helpers/fieldHighlight';
+import handleCategoryAddingValidation from './helpers/categoryAddingValidation';
+import handleFieldHighlightIfErrorWillOccur from './helpers/fieldHighlight';
 
-import { CustomForm, Checkboxes } from '../../Common/fields';
-import { ButtonWithSpace } from '../../Common/buttons';
+import { CustomForm, Checkboxes } from '../../common/fields';
+import { ButtonWithSpace } from '../../common/buttons';
 
-import TextField from './Atoms/Text';
-import Checkbox from './Atoms/Checkbox';
-import FinalMessage from './Atoms/FinalMessage';
+import TextField from './atoms/Text';
+import Checkbox from './atoms/Checkbox';
+import FinalMessage from './atoms/FinalMessage';
 
 const AddCategoryForm = () => {
   const [finalMessage, setFinalMessage] = useState<string | null>(null);
@@ -54,8 +54,8 @@ const AddCategoryForm = () => {
             />
             <Checkbox
               name="type"
-              value="type"
-              id="type"
+              value="category"
+              id="category"
               placeholder="Investment type"
               type="radio"
             />
@@ -63,7 +63,7 @@ const AddCategoryForm = () => {
           <ButtonWithSpace type="submit" as="button">
             Add category
           </ButtonWithSpace>
-          {finalMessage && <FinalMessage message={finalMessage} />}
+          {finalMessage && <FinalMessage>{finalMessage}</FinalMessage>}
         </CustomForm>
       )}
     </Formik>
