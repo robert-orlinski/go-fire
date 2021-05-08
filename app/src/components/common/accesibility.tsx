@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
 import { Field } from 'formik';
 
 export const VisuallyHiddenElement = styled(Field)`
@@ -13,7 +13,7 @@ export const VisuallyHiddenElement = styled(Field)`
   white-space: nowrap;
 `;
 
-export const visuallyHiddenElementInlineStyle = {
+export const visuallyHiddenElementInlineStyle: CSSProperties = {
   border: '0',
   clip: 'rect(0 0 0 0)',
   height: '1px',

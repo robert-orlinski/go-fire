@@ -10,8 +10,9 @@ import EditForm from './EditForm';
 
 import { returnNiceWholePrice } from '../../../../common/helpers/mixins';
 import { visuallyHiddenElementInlineStyle } from '../../../common/accesibility';
+import { ExistingEntryType } from '../../../../common/types';
 
-const ListedEntry = ({
+const ListedEntry: React.FC<ExistingEntryType> = ({
   _id,
   operation,
   name,
@@ -21,15 +22,15 @@ const ListedEntry = ({
   date,
   description,
 }) => {
-  const [isContainerVisible, toggleContainerVisibility] = useState(false);
-  const [wholePrice, setWholePrice] = useState(0);
-  const [formattedDate, setFormattedDate] = useState(0);
+  const [isMoreContentVisible, toggleContainerVisibility] = useState(false);
+  const [wholePrice, setWholePrice] = useState('');
+  const [formattedDate, setFormattedDate] = useState('');
 
   useEffect(() => {
     const dateArray = date.split('-');
     setFormattedDate(`${dateArray[2]}.${dateArray[1]}.${dateArray[0]}`);
 
-    setWholePrice(returnNiceWholePrice(price, amount));
+    setWholePrice(returnNiceWholePrice(price as number, amount as number));
   }, [amount, date, price]);
 
   return (
@@ -38,20 +39,18 @@ const ListedEntry = ({
         _id={_id}
         name={name}
         date={formattedDate}
-        isContainerVisible={isContainerVisible}
+        isMoreContentVisible={isMoreContentVisible}
         handleButtonClick={toggleContainerVisibility}
-        buttonLabel={isContainerVisible ? 'Show less' : 'Show more'}
+        buttonLabel={isMoreContentVisible ? 'Show less' : 'Show more'}
         deleteButtonLabel="Delete entry"
       />
       <ItemContent
-        style={isContainerVisible || visuallyHiddenElementInlineStyle}
+        style={
+          isMoreContentVisible ? undefined : visuallyHiddenElementInlineStyle
+        }
       >
         {description && <ItemDescription description={description} />}
-        <ItemCategories
-          title="Categories:"
-          operation={operation}
-          category={category}
-        />
+        <ItemCategories operation={operation} category={category} />
         <ItemData
           price={price}
           amount={amount}

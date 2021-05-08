@@ -1,8 +1,8 @@
-import { CheckboxProps } from '../../../../common/types';
+import { CheckboxType } from '../../../../common/types';
 import { VisuallyHiddenElement } from '../../../common/accesibility';
 import { CheckboxContainer, CheckboxLabel } from '../../../common/fields';
 
-const Checkbox: React.FC<CheckboxProps> = ({
+const Checkbox: React.FC<CheckboxType> = ({
   name,
   value,
   id,

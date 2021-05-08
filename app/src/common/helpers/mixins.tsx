@@ -23,12 +23,15 @@ export const overlay = css`
   left: 0;
 `;
 
-export const returnNiceWholePrice = (firstNumber, secondNumber) => {
+export const returnNiceWholePrice = (
+  firstNumber: number,
+  secondNumber: number
+) => {
   const product = firstNumber * secondNumber;
   return `${product.toFixed(2).replace(/(?=(\d{3})+(?!\d))/g, ' ')} zł`;
 };
 
-export const returnSlug = (string) => {
+export const returnSlug = (string: string) => {
   return string
     .toLowerCase()
     .replace(/([^\w ]+)/g, '')

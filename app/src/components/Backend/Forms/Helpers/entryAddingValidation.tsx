@@ -2,7 +2,7 @@ type EntriesFormValidationData = {
   name: string;
   price: number | string;
   amount: number | string;
-  date: Date;
+  date: Date | string;
 };
 
 type EntriesFormErrorsData = {

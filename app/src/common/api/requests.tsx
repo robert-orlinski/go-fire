@@ -1,4 +1,12 @@
-export const addEntry = async (values) => {
+import { Dispatch, SetStateAction } from 'react';
+import {
+  AddedCategoryType,
+  CategoryType,
+  EntryType,
+  ExistingEntryType,
+} from '../types';
+
+export const addEntry = async (values: EntryType) => {
   try {
     await fetch(`${process.env.REACT_APP_API_URL}/add-entry`, {
       method: 'POST',
@@ -12,7 +20,7 @@ export const addEntry = async (values) => {
   }
 };
 
-export const editEntry = async (values) => {
+export const editEntry = async (values: ExistingEntryType) => {
   try {
     await fetch(`${process.env.REACT_APP_API_URL}/edit-entry`, {
       method: 'PUT',
@@ -26,16 +34,18 @@ export const editEntry = async (values) => {
   }
 };
 
-export const getEntries = async (setEntriesHandler) => {
+export const getEntries = async (
+  setEntriesHandler: Dispatch<SetStateAction<ExistingEntryType[]>>
+) => {
   const response = await fetch(`${process.env.REACT_APP_API_URL}/get-entries`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   });
 
-  response.json().then((data) => setEntriesHandler(Object.values(data)));
+  response.json().then((data) => setEntriesHandler(data));
 };
 
-export const addCategory = async (values) => {
+export const addCategory = async (values: AddedCategoryType) => {
   try {
     await fetch(`${process.env.REACT_APP_API_URL}/add-category`, {
       method: 'POST',
@@ -49,7 +59,9 @@ export const addCategory = async (values) => {
   }
 };
 
-export const getCategories = async (setCategoriesHandler) => {
+export const getCategories = async (
+  setCategoriesHandler: Dispatch<SetStateAction<CategoryType[]>>
+) => {
   const response = await fetch(
     `${process.env.REACT_APP_API_URL}/get-categories`,
     {
@@ -58,10 +70,12 @@ export const getCategories = async (setCategoriesHandler) => {
     }
   );
 
-  response.json().then((data) => setCategoriesHandler(Object.values(data)));
+  response.json().then((data) => {
+    setCategoriesHandler(data);
+  });
 };
 
-export const deleteItem = async (_id) => {
+export const deleteItem = async (_id: number) => {
   await fetch(`${process.env.REACT_APP_API_URL}/delete-item`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },

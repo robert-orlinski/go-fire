@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import ItemsContext from './Context/ItemsContext';
 
+import { CategoryType } from '../../../common/types';
 import { getCategories } from '../../../common/api/requests';
 import { NarrowContainer } from '../../../components/common/containers';
 
@@ -10,7 +11,7 @@ import BannerImage from '../../../static/banners/entries.jpg';
 import CategoriesList from '../../../components/backend/items/CategoriesList';
 
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<CategoryType[]>([]);
 
   useEffect(() => {
     getCategories(setCategories);

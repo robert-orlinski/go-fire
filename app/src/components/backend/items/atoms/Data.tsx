@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { minD, maxD } from '../../../../common/helpers/devices';
-import { EntryDataProps } from '../../../../common/types';
+import { EntryDataType } from '../../../../common/types';
 
 import { ItemBox, ItemSection } from '../../../common/containers';
 
@@ -66,7 +66,7 @@ const ItemAmount = styled(ItemDataEntry)`
   }
 `;
 
-interface Props extends EntryDataProps {
+interface Props extends EntryDataType {
   wholePrice: string;
 }
 

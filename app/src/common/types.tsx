@@ -1,45 +1,76 @@
-import { FormikErrors } from 'formik';
+import { CSSProperties, Dispatch, SetStateAction } from 'react';
 
-export interface InlineStyledElementProps {
-  style?: object;
+export interface InlineStyledElementType {
+  style?: CSSProperties;
 }
 
-export interface EntryDataProps {
-  price: number;
-  amount: number;
-  date: Date;
+export interface ItemWithIdType {
+  _id: number;
 }
 
-export interface EntryDescriptionProps {
+// TODO: resolve type errors in "as" attributes
+export interface ItemHeaderType {
+  _id: number;
+  name: string;
+  containerAs?: any;
+  headerAs?: any;
+  deleteButtonLabel: string;
+  date?: string;
+  isMoreContentVisible?: boolean;
+  buttonLabel?: string;
+  handleButtonClick?: (isMoreContentVisible: boolean) => void;
+}
+
+export interface CategoryNameType {
+  name: string;
+}
+
+export interface CategoryType extends CategoryNameType {
+  _id: number;
+  type: string;
+}
+
+export type AddedCategoryType = Omit<CategoryType, '_id'>;
+
+export type ListedCategoryType = Omit<CategoryType, 'type'>;
+
+export interface EntryDataType {
+  price: number | string;
+  amount: number | string;
+  date: string;
+}
+
+export interface EntryDescriptionType {
   description: string;
 }
 
-export interface EntryCategoriesProps {
+export interface EntryCategoriesType {
   operation: string;
   category: string;
 }
 
-export interface EntryProps
-  extends EntryDataProps,
-    EntryDescriptionProps,
-    EntryCategoriesProps {
-  _id?: number;
+export interface EntryType
+  extends EntryDataType,
+    EntryDescriptionType,
+    EntryCategoriesType {
   name: string;
 }
 
-export interface EntryFormProps extends EntryProps {
-  formStyle?: object;
-  buttonStyle?: object;
-  buttonLabel: string;
+export interface ExistingEntryType extends EntryType {
+  _id: number;
 }
 
-export interface InputProps {
+export interface EditEntryFormType extends ExistingEntryType {
+  formStyle?: object;
+}
+
+export interface InputType {
   name: string;
   placeholder: string;
 }
 
-export interface TextInputProps extends InputProps {
-  error?: string | FormikErrors<Date>;
+export interface TextInputType extends InputType {
+  error?: string;
   style?: object;
   type?: string;
   step?: number;
@@ -47,23 +78,37 @@ export interface TextInputProps extends InputProps {
   component?: string;
 }
 
-export interface CheckboxProps extends InputProps {
+export interface CheckboxType extends InputType {
   value: string;
   id: string;
   type?: string;
 }
 
-export interface ButtonProps extends InlineStyledElementProps {
-  onClick: () => void;
+export interface ButtonType extends InlineStyledElementType {
+  onClick?: () => void;
   isActive?: boolean;
   label?: string;
 }
 
-export interface ToggledElementProps {
+export interface DeleteButtonType extends ButtonType {
+  _id: number;
+}
+
+export interface ToggledElementType {
   isVisible: boolean;
 }
 
-export interface LinkProps {
+export interface LinkType {
   to: string;
   title: string;
+}
+
+export type SettingFunctionType = (values: object) => void;
+
+// TODO: use this type for ItemsContext
+export interface ItemsContextType {
+  items: ExistingEntryType[] | CategoryType[];
+  setItems:
+    | Dispatch<SetStateAction<ExistingEntryType[]>>
+    | Dispatch<SetStateAction<CategoryType[]>>;
 }

@@ -16,7 +16,7 @@ const AddEntry = () => (
         Choose operation type, write down all the needed info and select
         category that'll match Your investment or saving entry.
       </CenteredText>
-      <AddEntryForm buttonStyle={{ marginTop: '1rem' }} />
+      <AddEntryForm />
     </NarrowContainer>
   </>
 );

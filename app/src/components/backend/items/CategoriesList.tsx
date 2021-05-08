@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import styled from 'styled-components';
 
 import { maxD } from '../../../common/helpers/devices';
-
 import ItemsContext from '../../../views/Backend/contents/Context/ItemsContext';
 
 import ListedCategory from './atoms/ListedCategory';
 import { NarrowCenterContainer } from '../../common/containers';
 import { ListWithoutSpace } from '../../common/texts';
+import { CategoryType } from '../../../common/types';
 
 const CategoriesListHeader = styled.h3`
   padding-bottom: 3rem;
@@ -24,11 +24,11 @@ const CategoriesListInner = styled(ListWithoutSpace)`
 const CategoriesList = () => {
   const { items } = useContext(ItemsContext);
 
-  const operationCategories = items.filter((category) => {
+  const operationCategories = items.filter((category: CategoryType) => {
     return category.type === 'operation';
   });
 
-  const typeCategories = items.filter((category) => {
+  const typeCategories = items.filter((category: CategoryType) => {
     return category.type === 'category';
   });
 
@@ -37,8 +37,8 @@ const CategoriesList = () => {
       {operationCategories && (
         <section>
           <CategoriesListHeader>Operation types:</CategoriesListHeader>
-          <CategoriesListInner as="ul">
-            {operationCategories.map((category) => (
+          <CategoriesListInner>
+            {operationCategories.map((category: CategoryType) => (
               <ListedCategory key={category._id} {...category} />
             ))}
           </CategoriesListInner>
@@ -48,7 +48,7 @@ const CategoriesList = () => {
         <section>
           <CategoriesListHeader>Investment types:</CategoriesListHeader>
           <CategoriesListInner>
-            {typeCategories.map((category) => (
+            {typeCategories.map((category: CategoryType) => (
               <ListedCategory key={category._id} {...category} />
             ))}
           </CategoriesListInner>

@@ -1,18 +1,15 @@
+import { ListedCategoryType } from '../../../../common/types';
+
 import ItemContainer from './Container';
 import ItemHeader from './Header';
 
-// interface Props {
-//   _id: number;
-//   name: string;
-// }
-
-const ListedCategory = ({ _id, name }) => (
+const ListedCategory: React.FC<ListedCategoryType> = ({ _id, name }) => (
   <ItemContainer as="li">
     <ItemHeader
       _id={_id}
       name={name}
-      as="div"
-      headerLevel="h4"
+      containerAs="div"
+      headerAs="h4"
       deleteButtonLabel="Delete category"
     />
   </ItemContainer>

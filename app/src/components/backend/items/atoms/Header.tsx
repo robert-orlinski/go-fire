@@ -1,6 +1,8 @@
+import { useCallback } from 'react';
 import styled from 'styled-components';
 
 import { HeaderWithoutSpace, TextWithoutSpace } from '../../../common/texts';
+import { ItemHeaderType } from '../../../../common/types';
 
 import DeleteButton from './DeleteButton';
 import MoreButton from './MoreButton';
@@ -24,33 +26,37 @@ const ItemHeaderInner = styled.div`
   padding-right: calc(var(--item-more-button-size) + 1rem);
 `;
 
-const ItemHeader = ({
+const ItemHeader: React.FC<ItemHeaderType> = ({
   _id,
   name,
   date,
-  isContainerVisible,
+  isMoreContentVisible,
   handleButtonClick,
-  as,
-  headerLevel,
+  containerAs,
+  headerAs,
   buttonLabel,
   deleteButtonLabel,
 }) => {
+  const rotateMoreButtonIfContainerIsVisible = useCallback(() => {
+    return isMoreContentVisible ? { transform: 'rotate(180deg)' } : undefined;
+  }, [isMoreContentVisible]);
+
   return (
-    <ItemHeaderContainer as={as}>
+    <ItemHeaderContainer as={containerAs}>
       <ItemHeaderContent>
         <ItemHeaderInner>
-          <HeaderWithoutSpace as={headerLevel}>{name}</HeaderWithoutSpace>
+          <HeaderWithoutSpace as={headerAs}>{name}</HeaderWithoutSpace>
           {date && (
             <TextWithoutSpace style={{ padding: '0.4rem 0 0' }}>
               {date}
             </TextWithoutSpace>
           )}
         </ItemHeaderInner>
-        {buttonLabel && (
+        {buttonLabel && handleButtonClick && (
           <MoreButton
             label={buttonLabel}
-            onClick={() => handleButtonClick(!isContainerVisible)}
-            style={isContainerVisible ? { transform: 'rotate(180deg)' } : null}
+            onClick={() => handleButtonClick(!isMoreContentVisible)}
+            style={rotateMoreButtonIfContainerIsVisible()}
           />
         )}
       </ItemHeaderContent>

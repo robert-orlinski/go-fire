@@ -7,6 +7,7 @@ import ItemsContext from '../../../../views/Backend/contents/Context/ItemsContex
 
 import { deleteItem } from '../../../../common/api/requests';
 import { ornament } from '../../../../common/helpers/mixins';
+import { DeleteButtonType, ItemWithIdType } from '../../../../common/types';
 
 const Button = styled.button`
   display: flex;
@@ -60,11 +61,11 @@ const ButtonInner = styled.span`
   }
 `;
 
-const DeleteButton = ({ _id, label }) => {
+const DeleteButton: React.FC<DeleteButtonType> = ({ _id, label }) => {
   const { items, setItems } = useContext(ItemsContext);
 
   const handleItemDelete = () => {
-    const itemsWithoutDeletedEntry = items.filter((item) => {
+    const itemsWithoutDeletedEntry = items.filter((item: ItemWithIdType) => {
       return item._id !== _id;
     });
     setItems(itemsWithoutDeletedEntry);

@@ -2,9 +2,9 @@ import { ErrorMessage } from 'formik';
 
 import { VisuallyHiddenElement } from '../../../common/accesibility';
 import { ErrorContainer, FormLine, TextInput } from '../../../common/fields';
-import { TextInputProps } from '../../../../common/types';
+import { TextInputType } from '../../../../common/types';
 
-const TextField: React.FC<TextInputProps> = ({
+const TextField: React.FC<TextInputType> = ({
   name,
   placeholder,
   error,

@@ -6,16 +6,30 @@ import Checkbox from './atoms/Checkbox';
 import FinalMessage from './atoms/FinalMessage';
 
 import { returnSlug } from '../../../common/helpers/mixins';
-import { addEntry, getCategories } from '../../../common/api/requests';
+import {
+  addEntry,
+  editEntry,
+  getCategories,
+} from '../../../common/api/requests';
 
 import handleEntryAddingValidation from './helpers/entryAddingValidation';
 import handleFieldHighlightIfErrorWillOccur from './helpers/fieldHighlight';
 
 import { CustomForm, Checkboxes } from '../../common/fields';
 import { Button } from '../../common/buttons';
-import { CategoryType } from '../../../common/types';
+import { CategoryType, EditEntryFormType } from '../../../common/types';
 
-const AddEntryForm = () => {
+const EditEntryForm: React.FC<EditEntryFormType> = ({
+  _id,
+  operation,
+  name,
+  category,
+  price,
+  amount,
+  date,
+  description,
+  formStyle,
+}) => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [finalMessage, setFinalMessage] = useState<string | null>(null);
 
@@ -26,25 +40,24 @@ const AddEntryForm = () => {
   return (
     <Formik
       initialValues={{
-        operation: 'purchase',
-        name: '',
-        category: 'stock',
-        price: '',
-        amount: '',
-        date: '',
-        description: '',
+        _id: _id,
+        operation: operation,
+        name: name,
+        category: category,
+        price: price,
+        amount: amount,
+        date: date,
+        description: description,
       }}
       validate={handleEntryAddingValidation}
       onSubmit={(values, { resetForm }) => {
-        addEntry(values).then((message) => {
+        editEntry(values).then((message) => {
           setFinalMessage(message);
-
-          resetForm();
         });
       }}
     >
       {({ touched, errors }) => (
-        <CustomForm>
+        <CustomForm style={formStyle}>
           <Checkboxes>
             {categories.map(({ type, name }: CategoryType, i) => {
               const slug = returnSlug(name);
@@ -54,7 +67,7 @@ const AddEntryForm = () => {
                   <Checkbox
                     name="operation"
                     value={slug}
-                    id={slug}
+                    id={_id ? `${_id}-${slug}` : slug}
                     placeholder={name}
                     key={`operation-${name}-${i}`}
                   />
@@ -82,7 +95,7 @@ const AddEntryForm = () => {
                   <Checkbox
                     name="category"
                     value={slug}
-                    id={slug}
+                    id={_id ? `${_id}-${slug}` : slug}
                     placeholder={name}
                     key={`category-${name}-${i}`}
                   />
@@ -130,8 +143,8 @@ const AddEntryForm = () => {
             placeholder="Additional info"
             component="textarea"
           />
-          <Button type="submit" as="button" style={{ marginTop: '1rem' }}>
-            Add entry
+          <Button type="submit" as="button">
+            Apply
           </Button>
           {finalMessage && <FinalMessage>{finalMessage}</FinalMessage>}
         </CustomForm>
@@ -140,4 +153,4 @@ const AddEntryForm = () => {
   );
 };
 
-export default AddEntryForm;
+export default EditEntryForm;

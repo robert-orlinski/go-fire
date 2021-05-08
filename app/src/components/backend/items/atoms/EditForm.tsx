@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
-import AddEntryForm from '../../forms/AddEntryForm';
-
 import { Button } from '../../../common/buttons';
 import { ItemSection } from '../../../common/containers';
 
 import { visuallyHiddenElementInlineStyle } from '../../../common/accesibility';
-import { EntryProps } from '../../../../common/types';
+import { ExistingEntryType } from '../../../../common/types';
 
-const EditForm: React.FC<EntryProps> = ({
+import EditEntryForm from '../../forms/EditEntryForm';
+
+const EditForm: React.FC<ExistingEntryType> = ({
   _id,
   operation,
   name,
@@ -25,7 +25,7 @@ const EditForm: React.FC<EntryProps> = ({
       <Button as="button" onClick={() => toggleFormVisibility(!isFormVisible)}>
         {isFormVisible ? 'Stop editing' : 'Edit entry'}
       </Button>
-      <AddEntryForm
+      <EditEntryForm
         _id={_id}
         operation={operation}
         name={name}
@@ -39,7 +39,6 @@ const EditForm: React.FC<EntryProps> = ({
             ? { paddingTop: '1.5rem' }
             : visuallyHiddenElementInlineStyle
         }
-        buttonLabel="Apply"
       />
     </ItemSection>
   );

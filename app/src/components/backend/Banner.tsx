@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { ornament } from '../../common/helpers/mixins';
 import { WhiteTitle } from '../common/texts';
-import { InlineStyledElementProps } from '../../common/types';
+import { InlineStyledElementType } from '../../common/types';
 
 const BannerInner = styled.header`
   display: flex;
@@ -34,7 +34,7 @@ const BannerTitle = styled(WhiteTitle)`
   left: -0.35em;
 `;
 
-const Banner: React.FC<InlineStyledElementProps> = ({ children, style }) => (
+const Banner: React.FC<InlineStyledElementType> = ({ children, style }) => (
   <BannerInner style={style}>
     <BannerTitle>{children}</BannerTitle>
   </BannerInner>
