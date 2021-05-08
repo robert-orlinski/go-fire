@@ -12,7 +12,7 @@ const NavContainer = styled.nav`
   left: 0;
   z-index: var(--max-z-index);
 
-  padding: 3rem;
+  padding: 3.5rem;
 
   background-color: #fff;
   box-shadow: 0 4px 0.5rem 0 var(--transparent-green-max);
