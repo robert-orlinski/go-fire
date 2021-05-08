@@ -6,11 +6,7 @@ import Checkbox from './atoms/Checkbox';
 import FinalMessage from './atoms/FinalMessage';
 
 import { returnSlug } from '../../../common/helpers/mixins';
-import {
-  addEntry,
-  editEntry,
-  getCategories,
-} from '../../../common/api/requests';
+import { editEntry, getCategories } from '../../../common/api/requests';
 
 import handleEntryAddingValidation from './helpers/entryAddingValidation';
 import handleFieldHighlightIfErrorWillOccur from './helpers/fieldHighlight';
