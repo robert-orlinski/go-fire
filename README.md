@@ -1,4 +1,4 @@
-# GoFire App
+# GoFire App 🌱
 
 The application was built to provide useful utilities for people who want to become financially free or early retired (hence the FIRE in the name).
 
@@ -38,15 +38,15 @@ Those commands will start the server once and app in the development environment
 ## Used technologies:
 
 1. Front-End:
-  1. React.js (the main project framework);
-  2. TypeScript (language which makes JavaScript type safe);
-  3. Styled Components (CSS in JS tool);
-  4. Formik (React helper for better forms);
-  5. React Router (declarative routing tool for React).
+    1. React.js (the main project framework);
+    2. TypeScript (language which makes JavaScript type safe);
+    3. Styled Components (CSS in JS tool);
+    4. Formik (React helper for better forms);
+    5. React Router (declarative routing tool for React).
 2. Back-End:
-  1. Express.js (the main API framework);
-  2. MongoDB (NoSQL database);
-  3. Nodemon (utility that allows us to run a server in the "watch" mode).
+    1. Express.js (the main API framework);
+    2. MongoDB (NoSQL database);
+    3. Nodemon (utility that allows us to run a server in the "watch" mode).
 
 ## Contribution
 
