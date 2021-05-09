@@ -6,6 +6,12 @@ Right now, you can use it as a journal in which is possible to add new investmen
 
 In the future, I want to add some other features about which you can read in the section at the end ✨
 
+## Some screenshots:
+
+![](/app/src/static/screenshots/start-page.jpg 'Start page of the app')
+![](/app/src/static/screenshots/adding-new-entry.jpg 'Adding new entry')
+![](/app/src/static/screenshots/all-entries.jpg 'All entries view')
+
 ## How you can run it in your local environment?
 
 Copy the repo:
