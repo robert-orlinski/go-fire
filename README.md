@@ -8,13 +8,11 @@ In the future, I want to add some other features about which you can read in the
 
 ## Some screenshots:
 
-<br/>
 ![](/app/src/static/screenshots/start-page.jpg?raw=true 'Start page of the app')
-<br/>
+
 ![](/app/src/static/screenshots/adding-new-entry.jpg?raw=true 'Adding new entry')
-<br/>
+
 ![](/app/src/static/screenshots/all-entries.jpg?raw=true 'All entries view')
-<br/>
 
 ## How you can run it in your local environment?
 
