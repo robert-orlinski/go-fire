@@ -31,7 +31,7 @@ npm install
 npm run start
 ```
 
-What's important, you need to put MongoDB Atlas URL in the .env file to make your server working. The cluster associated with this URL needs to have 2 collections: `categories` and `entries`.
+**What's important, you need to put MongoDB Atlas URL in the .env file to make your server working. The cluster associated with this URL needs to have 2 collections: `categories` and `entries`.**
 
 Those commands will start the server once and app in the development environment but you can check both package.json files to find more commands (e.g. server file changes watching and app build).
 
