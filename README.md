@@ -8,9 +8,9 @@ In the future, I want to add some other features about which you can read in the
 
 ## Some screenshots:
 
-![](/app/src/static/screenshots/start-page.jpg 'Start page of the app')
-![](/app/src/static/screenshots/adding-new-entry.jpg 'Adding new entry')
-![](/app/src/static/screenshots/all-entries.jpg 'All entries view')
+![](/app/src/static/screenshots/start-page.png 'Start page of the app')
+![](/app/src/static/screenshots/adding-new-entry.png 'Adding new entry')
+![](/app/src/static/screenshots/all-entries.png 'All entries view')
 
 ## How you can run it in your local environment?
 
