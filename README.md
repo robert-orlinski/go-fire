@@ -1,4 +1,4 @@
-# GoFire App 🌱
+# GoFIRE App 🌱
 
 The application was built to provide useful utilities for people who want to become financially free or early retired (hence the FIRE in the name).
 
