@@ -6,7 +6,7 @@ The application was built to provide useful utilities for people who want to bec
 
 Right now, you can use it as a journal in which is possible to add new investments, savings, and others based on categories you choose. Categories too may be added or removed, just like entries in your journal. This is useful if you want to take care of your investment decisions, don't do anything hastily, and learn from your previous experience.
 
-In the future, I want to add some other features about which you can read in the section at the end ✨
+In the future, I want to add some other features about which you can read in the section (almost) at the end ✨
 
 ## Some screenshots:
 
@@ -60,6 +60,18 @@ Back-End:
 1. Express.js (the main API framework);
 2. MongoDB (NoSQL database);
 3. Nodemon (utility that allows us to run a server in the "watch" mode).
+
+## What's next?
+
+I am writing about a bunch of tools so I have to add more of them in the future!
+
+To do:
+
+1. Login and register page, to host app somewhere and let it be available for more people than we - developers. And maybe something like a start page with similar info like here on GitHub.
+2. The page which scraps indexes and returns their indicators such as P/E, P/B, EPS, etc. and returns pieces of information about if markets are properly evaluated. Why? To have a better understanding of which stage of the boom we are.
+3. The page with predictions of how much money I need to save to be retired in some time (giving specific interest rate) or how fast I will be if I will save particular money, invest at the specific interest, and need the concrete amount.
+
+And that's it! Let's go back to work.
 
 ## Contribution
 
