@@ -1,5 +1,7 @@
 ![](/app/src/static/mockups/main-mockup.jpg?raw=true 'Start page of the app')
 
+# GoFIRE App 🌱
+
 The application was built to provide useful utilities for people who want to become financially free or early retired (hence the FIRE in the name).
 
 Right now, you can use it as a journal in which is possible to add new investments, savings, and others based on categories you choose. Categories too may be added or removed, just like entries in your journal. This is useful if you want to take care of your investment decisions, don't do anything hastily, and learn from your previous experience.
