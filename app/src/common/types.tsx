@@ -8,12 +8,11 @@ export interface ItemWithIdType {
   _id: number;
 }
 
-// TODO: resolve type errors in "as" attributes
 export interface ItemHeaderType {
   _id: number;
   name: string;
-  containerAs?: any;
-  headerAs?: any;
+  containerAs?: 'div' | 'figure';
+  headerAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   deleteButtonLabel: string;
   date?: string;
   isMoreContentVisible?: boolean;
