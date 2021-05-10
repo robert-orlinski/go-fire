@@ -1,5 +1,3 @@
-# GoFIRE App 🌱
-
 ![](/app/src/static/mockups/main-mockup.jpg?raw=true 'Start page of the app')
 
 The application was built to provide useful utilities for people who want to become financially free or early retired (hence the FIRE in the name).
