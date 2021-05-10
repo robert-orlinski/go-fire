@@ -1,5 +1,7 @@
 # GoFIRE App 🌱
 
+![](/app/src/static/mockups/main-mockup.jpg?raw=true 'Start page of the app')
+
 The application was built to provide useful utilities for people who want to become financially free or early retired (hence the FIRE in the name).
 
 Right now, you can use it as a journal in which is possible to add new investments, savings, and others based on categories you choose. Categories too may be added or removed, just like entries in your journal. This is useful if you want to take care of your investment decisions, don't do anything hastily, and learn from your previous experience.
@@ -8,11 +10,11 @@ In the future, I want to add some other features about which you can read in the
 
 ## Some screenshots:
 
-![](/app/src/static/screenshots/start-page.jpg?raw=true 'Start page of the app')
+![](/app/src/static/mockups/start-page.jpg?raw=true 'Start page of the app')
 
-![](/app/src/static/screenshots/adding-new-entry.jpg?raw=true 'Adding new entry')
+![](/app/src/static/mockups/adding-new-entry.jpg?raw=true 'Adding new entry')
 
-![](/app/src/static/screenshots/all-entries.jpg?raw=true 'All entries view')
+![](/app/src/static/mockups/all-entries.jpg?raw=true 'All entries view')
 
 ## How you can run it in your local environment?
 
