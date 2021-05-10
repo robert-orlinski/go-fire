@@ -7,7 +7,6 @@ import { TextInputType } from '../../../../common/types';
 const TextField: React.FC<TextInputType> = ({
   name,
   placeholder,
-  error,
   style,
   type,
   step,
