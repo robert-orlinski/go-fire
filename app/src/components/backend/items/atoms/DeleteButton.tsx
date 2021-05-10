@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useCallback } from 'react';
 import styled from 'styled-components';
 
 import { maxD } from '../../../../common/helpers/devices';
@@ -64,14 +64,14 @@ const ButtonInner = styled.span`
 const DeleteButton: React.FC<DeleteButtonType> = ({ _id, label }) => {
   const { items, setItems } = useContext(ItemsContext);
 
-  const handleItemDelete = () => {
+  const handleItemDelete = useCallback(() => {
     const itemsWithoutDeletedEntry = items.filter((item: ItemWithIdType) => {
       return item._id !== _id;
     });
     setItems(itemsWithoutDeletedEntry);
 
     deleteItem(_id);
-  };
+  }, [_id, items, setItems]);
 
   return (
     <Button aria-label={label} onClick={handleItemDelete}>
