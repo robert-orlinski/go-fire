@@ -44,10 +44,6 @@ const GlobalStyles = createGlobalStyle`
 
     scroll-behavior: smooth;
     overflow-x: hidden;
-
-    &.disabled-scroll {
-        overflow: hidden;
-    }
   }
 
   body {
