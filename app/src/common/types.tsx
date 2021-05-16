@@ -104,7 +104,7 @@ export interface LinkType {
 
 export type SettingFunctionType = (values: object) => void;
 
-// TODO: use this type for ItemsContext
+// TODO: use this type (after modifications) for ItemsContext
 export interface ItemsContextType {
   items: ExistingEntryType[] | CategoryType[];
   setItems:
