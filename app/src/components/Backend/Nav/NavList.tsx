@@ -21,7 +21,7 @@ const NavInner = styled(ListWithoutSpace)`
     padding: calc(2rem + var(--nav-height)) 1.8rem;
     box-shadow: 0 4px 0.5rem 0 var(--transparent-green-max);
 
-    transform: translateX(250px);
+    transform: translateX(min(250px, 60vw));
     transition: transform 650ms cubic-bezier(0.77, 0, 0.175, 1);
 
     &.visible {
