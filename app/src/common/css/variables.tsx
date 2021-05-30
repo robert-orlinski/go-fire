@@ -1,8 +1,8 @@
-import { css } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 import { maxD } from '../helpers/devices';
 
-const cssVariables = css`
+const StyleVariables = createGlobalStyle`
   :root {
     --flex: display: flex;
     --sans-serif: 'Montserrat', sans-serif;
@@ -47,4 +47,4 @@ const cssVariables = css`
   }
 `;
 
-export default cssVariables;
+export default StyleVariables;
