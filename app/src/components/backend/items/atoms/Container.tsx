@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { maxD } from '../../../../common/helpers/devices';
 
-const ItemContainer = styled.section`
+const ItemContainer = styled.details`
   --item-vertical-padding: 2rem;
   --item-horizontal-padding: 3.5rem;
 

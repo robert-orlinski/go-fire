@@ -155,6 +155,15 @@ const GlobalStyles = createGlobalStyle`
   }
 
   a,
+  summary,
+  button,
+  .link-text {
+    &:focus-visible {
+      outline: 3px solid var(--primary-green);
+    }
+  }
+
+  a,
   .link-text {
     color: #000;
     text-decoration: none;
@@ -173,10 +182,6 @@ const GlobalStyles = createGlobalStyle`
       &::after {
         transform: scaleY(0.3);
       }
-    }
-
-    &:focus-visible {
-      outline: 3px solid var(--primary-green);
     }
   }
 
@@ -222,15 +227,21 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     border: 0;
   }
+
+  button, summary {
+    &:hover {
+      cursor: pointer;
+    }
+  }
     
   button {
     border: none;
     padding: 0;
     background-color: transparent;
+  }
 
-    &:hover {
-      cursor: pointer;
-    }
+  summary {
+    list-style-type: none;
   }
 `;
 

@@ -11,13 +11,11 @@ export interface ItemWithIdType {
 export interface ItemHeaderType {
   _id: number;
   name: string;
+  date?: string;
   containerAs?: 'div' | 'figure';
   headerAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   deleteButtonLabel: string;
-  date?: string;
-  isMoreContentVisible?: boolean;
-  buttonLabel?: string;
-  handleButtonClick?: (isMoreContentVisible: boolean) => void;
+  isArrow: boolean;
 }
 
 export interface CategoryNameType {

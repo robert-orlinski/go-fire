@@ -9,7 +9,6 @@ import ItemData from './Data';
 import EditForm from './EditForm';
 
 import { returnNiceWholePrice } from '../../../../common/helpers/mixins';
-import { visuallyHiddenElementInlineStyle } from '../../../common/accesibility';
 import { ExistingEntryType } from '../../../../common/types';
 
 const ListedEntry: React.FC<ExistingEntryType> = ({
@@ -34,21 +33,17 @@ const ListedEntry: React.FC<ExistingEntryType> = ({
   }, [amount, date, price]);
 
   return (
-    <ItemContainer>
+    <ItemContainer
+      onToggle={() => toggleContainerVisibility(!isMoreContentVisible)}
+    >
       <ItemHeader
         _id={_id}
         name={name}
         date={formattedDate}
-        isMoreContentVisible={isMoreContentVisible}
-        handleButtonClick={toggleContainerVisibility}
-        buttonLabel={isMoreContentVisible ? 'Show less' : 'Show more'}
         deleteButtonLabel="Delete entry"
+        isArrow={true}
       />
-      <ItemContent
-        style={
-          isMoreContentVisible ? undefined : visuallyHiddenElementInlineStyle
-        }
-      >
+      <ItemContent>
         {description && <ItemDescription description={description} />}
         <ItemCategories operation={operation} category={category} />
         <ItemData

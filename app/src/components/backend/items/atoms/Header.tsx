@@ -1,13 +1,12 @@
-import { useCallback } from 'react';
 import styled from 'styled-components';
 
 import { HeaderWithoutSpace, TextWithoutSpace } from '../../../common/texts';
 import { ItemHeaderType } from '../../../../common/types';
 
 import DeleteButton from './DeleteButton';
-import MoreButton from './MoreButton';
+import MoreArrow from './MoreArrow';
 
-const ItemHeaderContainer = styled.header`
+const ItemHeaderContainer = styled.summary`
   position: relative;
 `;
 
@@ -17,7 +16,7 @@ const ItemHeaderContent = styled.div`
 
   transition: background-color var(--short-transition-duration);
 
-  &:hover {
+  summary > &:hover {
     background-color: var(--transparent-green-med);
   }
 `;
@@ -30,39 +29,25 @@ const ItemHeader: React.FC<ItemHeaderType> = ({
   _id,
   name,
   date,
-  isMoreContentVisible,
-  handleButtonClick,
   containerAs,
   headerAs,
-  buttonLabel,
   deleteButtonLabel,
-}) => {
-  const rotateMoreButtonIfContainerIsVisible = useCallback(() => {
-    return isMoreContentVisible ? { transform: 'rotate(180deg)' } : undefined;
-  }, [isMoreContentVisible]);
-
-  return (
-    <ItemHeaderContainer as={containerAs}>
-      <ItemHeaderContent>
-        <ItemHeaderInner>
-          <HeaderWithoutSpace as={headerAs}>{name}</HeaderWithoutSpace>
-          {date && (
-            <TextWithoutSpace style={{ padding: '0.4rem 0 0' }}>
-              {date}
-            </TextWithoutSpace>
-          )}
-        </ItemHeaderInner>
-        {buttonLabel && handleButtonClick && (
-          <MoreButton
-            label={buttonLabel}
-            onClick={() => handleButtonClick(!isMoreContentVisible)}
-            style={rotateMoreButtonIfContainerIsVisible()}
-          />
+  isArrow,
+}) => (
+  <ItemHeaderContainer as={containerAs}>
+    <ItemHeaderContent>
+      <ItemHeaderInner>
+        <HeaderWithoutSpace as={headerAs}>{name}</HeaderWithoutSpace>
+        {date && (
+          <TextWithoutSpace style={{ padding: '0.4rem 0 0' }}>
+            {date}
+          </TextWithoutSpace>
         )}
-      </ItemHeaderContent>
-      <DeleteButton _id={_id} label={deleteButtonLabel} />
-    </ItemHeaderContainer>
-  );
-};
+      </ItemHeaderInner>
+      {isArrow && <MoreArrow />}
+    </ItemHeaderContent>
+    <DeleteButton _id={_id} label={deleteButtonLabel} />
+  </ItemHeaderContainer>
+);
 
 export default ItemHeader;

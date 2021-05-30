@@ -11,6 +11,7 @@ const ListedCategory: React.FC<ListedCategoryType> = ({ _id, name }) => (
       containerAs="div"
       headerAs="h4"
       deleteButtonLabel="Delete category"
+      isArrow={false}
     />
   </ItemContainer>
 );
