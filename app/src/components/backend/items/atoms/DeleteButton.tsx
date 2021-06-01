@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { maxD } from '../../../../common/helpers/devices';
 
-import ItemsContext from '../../../../views/Backend/contents/Context/ItemsContext';
+import ItemsContext from '../../../../views/backend/contents/Context/ItemsContext';
 
 import { deleteItem } from '../../../../common/api/requests';
 import { ornament } from '../../../../common/helpers/mixins';

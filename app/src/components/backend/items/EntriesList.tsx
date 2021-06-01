@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import ItemsContext from '../../../views/Backend/contents/Context/ItemsContext';
+import ItemsContext from '../../../views/backend/contents/Context/ItemsContext';
 
 import { ExistingEntryType } from '../../../common/types';
 import { NarrowCenterContainer } from '../../common/containers';
