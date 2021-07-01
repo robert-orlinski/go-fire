@@ -214,6 +214,7 @@ const GlobalStyles = createGlobalStyle`
   textarea {
     &::placeholder { 
       color: #000;
+      opacity: 1;
     }
   }
 
