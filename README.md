@@ -18,6 +18,8 @@ In the future, I want to add some other features about which you can read in the
 
 ## How you can run it in your local environment?
 
+> To be clear - I am using node 14.16, but the app works when using newer versions too (been testing it on 16.4.1, for instance).
+
 Copy the repo:
 
 ```
